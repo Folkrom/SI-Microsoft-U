@@ -11,6 +11,19 @@ const dbConnection = new DatabaseConnection(dbConfig);
 const userRepository = new UserRepository(dbConnection);
 const tokenRepository = new TokenRepository(dbConnection);
 
+/**
+ * This function handles user login by verifying their credentials, generating a JWT token, and saving
+ * it in the database.
+ * @param req - req stands for request and it is an object that contains information about the HTTP
+ * request that was made, such as the request headers, request parameters, request body, etc.
+ * @param res - `res` is the response object that is used to send a response back to the client making
+ * the request. It contains methods like `json()` to send a JSON response, `status()` to set the HTTP
+ * status code of the response, and `send()` to send a plain text response.
+ * @returns The function `login` is returning a JSON response with the user's `username`, `role`, and
+ * `token` if the login is successful. If the login fails due to incorrect username or password, a 400
+ * status code with an error message is returned. If there is a server error, a 500 status code with an
+ * error message is returned.
+ */
 const login = async (req, res) => {
     const { username, password } = req.body;
 
@@ -78,6 +91,19 @@ const login = async (req, res) => {
     }
 };
 
+/**
+ * This function registers a new user with a username, password, and role, and returns an appropriate
+ * response based on whether the registration was successful or not.
+ * @param req - req stands for request and it is an object that contains information about the HTTP
+ * request that was made, such as the request headers, request parameters, request body, etc.
+ * @param res - The `res` parameter is the response object that will be sent back to the client making
+ * the request. It contains methods and properties that allow the server to send a response back to the
+ * client, such as `status`, `json`, and `send`.
+ * @returns The function `register` is returning a response object with a status code and a JSON object
+ * containing a message (`msg`) property. The specific message returned depends on the logic of the
+ * function and the values of the variables `userExists` and `roleExists`. If there is an error, the
+ * response will have a status code of 500 and a generic error message.
+ */
 const register = async (req, res) => {
     const { username, password, role } = req.body;
 

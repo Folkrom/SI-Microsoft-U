@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 
 import authRoute from '../routes/auth.js';
+import usersRoute from '../routes/users.js';
 
 class Server {
     constructor() {
@@ -10,6 +11,7 @@ class Server {
 
         this.paths = {
             auth: '/api/auth',
+            users: '/api/users'
         };
 
         // Middlewares
@@ -33,7 +35,7 @@ class Server {
 
     routes() {
         this.app.use(this.paths.auth, authRoute);
-
+        this.app.use(this.paths.users, usersRoute);
         
     }
 

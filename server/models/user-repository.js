@@ -31,8 +31,8 @@ class UserRepository {
     }
 
     async createUser({ username, password, role }) {
-        const query =
-            'INSERT INTO Users (username, password, role_name) VALUES (?, ?, ?);';
+        const query = `INSERT INTO Users (username, password, role_name) 
+                       VALUES (?, ?, ?);`;
         const params = [username, password, role];
 
         try {
@@ -43,6 +43,30 @@ class UserRepository {
             throw err;
         }
     }
+
+    async updateUser(id, update) {
+        const keys = Object.keys(update);
+        const setClause = keys.map((key) => `${key} = ?`).join(", ");
+        const values = Object.values(update);
+        values.push(id);
+      
+        const query = `UPDATE Users 
+                       SET ${setClause} 
+                       WHERE id = ?;`;
+        
+        try {
+          const { affectedRows } = await this.dbConnection.executeQuery(query, values);
+          
+          if (!affectedRows) return false;
+          
+          return true;
+        } catch (err) {
+          console.error(`Error updating user: ${err}`);
+          throw err;
+        }
+      }
+      
+
 }
 
 export default UserRepository;
