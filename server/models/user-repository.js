@@ -14,7 +14,7 @@ class UserRepository {
         } catch (err) {
             console.error(`Error retrieving user with id ${id}: ${err}`);
             throw err;
-        } 
+        }
     }
 
     async getUserByName(username) {
@@ -46,27 +46,43 @@ class UserRepository {
 
     async updateUser(id, update) {
         const keys = Object.keys(update);
-        const setClause = keys.map((key) => `${key} = ?`).join(", ");
+        const setClause = keys.map((key) => `${key} = ?`).join(', ');
         const values = Object.values(update);
         values.push(id);
-      
+
         const query = `UPDATE Users 
                        SET ${setClause} 
                        WHERE id = ?;`;
-        
-        try {
-          const { affectedRows } = await this.dbConnection.executeQuery(query, values);
-          
-          if (!affectedRows) return false;
-          
-          return true;
-        } catch (err) {
-          console.error(`Error updating user: ${err}`);
-          throw err;
-        }
-      }
-      
 
+        try {
+            const { affectedRows } = await this.dbConnection.executeQuery(
+                query,
+                values
+            );
+
+            if (!affectedRows) return false;
+
+            return true;
+        } catch (err) {
+            console.error(`Error updating user: ${err}`);
+            throw err;
+        }
+    }
+
+    async deleteUser(id) {
+        const query = 'DELETE FROM Users WHERE id = ?;';
+        const params = [ id ];
+
+        try {
+            const { affectedRows } = await this.dbConnection.executeQuery(query, params);
+            if (!affectedRows) return false;  
+
+            return true;
+        } catch (err) {
+            console.error(`Error deleting user with id ${id}: ${err}`);
+            throw err;
+        }
+    }
 }
 
 export default UserRepository;
