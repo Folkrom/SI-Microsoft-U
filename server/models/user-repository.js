@@ -1,3 +1,5 @@
+/* The UserRepository class provides methods for interacting with a database to retrieve, create,
+update, and delete user data. */
 class UserRepository {
     constructor(dbConnection) {
         this.dbConnection = dbConnection;
@@ -17,7 +19,7 @@ class UserRepository {
         }
     }
 
-    async getUserByName(username) {
+    async getUserByUsername(username) {
         const query = 'SELECT * FROM users WHERE username = ?;';
         const params = [username];
 

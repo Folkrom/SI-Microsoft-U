@@ -58,15 +58,15 @@ const userDelete = async (req, res) => {
 const userUpdate = async (req, res) => {
     const {
         params: { id },
-        body: { username, password, role_name },
+        body: { newUsername, password, roleName },
     } = req;
 
     try {
         const updateData = {};
 
-        if (username) updateData.username = username;
+        if (newUsername) updateData.username = newUsername;
         if (password) updateData.password = await bcrypt.hash(password, 10);
-        if (role_name) updateData.role_name = role_name;
+        if (roleName) updateData.role_name = roleName;
 
         const result = await userRepository.updateUser(id, updateData);
         if (!result) {
