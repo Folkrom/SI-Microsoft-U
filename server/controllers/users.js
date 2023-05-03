@@ -22,7 +22,7 @@ const getUsers = async (req, res) => {
             msg: 'Hable con el administrador',
         });
     }
-}
+};
 
 /**
  * This is an async function that deletes a user by their ID and returns a success message or an error
@@ -39,6 +39,11 @@ const getUsers = async (req, res) => {
  */
 const userDelete = async (req, res) => {
     const { id } = req.params;
+
+    if (id == req.uid)
+        return res.status(409).json({
+            msg: 'No puede eliminar su propio usuario.',
+        });
 
     try {
         const result = await userRepository.deleteUser(id);

@@ -1,15 +1,12 @@
-import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 
 import generarJWT from '../helpers/generar-jwt.js';
 import DatabaseConnection from '../models/database-connection.js';
 import dbConfig from '../database/config.js';
 import UserRepository from '../models/user-repository.js';
-import TokenRepository from '../models/token-repository.js';
 
 const dbConnection = new DatabaseConnection(dbConfig);
 const userRepository = new UserRepository(dbConnection);
-const tokenRepository = new TokenRepository(dbConnection);
 
 /**
  * This function handles user login by verifying their credentials, generating a JWT token, and saving
@@ -45,38 +42,6 @@ const login = async (req, res) => {
         }
 
         const token = await generarJWT(userId);
-        const { exp, iat } = jwt.verify(token, process.env.PRIVATE_KEY);
-        const expiresAt = new Date(exp * 1000)
-                                .toISOString()
-                                .replace('T', ' ')
-                                .replace(/\.\d{3}Z/, '');
-        const createdAt = new Date(iat * 1000)
-                                .toISOString()
-                                .replace('T', ' ')
-                                .replace(/\.\d{3}Z/, '');
-
-        // save the user's token in db
-        const hasToken = await tokenRepository.getTokenById(userId);
-        if (!hasToken) {
-            const saveToken = await tokenRepository.createToken({
-                userId,
-                token,
-                expiresAt,
-                createdAt,
-            });
-
-            if (!saveToken)
-                return res.status(500).json({ msg: 'Server error' });
-        } else {
-            const updateToken = await tokenRepository.updateToken({
-                userId,
-                token,
-                expiresAt,
-                updatedAt: createdAt,
-            });
-            if (!updateToken)
-                return res.status(500).json({ msg: 'Server error' });
-        }
 
         res.json({
             username,

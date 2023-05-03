@@ -40,6 +40,19 @@ class UserRepository {
             const result = await this.dbConnection.executeQuery(query, params);
             return result[0];
         } catch (err) {
+            console.error(`Error retrieving user with username ${username}: ${err}`);
+            throw err;
+        }
+    }
+
+    async getUserById(id) {
+        const query = 'SELECT * FROM users WHERE id = ?;';
+        const params = [id];
+
+        try {
+            const result = await this.dbConnection.executeQuery(query, params);
+            return result[0];
+        } catch (err) {
             console.error(`Error retrieving user with id ${id}: ${err}`);
             throw err;
         }
