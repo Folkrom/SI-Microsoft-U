@@ -1,11 +1,16 @@
 import { Router } from 'express';
 import { check } from 'express-validator';
 
-import { userDelete, userUpdate } from '../controllers/users.js';
+import { getUsers, userDelete, userUpdate } from '../controllers/users.js';
 import { validateFields } from '../middlewares/validate-fields.js';
 import { isValidRole, userExistsByName } from '../helpers/db-validators.js';
 
 const router = Router();
+
+router.get('/', [
+    // validateJWT,
+    validateFields
+], getUsers);
 
 router.delete('/:id', [
     // validateJWT,

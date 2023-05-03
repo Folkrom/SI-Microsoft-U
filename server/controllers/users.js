@@ -8,6 +8,23 @@ const dbConnection = new DatabaseConnection(dbConfig);
 const userRepository = new UserRepository(dbConnection);
 
 /**
+ * This function retrieves all users from a user repository and returns them as a JSON response, or
+ * returns a 500 error message if there is an error.
+ */
+const getUsers = async (req, res) => {
+    try {
+        const users = await userRepository.getAllUsers();
+
+        res.json({ users });
+    } catch (error) {
+        console.error(`Error retrieving users: ${error}`);
+        res.status(500).json({
+            msg: 'Hable con el administrador',
+        });
+    }
+}
+
+/**
  * This is an async function that deletes a user by their ID and returns a success message or an error
  * message if the user does not exist or if there is a server error.
  * @param req - req stands for request and it is an object that contains information about the HTTP
@@ -86,4 +103,4 @@ const userUpdate = async (req, res) => {
     }
 };
 
-export { userDelete, userUpdate };
+export { getUsers, userDelete, userUpdate };

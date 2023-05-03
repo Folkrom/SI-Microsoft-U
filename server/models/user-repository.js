@@ -5,6 +5,19 @@ class UserRepository {
         this.dbConnection = dbConnection;
     }
 
+    async getAllUsers() {
+        const query = 'SELECT id, username, role_name FROM users;';
+
+        try {
+            const result = await this.dbConnection.executeQuery(query);
+            
+            return result;
+        } catch (err) {
+            console.error(`Error retrieving users: ${err}`);
+            throw err;
+        }
+    }
+
     async getUser({ username, password }) {
         const query =
             'SELECT * FROM users WHERE username = ? AND password = ?;';
