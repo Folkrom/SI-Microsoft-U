@@ -10,7 +10,7 @@ const router = Router();
 
 router.post('/login', [
     check('username').notEmpty(),
-    check('password').notEmpty().isLength({ min: 6 }),
+    check('password').notEmpty(),
     validateFields
 ], login);
 
