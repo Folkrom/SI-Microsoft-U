@@ -42,12 +42,21 @@ const login = async (req, res) => {
         }
 
         const token = await generarJWT(userId);
-
-        res.json({
-            username,
-            role,
-            token,
+        
+        res.cookie('x-token', token, {
+            httpOnly: true
         });
+        res.cookie('x-role', role, {
+            httpOnly: true
+        });
+        res.send('Acceso Correcto');
+
+        // res.json({
+        //     username,
+        //     role,
+        //     token,
+        // });
+
     } catch (error) {
         console.log(error);
         res.status(500).json({

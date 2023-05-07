@@ -1,8 +1,10 @@
 import express from 'express';
 import cors from 'cors';
+import cookieParser from 'cookie-parser';
 
 import authRoute from '../routes/auth.js';
 import usersRoute from '../routes/users.js';
+import navigationRoute from '../routes/navigation.js';
 
 class Server {
     constructor() {
@@ -11,7 +13,8 @@ class Server {
 
         this.paths = {
             auth: '/api/auth',
-            users: '/api/users'
+            users: '/api/users',
+            // roles: '/api/roles'
         };
 
         // Middlewares
@@ -28,12 +31,15 @@ class Server {
         // Lectura y parseo del body
         this.app.use( express.json() );
 
+        this.app.use( cookieParser() );
+
         // Directorio publico
         this.app.use( express.static('public') );
         
     }
 
     routes() {
+        this.app.use(navigationRoute);
         this.app.use(this.paths.auth, authRoute);
         this.app.use(this.paths.users, usersRoute);
         

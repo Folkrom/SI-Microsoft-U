@@ -8,32 +8,24 @@ const dbConnection = new DatabaseConnection(dbConfig);
 const userRepository = new UserRepository(dbConnection);
 
 const validateJWT = async (req, res, next) => {
-    const token = req.header('x-token');
+    const token = req.cookies['x-token'];
 
-    if (!token) {
-        return res.status(401).json({
-            msg: 'No hay token en la peticion',
-        });
-    }
+    if (!token) 
+        return res.redirect('/');
 
     try {
         const { uid } = jwt.verify(token, process.env.PRIVATE_KEY);
-        
+
         const user = await userRepository.getUserById(uid);
-        if (!user) {
-            return res.status(401).json({
-                msg: 'Token no valido - usuario no existe en DB',
-            });
-        }
+        if (!user) 
+            return res.redirect('/');
 
         req.uid = uid;
         req.role = user.role_name;
         next();
     } catch (error) {
         console.log(error);
-        res.status(401).json({
-            msg: 'Token no valido',
-        });
+        res.redirect('/');
     }
 };
 
