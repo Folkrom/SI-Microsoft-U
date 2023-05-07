@@ -9,7 +9,8 @@ const login = async (username, password) => {
             body: JSON.stringify({ username, password }),
         });
         const response = await rawResponse.json();
-
+        console.log("🚀 ~ file: requests.js:12 ~ login ~ response:", response)
+        
         return response;
     } catch (error) {
         console.info(error);
@@ -17,28 +18,3 @@ const login = async (username, password) => {
     }
 };
 
-const hasToken = async () => {
-    const token = localStorage.getItem('token');
-
-    if (token === null) {
-        return (window.location.href = '/');
-    }
-
-    try {
-        // const httpService = new HttpService({ 'x-token': token });
-        // const response = await httpService.get('/api/users/');
-        // console.log(response);
-        // const rawResponse = await fetch('/dashboard', {
-        //   method: 'GET',
-        //   headers: {
-        //     Accept: '*/*',
-        //     'x-token': token,
-        //   },
-        // });
-        // const response = await rawResponse;
-        
-        console.log(response);
-    } catch (error) {
-        console.info(error);
-    }
-};

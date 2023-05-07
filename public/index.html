@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Sistema de Informacion Microsoft - Iniciar sesion</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Segoe+UI&display=swap" rel="stylesheet">
@@ -19,7 +22,7 @@
 			<label for="password">Contraseña:</label>
             <input type="password" id="password" name="password" placeholder="Ingresa tu contraseña" autocomplete="off" required>
 			<p id="login-err"></p>
-			<button type="submit" onclick="handleSubmit()">Iniciar sesión</button>
+			<button type="submit" onclick="handleSubmit(event)">Iniciar sesión</button>
 		</form>
 		<div class="footer">
 			<p>© 2023 Sistema de Información Microsoft. Todos los derechos reservados.</p>
