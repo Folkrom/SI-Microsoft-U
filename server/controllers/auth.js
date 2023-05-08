@@ -9,17 +9,13 @@ const dbConnection = new DatabaseConnection(dbConfig);
 const userRepository = new UserRepository(dbConnection);
 
 /**
- * This function handles user login by verifying their credentials, generating a JWT token, and saving
- * it in the database.
- * @param req - req stands for request and it is an object that contains information about the HTTP
- * request that was made, such as the request headers, request parameters, request body, etc.
- * @param res - `res` is the response object that is used to send a response back to the client making
- * the request. It contains methods like `json()` to send a JSON response, `status()` to set the HTTP
- * status code of the response, and `send()` to send a plain text response.
- * @returns The function `login` is returning a JSON response with the user's `username`, `role`, and
- * `token` if the login is successful. If the login fails due to incorrect username or password, a 400
- * status code with an error message is returned. If there is a server error, a 500 status code with an
- * error message is returned.
+ * This is a login function that checks if the username and password provided by the user match the
+ * ones stored in the database, generates a JWT token, and sets cookies with the token and user role.
+ * @returns The function `login` is returning a JSON response with the `username` and `role` of the
+ * user if the login is successful. If the login fails due to incorrect username or password, it
+ * returns a JSON response with an error message. If there is an error during the login process, it
+ * returns a JSON response with an error message indicating to contact the administrator. Additionally,
+ * the function sets two
  */
 const login = async (req, res) => {
     const { username, password } = req.body;
@@ -49,13 +45,11 @@ const login = async (req, res) => {
         res.cookie('x-role', role, {
             httpOnly: true
         });
-        res.send('Acceso Correcto');
 
-        // res.json({
-        //     username,
-        //     role,
-        //     token,
-        // });
+        res.json({
+            username,
+            role
+        });
 
     } catch (error) {
         console.log(error);
