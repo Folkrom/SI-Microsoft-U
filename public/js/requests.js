@@ -9,8 +9,7 @@ const login = async (username, password) => {
             body: JSON.stringify({ username, password }),
         });
         const response = await rawResponse.json();
-        console.log("🚀 ~ file: requests.js:12 ~ login ~ response:", response)
-        
+                
         return response;
     } catch (error) {
         console.info(error);

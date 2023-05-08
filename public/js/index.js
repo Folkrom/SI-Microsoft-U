@@ -14,6 +14,11 @@ const handleSubmit = async(event) => {
         return
     }
 
+    const { username: user, role } = validLogin;
+
+    sessionStorage.setItem('username', user);
+    sessionStorage.setItem('role', role);
+
     window.location.href = '/dashboard';
     
 };
