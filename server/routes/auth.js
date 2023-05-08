@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { login, register } from '../controllers/auth.js';
+import { login, logout, register } from '../controllers/auth.js';
 import { check } from 'express-validator';
 import { isValidRole } from '../helpers/db-validators.js';
 import { validateFields } from '../middlewares/validate-fields.js';
@@ -24,5 +24,9 @@ router.post('/register', [
     check('role').notEmpty().custom(isValidRole),
     validateFields
 ], register);
+
+router.get('/logout',[
+    validateJWT
+], logout);
 
 export default router;

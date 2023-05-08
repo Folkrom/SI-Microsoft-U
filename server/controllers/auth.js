@@ -105,4 +105,12 @@ const register = async (req, res) => {
     }
 };
 
-export { login, register };
+/* This is a function called `logout` that clears the cookies with the names `x-token` and `x-role`
+and returns a JSON response with a message indicating that the cookies have been deleted. */
+const logout = async(req, res) => {
+    res.clearCookie('x-token');
+    res.clearCookie('x-role');
+    res.json({ msg: 'Deleted cookies' });
+};
+
+export { login, register, logout };
