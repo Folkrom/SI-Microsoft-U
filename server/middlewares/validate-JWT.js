@@ -10,18 +10,25 @@ const userRepository = new UserRepository(dbConnection);
 const validateJWT = async (req, res, next) => {
     const token = req.cookies['x-token'];
 
-    if (!token) 
-        return res.redirect('/');
+    if (!token) return res.redirect('/');
 
     try {
-        const { uid } = jwt.verify(token, process.env.PRIVATE_KEY);
+        const { uid, exp } = jwt.verify(token, process.env.PRIVATE_KEY, {
+            ignoreExpiration: true,
+        });
 
         const user = await userRepository.getUserById(uid);
-        if (!user) 
-            return res.redirect('/');
+        if (!user) return res.redirect('/');
 
         req.uid = uid;
         req.role = user.role_name;
+
+        if (Date.now() >= exp * 1000) {
+            // Token has expired
+            res.clearCookie('x-token');
+            return res.redirect('/login');
+        }
+
         next();
     } catch (error) {
         console.log(error);
