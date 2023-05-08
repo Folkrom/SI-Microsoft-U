@@ -16,30 +16,33 @@ class Server {
             users: '/api/users',
             // roles: '/api/roles'
         };
-
+        
         // Middlewares
         this.middlewares();
-
-        // Rutas de mi aplicacion
+        
+        // App Routes
         this.routes();
     }
 
     middlewares() {
         // CORS
         this.app.use( cors() );
-
-        // Lectura y parseo del body
+        
+        // Body reading & parsing
         this.app.use( express.json() );
-
+        
+        // Cookie Parser
         this.app.use( cookieParser() );
-
-        // Directorio publico
+        
+        // Main Route
+        this.app.use(navigationRoute);
+        
+        // Public directory
         this.app.use( express.static('public') );
         
     }
 
     routes() {
-        this.app.use(navigationRoute);
         this.app.use(this.paths.auth, authRoute);
         this.app.use(this.paths.users, usersRoute);
         

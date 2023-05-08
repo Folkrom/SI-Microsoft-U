@@ -8,19 +8,21 @@ const __dirname = dirname(__filename);
 
 const router = Router();
 
+const mainRoute = join(__dirname, '..', '..', 'public');
+
 router.get('/', (req, res) => {
-    if (req.cookies['x-token']) {
-        const route = join(__dirname, '..', '..', 'public/pages/dashboard.html');
-        res.sendFile(route);
-    }
+    if (req.cookies['x-token']) 
+        return res.redirect('/dashboard');
+
+    const route = join(mainRoute, 'index.html');
+    res.sendFile(route);
 });
 
 router.get('/dashboard', [
     validateJWT
 ], (req, res) => {
-    const route = join(__dirname, '..', '..', 'public/pages/dashboard.html');
+    const route = join(mainRoute, 'pages', 'dashboard.html');
     res.sendFile(route);
 });
-
 
 export default router;
