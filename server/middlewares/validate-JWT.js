@@ -26,7 +26,7 @@ const validateJWT = async (req, res, next) => {
         if (Date.now() >= exp * 1000) {
             // Token has expired
             res.clearCookie('x-token');
-            return res.redirect('/login');
+            return res.redirect('/');
         }
 
         next();
