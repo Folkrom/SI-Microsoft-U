@@ -8,7 +8,7 @@ const isAdminRole = async (req, res, next) => {
         });
     }
 
-    if (role !== 'admin') {
+    if (role !== 'Administrador') {
         return res.status(401).json({
             msg: 'No es administrador - No puede hacer esto',
         });
