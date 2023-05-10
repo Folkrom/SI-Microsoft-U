@@ -1,6 +1,6 @@
 
 const isAdminRole = async (req, res, next) => {
-    const role = req.cookies['x-role'];;
+    const role = req.cookies['x-role'];
 
     if (!role) {
         return res.status(500).json({
