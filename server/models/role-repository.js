@@ -21,11 +21,12 @@ class RoleRepository {
     }
 
     async getAllRoles() {
-        const query = 'SELECT * FROM Roles;';
+        const query = 'SELECT name FROM Roles;';
 
         try {
             const result = await this.dbConnection.executeQuery(query);
-            return result[0];
+            const roles = result.map((role) => role.name);
+            return roles;
         } catch (err) {
             console.error(`Error retrieving roles: ${err}`);
             throw err;
