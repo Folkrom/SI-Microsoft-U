@@ -15,9 +15,13 @@ usernameElement.textContent = username;
 userRoleElement.textContent = role;
 
 // On DOM load
-document.addEventListener('DOMContentLoaded', () => {
-    document.querySelector('.content #username').innerText = username;
-    document.querySelector('.content #user-role').innerText = role;
+document.addEventListener('DOMContentLoaded', async () => {
+    const { pathname } = window.location;
+
+    if (pathname === '/dashboard') {
+        document.querySelector('.content #username').innerText = username;
+        document.querySelector('.content #user-role').innerText = role;
+    }
 
     if (role === 'Administrador') {
         const newLi = document.createElement('li');
@@ -28,10 +32,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         menu.appendChild(newLi);
         newLi.appendChild(adminPanel);
+
+        if (pathname === '/admin-panel') {
+            loadPanel();
+        }
     }
-
-
-    
 });
 
 // Evento para cerrar sesión

@@ -1,0 +1,83 @@
+.microsoft-table {
+    width: 100%;
+    font-family: Arial, sans-serif;
+    color: #333;
+    border-collapse: collapse;
+}
+
+.microsoft-table th,
+.microsoft-table td {
+    padding: 8px;
+    border-bottom: 1px solid #ccc;
+}
+
+.microsoft-table thead {
+    background-color: #f5f5f5;
+}
+
+.microsoft-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.microsoft-table tbody tr:hover {
+    background-color: #f0f0f0;
+}
+
+.microsoft-table th,
+.microsoft-table caption {
+    text-align: left;
+    font-weight: bold;
+    padding-left: 12px;
+}
+
+.microsoft-table th:last-child,
+.microsoft-table td:last-child {
+    padding-right: 12px;
+}
+
+.microsoft-form {
+    width: 300px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.microsoft-form label,
+.microsoft-form legend {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.microsoft-form legend {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.microsoft-form input[type='text'],
+.microsoft-form input[type='password'],
+.microsoft-form select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.microsoft-form button {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    margin-top: 16px;
+    background-color: #0078d7;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.microsoft-form button:hover {
+    background-color: #005a9e;
+}
