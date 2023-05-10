@@ -1,6 +1,15 @@
 const loadPanel = async () => {
     const userListElement = document.querySelector('#users-table tbody');
+    const roleSelect = document.getElementById('role');
+    const { roles } = await getRoles();
     const { users } = await getUsers();
+
+    roles.forEach((role, index) => {
+        const option = document.createElement('option');
+        option.value = index + 1; // Asigna un valor numérico único para cada opción
+        option.text = role;
+        roleSelect.appendChild(option);
+    });
 
     users.forEach((user) => {
         const row = document.createElement('tr');

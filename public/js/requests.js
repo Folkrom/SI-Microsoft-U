@@ -14,11 +14,22 @@ const login = async (username, password) => {
 
 const getUsers = async () => {
     try {
-        const response = await httpService.get('/api/users/');
+        const users = await httpService.get('/api/users/');
 
-        return response;
+        return users;
     } catch (error) {
         console.info(error);
         return error;
     }
 };
+
+const getRoles = async() => {
+    try {
+        const roles =  await httpService.get('/api/roles');
+
+        return roles;
+    } catch (error) {
+        console.info(error);
+        return error;
+    }
+}
