@@ -4,6 +4,10 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Dashboard</title>
+        <link
+            href="https://fonts.googleapis.com/css?family=Segoe+UI&display=swap"
+            rel="stylesheet"
+        />
         <link rel="stylesheet" href="styles/dashboard.css" />
         <link rel="shortcut icon" href="assets/Microsoft_logo.svg" />
     </head>
@@ -11,7 +15,7 @@
     <body>
         <div class="container">
             <div class="topbar">
-                <h2>Sistema de Información</h2>
+                <a href="/dashboard"><h2>Sistema de Información</h2></a>
                 <div class="user-info">
                     <p>Bienvenido, <span id="username"></span></p>
                     <p id="user-role"></p>
@@ -21,24 +25,89 @@
 
             <div class="content-sidebar">
                 <div class="sidebar">
+                    <h3>Menú</h3>
                     <ul class="menu">
-                        <li><a href="#">Página 1</a></li>
-                        <li><a href="#">Página 2</a></li>
-                        <li><a href="#">Página 3</a></li>
-                        <!-- Agrega más elementos del menú según tus necesidades -->
+                        <!-- <li><a href="#">Página 180808080456 5 564 4 78 848 478 487 4</a></li> -->
                     </ul>
                 </div>
 
                 <div class="content">
-                    <!-- Aquí va el contenido de las otras páginas -->
-                    <h1>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Quisquam, illum.
-                    </h1>
+                    <div id="general-info">
+                        <img src="assets/Microsoft_logo.svg" alt="Microsoft" />
+                        <div class="header">
+                            <h1 class="greeting">
+                                Hola, <span id="username"></span>.
+                            </h1>
+                            <h1 class="subtitle">
+                                Tienes acceso a la información disponible para:
+                                <span id="user-role"></span>.
+                            </h1>
+                        </div>
+                    </div>
+                    <div class="mision-vision">
+                        <h2>Misión.</h2>
+                        <p>
+                            "Empoderar a cada persona y cada organización del
+                            planeta para lograr más".
+                        </p>
+                        <h2>Visión.</h2>
+                        <p>
+                            " Crear soluciones tecnológicas innovadoras que
+                            permitan a las personas y a las empresas en todo el
+                            mundo alcanzar su máximo potencial ".
+                        </p>
+                    </div>
+                    <div class="valores">
+                        <h2>Valores.</h2>
+                        <p>
+                            Recuerda siempre seguir los valores mas importantes
+                            para nuestra institución:
+                        </p>
+                        <ol>
+                            <li>
+                                <b>Inclusión:</b> Microsoft cree que la
+                                diversidad y la inclusión son fundamentales para
+                                el éxito de la empresa. La compañía se esfuerza
+                                por crear un entorno de trabajo inclusivo y
+                                acogedor para todas las personas,
+                                independientemente de su origen o identidad.
+                            </li>
+                            <li>
+                                <b>Innovación:</b> Microsoft está comprometido
+                                en fomentar la innovación en todas sus formas.
+                                La compañía se esfuerza por crear tecnologías
+                                nuevas y avanzadas que ayuden a las personas y
+                                las organizaciones a lograr más.
+                            </li>
+                            <li>
+                                <b>Responsabilidad:</b> Microsoft se preocupa
+                                por el impacto que tiene en el mundo, y trabaja
+                                constantemente para asegurarse de que su impacto
+                                sea positivo. La compañía se esfuerza por ser
+                                responsable con sus empleados, clientes,
+                                accionistas y la comunidad en general.
+                            </li>
+                            <li>
+                                <b>Integridad:</b> Microsoft cree en la
+                                importancia de actuar con integridad en todas
+                                sus operaciones comerciales. La compañía se
+                                esfuerza por ser honesta y ética en todas sus
+                                relaciones comerciales y en la forma en que
+                                opera en todo el mundo.
+                            </li>
+                            <li>
+                                <b>Pasión por el cliente:</b> Microsoft tiene un
+                                fuerte compromiso con sus clientes y se esfuerza
+                                por entender sus necesidades y preocupaciones.
+                                La compañía se esfuerza por proporcionar
+                                soluciones que sean útiles y efectivas para sus
+                                clientes.
+                            </li>
+                        </ol>
+                    </div>
                 </div>
             </div>
         </div>
-        <script src="js/HttpService.js"></script>
         <script src="js/load-content.js"></script>
     </body>
 </html>

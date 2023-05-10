@@ -2,7 +2,7 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Arial, sans-serif;
 }
 
 .container {
@@ -14,10 +14,13 @@ body {
 /* Estilos de la barra superior */
 .topbar {
     background-color: #2b5797; /* Color del sidebar */
-    /* padding: 10px; */
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.topbar a {
+    text-decoration: none;
 }
 
 .topbar h2 {
@@ -29,8 +32,12 @@ body {
     justify-content: center;
     align-items: center;
     color: white;
-    height: 35px;
+    height: 38px;
     width: 290px;
+}
+
+.topbar h2:hover {
+    background-color: #e6b800;
 }
 
 .user-info p {
@@ -41,7 +48,7 @@ body {
 }
 
 #logout-btn {
-    background-color: #E51400;
+    background-color: #e51400;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -49,7 +56,7 @@ body {
 }
 
 #logout-btn:hover {
-    background-color: #BF0404;
+    background-color: #bf0404;
 }
 
 /* Estilos del sidebar */
@@ -60,19 +67,32 @@ body {
     padding: 20px;
 }
 
+.sidebar h3 {
+    margin: 0;
+    padding-bottom: 5px;
+    border-bottom: solid 1px black;
+}
+
 .menu {
-    list-style-type: none;
-    padding: 0;
-    margin-top: 30px;
+    /* list-style-type: none; */
+    /* padding-left: 10px; */
+    margin-top: 10px;
 }
 
 .menu li {
     margin-bottom: 10px;
 }
 
+.menu li:hover {
+    cursor: pointer;
+    background-color: #1c3b6e;
+}
+
 .menu a {
     color: white;
     text-decoration: none;
+    width: 250%;
+    margin: 5px;
 }
 
 /* Estilos del contenido y sidebar */
@@ -85,4 +105,77 @@ body {
     flex: 1;
     padding: 20px;
     background-color: #f2f2f2; /* Color de fondo gris claro */
+}
+
+.content #general-info {
+    display: flex;
+    align-items: center;
+}
+
+.content img {
+    width: 150px;
+    margin-right: 10px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.greeting {
+    margin-bottom: 130px;
+    white-space: wrap;
+    width: 100%;
+}
+
+.subtitle {
+    margin-top: 80px;
+    position: absolute;
+}
+
+.mision-vision {
+    display: flex;
+    flex-direction: column;
+}
+
+.mision-vision h2:nth-of-type(1) {
+    order: -1;
+}
+
+.mision-vision p:nth-of-type(1) {
+    order: 0;
+}
+
+.mision-vision h2:nth-of-type(2) {
+    order: 1;
+}
+
+.mision-vision p:nth-of-type(2) {
+    order: 2;
+}
+
+.valores h2 {
+    margin-bottom: 10px;
+}
+
+.valores p {
+    margin-bottom: 20px;
+}
+
+.valores ol {
+    text-align: left;
+    margin-left: 40px;
+}
+
+.valores li {
+    margin-bottom: 10px;
+    text-align: justify;
+}
+
+.valores li:before {
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
 }
