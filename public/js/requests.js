@@ -23,13 +23,25 @@ const getUsers = async () => {
     }
 };
 
-const getRoles = async() => {
+const getRoles = async () => {
     try {
-        const roles =  await httpService.get('/api/roles');
+        const roles = await httpService.get('/api/roles');
 
         return roles;
     } catch (error) {
         console.info(error);
         return error;
     }
-}
+};
+
+const register = async (username, password, role) => {
+    const data = { username, password, role };
+    try {
+        const response = await httpService.post('/api/auth/register', data);
+
+        return response;
+    } catch (error) {
+        console.info(error);
+        return error;
+    }
+};

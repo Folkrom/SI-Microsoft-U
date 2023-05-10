@@ -5,6 +5,12 @@ body {
     font-family: 'Segoe UI', Arial, sans-serif;
 }
 
+#register-err {
+    margin-bottom: 10px;
+    color: #EF233C;
+    text-align: center;
+}
+
 .container {
     display: flex;
     flex-direction: column;

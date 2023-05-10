@@ -45,14 +45,15 @@
                         id="registration-form"
                         class="microsoft-form"
                         autocomplete="off"
+                        onsubmit="handleSubmit(event)"
                     >
                         <legend>Registrar nuevo usuario</legend>
                         <div>
-                            <label for="username">Nombre de usuario:</label>
+                            <label for="user">Nombre de usuario:</label>
                             <input
                                 type="text"
-                                id="username"
-                                name="username"
+                                id="user"
+                                name="user"
                                 required
                                 autocomplete="off"
                             />
@@ -71,13 +72,16 @@
                             <label for="role">Rol:</label>
                             <select id="role" name="role" required></select>
                         </div>
+                        <p id="register-err"></p>
                         <div>
                             <button type="submit">Register</button>
                         </div>
                     </form>
 
                     <table id="users-table" class="microsoft-table">
-                        <caption>Usuarios activos</caption>
+                        <caption>
+                            Usuarios activos
+                        </caption>
                         <thead>
                             <tr>
                                 <th>ID</th>
