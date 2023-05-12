@@ -34,10 +34,22 @@ const getRoles = async () => {
     }
 };
 
-const register = async (username, password, role) => {
+const registerUser = async (username, password, role) => {
     const data = { username, password, role };
     try {
         const response = await httpService.post('/api/auth/register', data);
+
+        return response;
+    } catch (error) {
+        console.info(error);
+        return error;
+    }
+};
+
+const registerRole = async (role) => {
+    const data = { role };
+    try {
+        const response = await httpService.post('/api/roles/create', data);
 
         return response;
     } catch (error) {

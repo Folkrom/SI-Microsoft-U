@@ -11,6 +11,7 @@ const loadUsers = async () => {
         roleSelect.appendChild(option);
     });
 
+    userListElement.innerHTML = '';
     users.forEach((user) => {
         const row = document.createElement('tr');
         const idCell = document.createElement('td');
@@ -27,24 +28,6 @@ const loadUsers = async () => {
 
         userListElement.appendChild(row);
     });
-};
-
-const renderUser = (username, role) => {
-    const userListElement = document.querySelector('#users-table tbody');
-    const row = document.createElement('tr');
-    const idCell = document.createElement('td');
-    const usernameCell = document.createElement('td');
-    const roleCell = document.createElement('td');
-
-    idCell.textContent = '-';
-    usernameCell.textContent = username;
-    roleCell.textContent = role;
-
-    row.appendChild(idCell);
-    row.appendChild(usernameCell);
-    row.appendChild(roleCell);
-
-    userListElement.appendChild(row);
 };
 
 const handleSubmit = async (event) => {
@@ -68,7 +51,7 @@ const handleSubmit = async (event) => {
         return;
     }
 
-    const validRegister = await register(username, password, role);
+    const validRegister = await registerUser(username, password, role);
 
     if (
         validRegister.msg ===
@@ -82,9 +65,5 @@ const handleSubmit = async (event) => {
     registerResult.innerHTML = validRegister.msg;
     registerResult.style = 'color: #00FF00;';
 
-    renderUser(username, role);
+    loadUsers();
 };
-
-const loadRoles = async() => {
-    
-}

@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         menu.appendChild(usersPanel);
         menu.appendChild(rolesPanel);
 
-        if (pathname === '/admin-panel') {
+        if (pathname === '/users-panel') {
             loadUsers();
         }
 
