@@ -33,7 +33,7 @@ class RoleRepository {
         }
     }
 
-    async updateRole({ roleName, newRole }) {
+    async updateRole(roleName, newRole) {
         const roleExists = await this.getRole(roleName);
         if (!roleExists) return false;
 
