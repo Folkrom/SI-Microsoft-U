@@ -1,9 +1,11 @@
 import DatabaseConnection from '../models/database-connection.js';
 import dbConfig from '../database/config.js';
 import RoleRepository from '../models/role-repository.js';
+import UserRepository from '../models/user-repository.js';
 
 const dbConnection = new DatabaseConnection(dbConfig);
 const roleRepository = new RoleRepository(dbConnection);
+const userRepository = new UserRepository(dbConnection);
 
 /**
  * This function retrieves all roles and sends them as a JSON response, handling errors with a 500
@@ -47,6 +49,29 @@ const updateRole = async (req, res) => {
     } = req;
 
     try {
+        const roleExists = await roleRepository.getRole(role);
+        if (!roleExists)
+            return res.status(404).json({ err: 'Rol no encontrado' });
+
+        const userHasRole = await userRepository.checkUsersWithRole(role);
+
+        if (userHasRole) {
+            const addNewRole = await roleRepository.createRole(newRole);
+            const updateUsersWithNewRole = await userRepository.updateUsersRole(
+                role,
+                newRole
+            );
+            const deleteRole = await roleRepository.deleteRole(role);
+
+            if (addNewRole && updateUsersWithNewRole && deleteRole) {
+                return res.json({
+                    msg: `Rol ${role} actualizado a ${newRole}!`,
+                });
+            }
+
+            res.status(409).json({ err: 'No se pudo actualizar el rol' });
+        }
+
         const updateRole = await roleRepository.updateRole(role, newRole);
 
         if (!updateRole)
@@ -54,7 +79,7 @@ const updateRole = async (req, res) => {
                 .status(409)
                 .json({ err: 'No se pudo actualizar el rol' });
 
-        res.json({ msg: `Rol ${role} actualizado!` });
+        res.json({ msg: `Rol ${role} actualizado a ${newRole}!` });
     } catch (error) {
         console.error(`Error SQL: ${error}`);
         res.status(500).json({
