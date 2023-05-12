@@ -57,3 +57,14 @@ const registerRole = async (role) => {
         return error;
     }
 };
+
+const deleteRole = async (role) => {
+    try {
+        const response = await httpService.delete(`api/roles/${role}`);
+
+        return response;
+    } catch (error) {
+        console.info(error);
+        return error;
+    }
+};

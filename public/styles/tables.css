@@ -34,3 +34,45 @@
 .microsoft-table td:last-child {
     padding-right: 12px;
 }
+
+.action-button-edit {
+    padding: 8px 16px;
+    margin-right: 8px;
+    border: none;
+    background-color: #0078d7;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.action-button-delete {
+    padding: 8px 16px;
+    margin-right: 8px;
+    border: none;
+    background-color: #e81123;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.action-button i {
+    margin-right: 4px;
+}
+
+.action-button-edit:hover {
+    background-color: #005a9e;
+}
+
+.action-button-delete:hover {
+    background-color: #a80000;
+}
