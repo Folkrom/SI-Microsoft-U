@@ -68,3 +68,16 @@ const deleteRole = async (role) => {
         return error;
     }
 };
+
+const editRole = async (role, newRole) => {
+    const data = { newRole };
+
+    try {
+        const response = await httpService.put(`/api/roles/${role}`, data);
+
+        return response;
+    } catch (error) {
+        console.info(error);
+        return error;
+    }
+};

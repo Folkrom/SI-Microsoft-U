@@ -44,3 +44,9 @@
 .microsoft-form button:hover {
     background-color: #005a9e;
 }
+
+#register-err, #edit-err {
+    margin-bottom: 10px;
+    color: #EF233C;
+    text-align: center;
+}

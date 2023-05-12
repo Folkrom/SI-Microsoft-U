@@ -13,8 +13,8 @@ const loadRoles = async () => {
         const editButton = createButton(
             'Editar',
             'edit',
-            () => {
-                // Lógica para editar el rol
+            async () => {
+                openEditModal(role);
             },
             'action-button-edit'
         );
@@ -76,5 +76,38 @@ const handleSubmit = async (event) => {
     registerResult.innerHTML = validRegister.msg;
     registerResult.style = 'color: #00FF00;';
 
+    loadRoles();
+};
+
+const openEditModal = (role) => {
+    const modal = document.querySelector('#edit-modal');
+    const form = document.querySelector('#edit-form');
+    const roleInput = document.querySelector('#edit-role');
+    const closeButton = document.querySelector('#edit-modal > div > span');
+    const closeModal = () => (modal.style.display = 'none');
+
+    closeButton.addEventListener('click', closeModal);
+
+    roleInput.value = role;
+    roleInput.select();
+
+    modal.style.display = 'block';
+
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        handleEdit(role, roleInput.value);
+    });
+};
+
+const handleEdit = async (role, newRole) => {
+    const modal = document.querySelector('#edit-modal');
+    const closeModal = () => (modal.style.display = 'none');
+    const editResult = document.getElementById('edit-err');
+
+    const isEdited = await editRole(role, newRole);
+
+    if (isEdited.err) return (editResult.innerHTML = isEdited.err);
+
+    closeModal();
     loadRoles();
 };

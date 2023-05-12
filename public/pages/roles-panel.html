@@ -10,6 +10,7 @@
         />
         <link rel="stylesheet" href="../styles/dashboard.css" />
         <link rel="stylesheet" href="../styles/forms.css" />
+        <link rel="stylesheet" href="../styles/modal.css" />
         <link rel="stylesheet" href="../styles/tables.css" />
         <link rel="shortcut icon" href="assets/Microsoft_logo.svg" />
     </head>
@@ -77,6 +78,36 @@
                         </thead>
                         <tbody></tbody>
                     </table>
+                    <div id="edit-modal" class="modal">
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <form
+                                id="edit-form"
+                                class="microsoft-form"
+                                autocomplete="off"
+                            >
+                                <legend>Editar rol</legend>
+                                <div>
+                                    <label for="edit-role">Rol:</label>
+                                    <input
+                                        type="text"
+                                        id="edit-role"
+                                        name="role"
+                                        required
+                                        autocomplete="off"
+                                    />
+                                </div>
+                                <p id="edit-err"></p>
+                                <div>
+                                    <button type="submit">
+                                        Guardar cambios
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+
                 </div>
             </div>
         </div>
