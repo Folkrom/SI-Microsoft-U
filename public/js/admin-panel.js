@@ -1,4 +1,4 @@
-const loadPanel = async () => {
+const loadUsers = async () => {
     const userListElement = document.querySelector('#users-table tbody');
     const roleSelect = document.getElementById('role');
     const { roles } = await getRoles();
@@ -84,3 +84,7 @@ const handleSubmit = async (event) => {
 
     renderUser(username, role);
 };
+
+const loadRoles = async() => {
+    
+}

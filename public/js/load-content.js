@@ -24,20 +24,33 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     if (role === 'Administrador') {
-        const newLi = document.createElement('li');
-        const adminPanel = document.createElement('a');
+        const usersPanel = createMenuItem('Usuarios', '/users-panel');
+        const rolesPanel = createMenuItem('Roles', '/roles-panel');
 
-        adminPanel.textContent = 'Panel de Administración';
-        adminPanel.setAttribute('href', '/admin-panel');
-
-        menu.appendChild(newLi);
-        newLi.appendChild(adminPanel);
+        menu.appendChild(usersPanel);
+        menu.appendChild(rolesPanel);
 
         if (pathname === '/admin-panel') {
-            loadPanel();
+            loadUsers();
+        }
+
+        if (pathname === '/roles-panel') {
+            loadRoles();
         }
     }
 });
+
+const createMenuItem = (text, href) => {
+    const li = document.createElement('li');
+    const link = document.createElement('a');
+
+    link.textContent = text;
+    link.setAttribute('href', href);
+
+    li.appendChild(link);
+
+    return li;
+};
 
 // Evento para cerrar sesión
 logoutButton.addEventListener('click', async () => {

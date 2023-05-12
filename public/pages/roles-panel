@@ -9,7 +9,8 @@
             rel="stylesheet"
         />
         <link rel="stylesheet" href="../styles/dashboard.css" />
-        <link rel="stylesheet" href="../styles/admin-panel.css" />
+        <link rel="stylesheet" href="../styles/forms.css" />
+        <link rel="stylesheet" href="../styles/tables.css" />
         <link rel="shortcut icon" href="assets/Microsoft_logo.svg" />
     </head>
 
@@ -47,9 +48,9 @@
                         autocomplete="off"
                         onsubmit="handleSubmit(event)"
                     >
-                        <legend>Registrar nuevo usuario</legend>
+                        <legend>Agregar nuevo rol</legend>
                         <div>
-                            <label for="user">Nombre de usuario:</label>
+                            <label for="user">Rol:</label>
                             <input
                                 type="text"
                                 id="user"
@@ -58,35 +59,19 @@
                                 autocomplete="off"
                             />
                         </div>
-                        <div>
-                            <label for="password">Contraseña:</label>
-                            <input
-                                type="password"
-                                id="password"
-                                name="password"
-                                required
-                                autocomplete="off"
-                            />
-                        </div>
-                        <div>
-                            <label for="role">Rol:</label>
-                            <select id="role" name="role" required></select>
-                        </div>
                         <p id="register-err"></p>
                         <div>
-                            <button type="submit">Register</button>
+                            <button type="submit">Agregar</button>
                         </div>
                     </form>
 
                     <table id="users-table" class="microsoft-table">
                         <caption>
-                            Usuarios activos
+                            Roles activos
                         </caption>
                         <thead>
                             <tr>
-                                <th>ID</th>
-                                <th>Nombre de usuario</th>
-                                <th>Rol</th>
+                                <th>Nombre</th>
                             </tr>
                         </thead>
                         <tbody></tbody>
