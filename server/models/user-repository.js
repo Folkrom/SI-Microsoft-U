@@ -10,7 +10,7 @@ class UserRepository {
 
         try {
             const result = await this.dbConnection.executeQuery(query);
-            
+
             return result;
         } catch (err) {
             console.error(`Error retrieving users: ${err}`);
@@ -40,7 +40,9 @@ class UserRepository {
             const result = await this.dbConnection.executeQuery(query, params);
             return result[0];
         } catch (err) {
-            console.error(`Error retrieving user with username ${username}: ${err}`);
+            console.error(
+                `Error retrieving user with username ${username}: ${err}`
+            );
             throw err;
         }
     }
@@ -99,15 +101,55 @@ class UserRepository {
 
     async deleteUser(id) {
         const query = 'DELETE FROM Users WHERE id = ?;';
-        const params = [ id ];
+        const params = [id];
 
         try {
-            const { affectedRows } = await this.dbConnection.executeQuery(query, params);
-            if (!affectedRows) return false;  
+            const { affectedRows } = await this.dbConnection.executeQuery(
+                query,
+                params
+            );
+            if (!affectedRows) return false;
 
             return true;
         } catch (err) {
             console.error(`Error deleting user with id ${id}: ${err}`);
+            throw err;
+        }
+    }
+
+    async checkUsersWithRole(role) {
+        const query = 'SELECT id FROM Users WHERE role_name = ? LIMIT 1';
+        const params = [role];
+
+        try {
+            const [row] = await this.dbConnection.executeQuery(query, params);
+
+            if (!row) return false;
+
+            return true;
+        } catch (error) {
+            console.error('Error executing query:', error);
+            throw error;
+        }
+    }
+
+    async updateUsersRole(role, newRole) {
+        const query = `UPDATE Users 
+                       SET role_name = ?
+                       WHERE role_name = ?;`;
+        const params = [newRole, role];
+
+        try {
+            const { affectedRows } = await this.dbConnection.executeQuery(
+                query,
+                params
+            );
+
+            if (!affectedRows) return false;
+
+            return true;
+        } catch (err) {
+            console.error(`Error updating user: ${err}`);
             throw err;
         }
     }
