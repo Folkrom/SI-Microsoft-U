@@ -26,11 +26,19 @@ router.get('/dashboard', [
     res.sendFile(route);
 });
 
-router.get('/admin-panel', [
+router.get('/users-panel', [
     validateJWT,
     isAdminRole
 ], (req, res) => {
-    const route = join(mainRoute, 'pages', 'admin-panel.html');
+    const route = join(mainRoute, 'pages', 'users-panel.html');
+    res.sendFile(route);
+});
+
+router.get('/roles-panel', [
+    validateJWT,
+    isAdminRole
+], (req, res) => {
+    const route = join(mainRoute, 'pages', 'roles-panel.html');
     res.sendFile(route);
 });
 
