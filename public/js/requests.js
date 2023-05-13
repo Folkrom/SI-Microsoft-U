@@ -81,3 +81,14 @@ const editRole = async (role, newRole) => {
         return error;
     }
 };
+
+const getEmployees = async () => {
+    try {
+        const response = await httpService.get('/api/info/empleados');
+
+        return response;
+    } catch (error) {
+        console.info(error);
+        return error;
+    }
+};

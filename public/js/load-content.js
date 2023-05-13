@@ -38,6 +38,18 @@ document.addEventListener('DOMContentLoaded', async () => {
             loadRoles();
         }
     }
+
+    if (role === 'CEO') {
+        const employeesPanel = createMenuItem('Empleados', '/employees-panel');
+        // const ISPPanel = createMenuItem('Roles', '/roles-panel');
+
+        menu.appendChild(employeesPanel);
+        menu.appendChild(ISPPanel);
+
+        if (pathname === '/employees-panel') {
+            loadEmployees();
+        }
+    }
 });
 
 const createMenuItem = (text, href) => {
