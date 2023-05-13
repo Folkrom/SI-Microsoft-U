@@ -50,4 +50,12 @@ router.get('/employees-panel', [
     res.sendFile(route);
 });
 
+router.get('/certifications-panel', [
+    validateJWT,
+    // isValidRole
+], (req, res) => {
+    const route = join(mainRoute, 'pages', 'certifications-panel.html');
+    res.sendFile(route);
+});
+
 export default router;
