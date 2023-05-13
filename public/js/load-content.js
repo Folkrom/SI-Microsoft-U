@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         // const ISPPanel = createMenuItem('Roles', '/roles-panel');
 
         menu.appendChild(employeesPanel);
-        menu.appendChild(ISPPanel);
+        // menu.appendChild(ISPPanel);
 
         if (pathname === '/employees-panel') {
             loadEmployees();

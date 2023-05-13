@@ -17,6 +17,8 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
+    position: fixed;
 }
 
 .topbar a {
@@ -81,24 +83,28 @@ body {
 
 .menu li {
     margin-bottom: 10px;
+    display: flex;
+}
+
+.menu li a {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    padding: 5px;
+    width: 100%;
 }
 
 .menu li:hover {
-    cursor: pointer;
     background-color: #1c3b6e;
-}
-
-.menu a {
-    color: white;
-    text-decoration: none;
-    width: 250%;
-    margin: 5px;
 }
 
 /* Estilos del contenido y sidebar */
 .content-sidebar {
     display: flex;
     flex: 1;
+    margin-top: 30px;
 }
 
 .content {

@@ -1,15 +1,10 @@
-
 const loadEmployees = async () => {
     const employeesTable = document.getElementById('employees-table');
     const employeesTbody = employeesTable.querySelector('tbody');
 
-    // Obtiene los empleados de alguna fuente de datos
-    const { employees } = await getEmployees();
+    const { empleados: employees } = await getEmployees();
 
-    // Limpia el contenido previo de la tabla
     employeesTbody.innerHTML = '';
-
-    // Itera sobre los empleados y crea las filas de la tabla
     employees.forEach((employee) => {
         const row = document.createElement('tr');
 
@@ -25,4 +20,3 @@ const loadEmployees = async () => {
         employeesTbody.appendChild(row);
     });
 };
-
