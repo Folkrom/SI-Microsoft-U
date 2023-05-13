@@ -6,6 +6,7 @@ import authRoute from '../routes/auth.js';
 import usersRoute from '../routes/users.js';
 import navigationRoute from '../routes/navigation.js';
 import rolesRoute from '../routes/roles.js';
+import infoRoute from '../routes/info.js';
 
 class Server {
     constructor() {
@@ -16,7 +17,7 @@ class Server {
             auth: '/api/auth',
             users: '/api/users',
             roles: '/api/roles',
-            
+            info: '/api/info'
         };
         
         // Middlewares
@@ -48,6 +49,7 @@ class Server {
         this.app.use(this.paths.auth, authRoute);
         this.app.use(this.paths.users, usersRoute);
         this.app.use(this.paths.roles, rolesRoute);
+        this.app.use(this.paths.info, infoRoute);
 
     }
 
