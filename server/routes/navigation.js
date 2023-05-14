@@ -98,4 +98,12 @@ router.get('/providers-panel', [
     res.sendFile(route);
 });
 
+router.get('/estate-panel', [
+    validateJWT,
+    // isValidRole
+], (req, res) => {
+    const route = join(mainRoute, 'pages', 'estate-panel.html');
+    res.sendFile(route);
+});
+
 export default router;
