@@ -1,4 +1,5 @@
 import dbConfig from '../database/config.js';
+import CustomersRepository from '../models/Customers-repository.js';
 import ISPInfoRepository from '../models/ISPInfo-repository.js';
 import ISPRequestRepository from '../models/ISPRequest-repository.js';
 import EstateRepository from '../models/Inmuebles-repository.js';
@@ -20,6 +21,7 @@ const ISPRequestRepo = new ISPRequestRepository(dbConnection);
 const rawMaterialsRepository = new RawMaterialsRepository(dbConnection);
 const providersRepository = new ProvidersRepository(dbConnection);
 const estateRepository = new EstateRepository(dbConnection);
+const customersRepository = new CustomersRepository(dbConnection);
 
 const getEmpleados = async (req, res) => {
     try {
@@ -127,6 +129,19 @@ const getEstate = async (req, res) => {
     }
 };
 
+const getCustomers = async (req, res) => {
+    try {
+        const customers = await customersRepository.getAll();
+
+        res.json({ customers });
+    } catch (error) {
+        console.error(`Error retrieving customers: ${error}`);
+        res.status(500).json({
+            msg: 'Hable con el administrador',
+        });
+    }
+};
+
 export {
     getEmpleados,
     getCertifications,
@@ -136,4 +151,5 @@ export {
     getRawMaterials,
     getProviders,
     getEstate,
+    getCustomers,
 };
