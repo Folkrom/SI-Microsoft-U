@@ -114,3 +114,14 @@ const getMarket = async () => {
         return error;
     }
 };
+
+const getISPinfo = async () => {
+    try {
+        const response = await httpService.get('/api/info/ISPinfo');
+
+        return response;
+    } catch (error) {
+        console.info(error);
+        return error;
+    }
+};

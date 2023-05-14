@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Información de ISP</title>
+        <link
+            href="https://fonts.googleapis.com/css?family=Segoe+UI&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="../styles/dashboard.css" />
+        <link rel="stylesheet" href="../styles/forms.css" />
+        <link rel="stylesheet" href="../styles/tables.css" />
+        <link rel="shortcut icon" href="assets/Microsoft_logo.svg" />
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="topbar">
+                <a href="/dashboard"><h2>Sistema de Información</h2></a>
+                <div class="user-info">
+                    <p>Bienvenido, <span id="username"></span></p>
+                    <p id="user-role"></p>
+                </div>
+                <button id="logout-btn">Cerrar sesión</button>
+            </div>
+
+            <div class="content-sidebar">
+                <div class="sidebar">
+                    <h3>Menú</h3>
+                    <ul class="menu">
+                        <!-- <li>
+                            <a href="#">
+                                Lorem ipsum dolor sit amet consectetur
+                                adipisicing elit. Reprehenderit omnis esse
+                                facilis, sunt nulla pariatur ab ipsa aut, odit
+                                aliquid corporis explicabo saepe necessitatibus
+                                nisi expedita accusantium quos totam minus!</a
+                            >
+                        </li> -->
+                    </ul>
+                </div>
+
+                <div class="content">
+                    <!-- <form
+                        id="registration-form"
+                        class="microsoft-form"
+                        autocomplete="off"
+                        onsubmit="handleSubmit(event)"
+                    >
+                        <legend>Registrar nuevo usuario</legend>
+                        <div>
+                            <label for="user">Nombre de usuario:</label>
+                            <input
+                                type="text"
+                                id="user"
+                                name="user"
+                                required
+                                autocomplete="off"
+                            />
+                        </div>
+                        <div>
+                            <label for="password">Contraseña:</label>
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                required
+                                autocomplete="off"
+                            />
+                        </div>
+                        <div>
+                            <label for="role">Rol:</label>
+                            <select id="role" name="role" required></select>
+                        </div>
+                        <p id="register-err"></p>
+                        <div>
+                            <button type="submit">Register</button>
+                        </div>
+                    </form> -->
+
+                    <table id="isp-info-table" class="microsoft-table">
+                        <caption>
+                            Información de ISPs
+                        </caption>
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Dispositivo</th>
+                                <th>Tipo de Conexion</th>
+                                <th>Velocidad Máxima</th>
+                                <th>Validez</th>
+                                <th>IP de red</th>
+                                <th>Alcance</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <script src="../js/HttpService.js"></script>
+        <script src="../js/requests.js"></script>
+        <script src="../js/isp-info-panel.js"></script>
+        <script src="../js/load-content.js"></script>
+    </body>
+</html>
