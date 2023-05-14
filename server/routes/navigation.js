@@ -74,4 +74,12 @@ router.get('/isp-info-panel', [
     res.sendFile(route);
 });
 
+router.get('/isp-requests-panel', [
+    validateJWT,
+    // isValidRole
+], (req, res) => {
+    const route = join(mainRoute, 'pages', 'isp-requests-panel.html');
+    res.sendFile(route);
+});
+
 export default router;
