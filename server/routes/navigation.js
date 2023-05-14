@@ -90,4 +90,12 @@ router.get('/raw-materials-panel', [
     res.sendFile(route);
 });
 
+router.get('/providers-panel', [
+    validateJWT,
+    // isValidRole
+], (req, res) => {
+    const route = join(mainRoute, 'pages', 'providers-panel.html');
+    res.sendFile(route);
+});
+
 export default router;
