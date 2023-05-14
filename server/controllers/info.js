@@ -1,6 +1,7 @@
 import dbConfig from '../database/config.js';
 import ISPInfoRepository from '../models/ISPInfo-repository.js';
 import ISPRequestRepository from '../models/ISPRequest-repository.js';
+import RawMaterialsRepository from '../models/RawMaterials-repository.js';
 import CertificacionesRepository from '../models/certifications-repository.js';
 import DatabaseConnection from '../models/database-connection.js';
 import FormatoOrganizacionalRepository from '../models/formato-organizacional-repository.js';
@@ -14,6 +15,7 @@ const certificacionesRepository = new CertificacionesRepository(dbConnection);
 const mercadoRepository = new MercadoRepository(dbConnection);
 const ISPInfoRepo = new ISPInfoRepository(dbConnection);
 const ISPRequestRepo = new ISPRequestRepository(dbConnection);
+const rawMaterialsRepository = new RawMaterialsRepository(dbConnection);
 
 const getEmpleados = async (req, res) => {
     try {
@@ -82,10 +84,24 @@ const getISPRequests = async (req, res) => {
     }
 };
 
+const getRawMaterials = async (req, res) => {
+    try {
+        const rawMaterials = await rawMaterialsRepository.getAll();
+
+        res.json({ rawMaterials });
+    } catch (error) {
+        console.error(`Error retrieving ISP requests: ${error}`);
+        res.status(500).json({
+            msg: 'Hable con el administrador',
+        });
+    }
+};
+
 export {
     getEmpleados,
     getCertifications,
     getMarket,
     getISPInfo,
     getISPRequests,
+    getRawMaterials,
 };
