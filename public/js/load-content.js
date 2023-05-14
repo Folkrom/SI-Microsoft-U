@@ -41,13 +41,22 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     if (role === 'CEO') {
         const employeesPanel = createMenuItem('Empleados', '/employees-panel');
+        const certificationsPanel = createMenuItem(
+            'Certificaciones',
+            '/certifications-panel'
+        );
         // const ISPPanel = createMenuItem('Roles', '/roles-panel');
 
         menu.appendChild(employeesPanel);
+        menu.appendChild(certificationsPanel);
         // menu.appendChild(ISPPanel);
 
         if (pathname === '/employees-panel') {
             loadEmployees();
+        }
+
+        if (pathname === '/certifications-panel') {
+            loadCertifications();
         }
     }
 });

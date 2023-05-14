@@ -92,3 +92,14 @@ const getEmployees = async () => {
         return error;
     }
 };
+
+const getCertifications = async () => {
+    try {
+        const response = await httpService.get('/api/info/certifications');
+
+        return response;
+    } catch (error) {
+        console.info(error);
+        return error;
+    }
+};
