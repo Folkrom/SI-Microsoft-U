@@ -46,13 +46,20 @@ document.addEventListener('DOMContentLoaded', async () => {
             '/certifications-panel'
         );
         const marketPanel = createMenuItem('Mercado', '/market-panel');
-        const ISPInfoPanel = createMenuItem('Informacion ISP', '/isp-info-panel');
+        const ISPInfoPanel = createMenuItem(
+            'Informacion ISP',
+            '/isp-info-panel'
+        );
+        const ISPRequestsPanel = createMenuItem(
+            'Solicitudes de ISP',
+            '/isp-requests-panel'
+        );
 
         menu.appendChild(employeesPanel);
         menu.appendChild(certificationsPanel);
         menu.appendChild(marketPanel);
         menu.appendChild(ISPInfoPanel);
-        // menu.appendChild(ISPPanel);
+        menu.appendChild(ISPRequestsPanel);
 
         if (pathname === '/employees-panel') {
             loadEmployees();
@@ -68,6 +75,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         if (pathname === '/isp-info-panel') {
             loadISPinfo();
+        }
+
+        if (pathname === '/isp-requests-panel') {
+            loadISPrequests();
         }
     }
 });

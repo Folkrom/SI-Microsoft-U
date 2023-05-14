@@ -125,3 +125,14 @@ const getISPinfo = async () => {
         return error;
     }
 };
+
+const getISPrequests = async () => {
+    try {
+        const response = await httpService.get('/api/info/ISPrequests');
+
+        return response;
+    } catch (error) {
+        console.info(error);
+        return error;
+    }
+};
