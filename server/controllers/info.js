@@ -71,9 +71,9 @@ const getISPInfo = async (req, res) => {
 
 const getISPRequests = async (req, res) => {
     try {
-        const ISPRequests = await ISPRequestRepo.getAll();
+        const ISPrequests = await ISPRequestRepo.getAll();
 
-        res.json({ ISPRequests });
+        res.json({ ISPrequests });
     } catch (error) {
         console.error(`Error retrieving ISP requests: ${error}`);
         res.status(500).json({
