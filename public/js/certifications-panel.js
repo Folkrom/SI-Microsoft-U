@@ -5,14 +5,14 @@ const loadCertifications = async () => {
     const { certifications } = await getCertifications();
 
     certificationsTbody.innerHTML = '';
-    certifications.forEach((employee) => {
+    certifications.forEach((certification) => {
         const row = document.createElement('tr');
 
         // Itera sobre las propiedades del empleado y crea las celdas
-        for (const key in employee) {
-            if (employee.hasOwnProperty(key)) {
+        for (const key in certification) {
+            if (certification.hasOwnProperty(key)) {
                 const cell = document.createElement('td');
-                cell.textContent = employee[key];
+                cell.textContent = certification[key];
                 row.appendChild(cell);
             }
         }
