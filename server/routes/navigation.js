@@ -58,4 +58,12 @@ router.get('/certifications-panel', [
     res.sendFile(route);
 });
 
+router.get('/market-panel', [
+    validateJWT,
+    // isValidRole
+], (req, res) => {
+    const route = join(mainRoute, 'pages', 'market-panel.html');
+    res.sendFile(route);
+});
+
 export default router;
