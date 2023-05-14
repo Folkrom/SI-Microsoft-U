@@ -103,3 +103,14 @@ const getCertifications = async () => {
         return error;
     }
 };
+
+const getMarket = async () => {
+    try {
+        const response = await httpService.get('/api/info/market');
+
+        return response;
+    } catch (error) {
+        console.info(error);
+        return error;
+    }
+};

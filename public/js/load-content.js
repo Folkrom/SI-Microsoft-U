@@ -45,10 +45,12 @@ document.addEventListener('DOMContentLoaded', async () => {
             'Certificaciones',
             '/certifications-panel'
         );
+        const marketPanel = createMenuItem('Mercado', '/market-panel');
         // const ISPPanel = createMenuItem('Roles', '/roles-panel');
 
         menu.appendChild(employeesPanel);
         menu.appendChild(certificationsPanel);
+        menu.appendChild(marketPanel);
         // menu.appendChild(ISPPanel);
 
         if (pathname === '/employees-panel') {
@@ -57,6 +59,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         if (pathname === '/certifications-panel') {
             loadCertifications();
+        }
+
+        if (pathname === '/market-panel') {
+            loadMarket();
         }
     }
 });
