@@ -41,11 +41,11 @@ router.get('/roles-panel', [
     res.sendFile(route);
 });
 
-router.get('/employees-panel', [
+router.get('/chieffs-panel', [
     validateJWT,
     // isValidRole
 ], (req, res) => {
-    const route = join(mainRoute, 'pages', 'employees-panel.html');
+    const route = join(mainRoute, 'pages', 'chieffs-panel.html');
     res.sendFile(route);
 });
 
@@ -110,6 +110,14 @@ router.get('/customers-panel', [
     // isValidRole
 ], (req, res) => {
     const route = join(mainRoute, 'pages', 'customers-panel.html');
+    res.sendFile(route);
+});
+
+router.get('/employees-panel', [
+    validateJWT,
+    // isValidRole
+], (req, res) => {
+    const route = join(mainRoute, 'pages', 'employees-panel.html');
     res.sendFile(route);
 });
 

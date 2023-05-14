@@ -3,7 +3,7 @@ import { Router } from 'express';
 import { validateJWT } from '../middlewares/validate-JWT.js';
 import {
     getCertifications,
-    getEmpleados,
+    getChieffs,
     getMarket,
     getISPInfo,
     getISPRequests,
@@ -11,15 +11,16 @@ import {
     getProviders,
     getEstate,
     getCustomers,
+    getEmployees,
 } from '../controllers/info.js';
 
 
 const router = Router();
 
-router.get('/empleados', [
+router.get('/chieffs', [
     validateJWT,
     // isAdminRole -> isValidRole
-], getEmpleados);
+], getChieffs);
 
 router.get('/certifications', [
     validateJWT,
@@ -60,6 +61,11 @@ router.get('/customers', [
     validateJWT,
     // isAdminRole -> isValidRole
 ], getCustomers);
+
+router.get('/employees', [
+    validateJWT,
+    // isAdminRole -> isValidRole
+], getEmployees);
 
 
 export default router;

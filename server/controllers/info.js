@@ -1,5 +1,6 @@
 import dbConfig from '../database/config.js';
 import CustomersRepository from '../models/Customers-repository.js';
+import EmployeesRepository from '../models/Employees-repository.js';
 import ISPInfoRepository from '../models/ISPInfo-repository.js';
 import ISPRequestRepository from '../models/ISPRequest-repository.js';
 import EstateRepository from '../models/Inmuebles-repository.js';
@@ -22,13 +23,13 @@ const rawMaterialsRepository = new RawMaterialsRepository(dbConnection);
 const providersRepository = new ProvidersRepository(dbConnection);
 const estateRepository = new EstateRepository(dbConnection);
 const customersRepository = new CustomersRepository(dbConnection);
+const employeesRepository = new EmployeesRepository(dbConnection);
 
-const getEmpleados = async (req, res) => {
+const getChieffs = async (req, res) => {
     try {
-        const empleados =
-            await formatoOrganizacionalRepository.getAllEmpleados();
+        const chieffs = await formatoOrganizacionalRepository.getAll();
 
-        res.json({ empleados });
+        res.json({ chieffs });
     } catch (error) {
         console.error(`Error retrieving users: ${error}`);
         res.status(500).json({
@@ -142,8 +143,21 @@ const getCustomers = async (req, res) => {
     }
 };
 
+const getEmployees = async (req, res) => {
+    try {
+        const employees = await employeesRepository.getAll();
+
+        res.json({ employees });
+    } catch (error) {
+        console.error(`Error retrieving employees: ${error}`);
+        res.status(500).json({
+            msg: 'Hable con el administrador',
+        });
+    }
+};
+
 export {
-    getEmpleados,
+    getChieffs,
     getCertifications,
     getMarket,
     getISPInfo,
@@ -152,4 +166,5 @@ export {
     getProviders,
     getEstate,
     getCustomers,
+    getEmployees,
 };
