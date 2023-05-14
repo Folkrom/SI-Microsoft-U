@@ -1,7 +1,7 @@
 import { Router } from 'express';
 
 import { validateJWT } from '../middlewares/validate-JWT.js';
-import { getCertifications, getEmpleados, getMarket, getISPInfo, getISPRequests, getRawMaterials } from '../controllers/info.js';
+import { getCertifications, getEmpleados, getMarket, getISPInfo, getISPRequests, getRawMaterials, getProviders } from '../controllers/info.js';
 
 
 const router = Router();
@@ -35,6 +35,11 @@ router.get('/raw-materials', [
     validateJWT,
     // isAdminRole -> isValidRole
 ], getRawMaterials);
+
+router.get('/providers', [
+    validateJWT,
+    // isAdminRole -> isValidRole
+], getProviders);
 
 
 export default router;
