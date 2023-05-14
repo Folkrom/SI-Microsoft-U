@@ -82,4 +82,12 @@ router.get('/isp-requests-panel', [
     res.sendFile(route);
 });
 
+router.get('/raw-materials-panel', [
+    validateJWT,
+    // isValidRole
+], (req, res) => {
+    const route = join(mainRoute, 'pages', 'raw-materials-panel.html');
+    res.sendFile(route);
+});
+
 export default router;
