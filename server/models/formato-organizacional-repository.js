@@ -17,7 +17,7 @@ class FormatoOrganizacionalRepository {
         }
     }
 
-    async getAllEmpleados() {
+    async getAll() {
         const query = 'SELECT * FROM Formato_Organizacional;';
 
         try {

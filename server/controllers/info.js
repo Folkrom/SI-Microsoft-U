@@ -1,6 +1,11 @@
 import dbConfig from '../database/config.js';
+import CustomersRepository from '../models/Customers-repository.js';
+import EmployeesRepository from '../models/Employees-repository.js';
 import ISPInfoRepository from '../models/ISPInfo-repository.js';
 import ISPRequestRepository from '../models/ISPRequest-repository.js';
+import EstateRepository from '../models/Inmuebles-repository.js';
+import ProvidersRepository from '../models/Providers-repository.js';
+import RawMaterialsRepository from '../models/RawMaterials-repository.js';
 import CertificacionesRepository from '../models/certifications-repository.js';
 import DatabaseConnection from '../models/database-connection.js';
 import FormatoOrganizacionalRepository from '../models/formato-organizacional-repository.js';
@@ -14,13 +19,17 @@ const certificacionesRepository = new CertificacionesRepository(dbConnection);
 const mercadoRepository = new MercadoRepository(dbConnection);
 const ISPInfoRepo = new ISPInfoRepository(dbConnection);
 const ISPRequestRepo = new ISPRequestRepository(dbConnection);
+const rawMaterialsRepository = new RawMaterialsRepository(dbConnection);
+const providersRepository = new ProvidersRepository(dbConnection);
+const estateRepository = new EstateRepository(dbConnection);
+const customersRepository = new CustomersRepository(dbConnection);
+const employeesRepository = new EmployeesRepository(dbConnection);
 
-const getEmpleados = async (req, res) => {
+const getChieffs = async (req, res) => {
     try {
-        const empleados =
-            await formatoOrganizacionalRepository.getAllEmpleados();
+        const chieffs = await formatoOrganizacionalRepository.getAll();
 
-        res.json({ empleados });
+        res.json({ chieffs });
     } catch (error) {
         console.error(`Error retrieving users: ${error}`);
         res.status(500).json({
@@ -82,10 +91,80 @@ const getISPRequests = async (req, res) => {
     }
 };
 
+const getRawMaterials = async (req, res) => {
+    try {
+        const rawMaterials = await rawMaterialsRepository.getAll();
+
+        res.json({ rawMaterials });
+    } catch (error) {
+        console.error(`Error retrieving materials: ${error}`);
+        res.status(500).json({
+            msg: 'Hable con el administrador',
+        });
+    }
+};
+
+const getProviders = async (req, res) => {
+    try {
+        const providers = await providersRepository.getAll();
+
+        res.json({ providers });
+    } catch (error) {
+        console.error(`Error retrieving providers: ${error}`);
+        res.status(500).json({
+            msg: 'Hable con el administrador',
+        });
+    }
+};
+
+const getEstate = async (req, res) => {
+    try {
+        const estate = await estateRepository.getAll();
+
+        res.json({ estate });
+    } catch (error) {
+        console.error(`Error retrieving estate: ${error}`);
+        res.status(500).json({
+            msg: 'Hable con el administrador',
+        });
+    }
+};
+
+const getCustomers = async (req, res) => {
+    try {
+        const customers = await customersRepository.getAll();
+
+        res.json({ customers });
+    } catch (error) {
+        console.error(`Error retrieving customers: ${error}`);
+        res.status(500).json({
+            msg: 'Hable con el administrador',
+        });
+    }
+};
+
+const getEmployees = async (req, res) => {
+    try {
+        const employees = await employeesRepository.getAll();
+
+        res.json({ employees });
+    } catch (error) {
+        console.error(`Error retrieving employees: ${error}`);
+        res.status(500).json({
+            msg: 'Hable con el administrador',
+        });
+    }
+};
+
 export {
-    getEmpleados,
+    getChieffs,
     getCertifications,
     getMarket,
     getISPInfo,
     getISPRequests,
+    getRawMaterials,
+    getProviders,
+    getEstate,
+    getCustomers,
+    getEmployees,
 };
