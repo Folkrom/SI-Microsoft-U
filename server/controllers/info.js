@@ -1,4 +1,6 @@
 import dbConfig from '../database/config.js';
+import ISPInfoRepository from '../models/ISPInfo-repository.js';
+import ISPRequestRepository from '../models/ISPRequest-repository.js';
 import CertificacionesRepository from '../models/certifications-repository.js';
 import DatabaseConnection from '../models/database-connection.js';
 import FormatoOrganizacionalRepository from '../models/formato-organizacional-repository.js';
@@ -10,6 +12,8 @@ const formatoOrganizacionalRepository = new FormatoOrganizacionalRepository(
 );
 const certificacionesRepository = new CertificacionesRepository(dbConnection);
 const mercadoRepository = new MercadoRepository(dbConnection);
+const ISPInfoRepo = new ISPInfoRepository(dbConnection);
+const ISPRequestRepo = new ISPRequestRepository(dbConnection);
 
 const getEmpleados = async (req, res) => {
     try {
@@ -52,4 +56,36 @@ const getMarket = async (req, res) => {
     }
 };
 
-export { getEmpleados, getCertifications, getMarket };
+const getISPInfo = async (req, res) => {
+    try {
+        const ISPinfo = await ISPInfoRepo.getAll();
+
+        res.json({ ISPinfo });
+    } catch (error) {
+        console.error(`Error retrieving ISP info: ${error}`);
+        res.status(500).json({
+            msg: 'Hable con el administrador',
+        });
+    }
+};
+
+const getISPRequests = async (req, res) => {
+    try {
+        const ISPRequests = await ISPRequestRepo.getAll();
+
+        res.json({ ISPRequests });
+    } catch (error) {
+        console.error(`Error retrieving ISP requests: ${error}`);
+        res.status(500).json({
+            msg: 'Hable con el administrador',
+        });
+    }
+};
+
+export {
+    getEmpleados,
+    getCertifications,
+    getMarket,
+    getISPInfo,
+    getISPRequests,
+};

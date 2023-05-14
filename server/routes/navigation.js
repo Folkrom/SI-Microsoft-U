@@ -66,4 +66,20 @@ router.get('/market-panel', [
     res.sendFile(route);
 });
 
+router.get('/isp-info-panel', [
+    validateJWT,
+    // isValidRole
+], (req, res) => {
+    const route = join(mainRoute, 'pages', 'isp-info-panel.html');
+    res.sendFile(route);
+});
+
+router.get('/isp-requests-panel', [
+    validateJWT,
+    // isValidRole
+], (req, res) => {
+    const route = join(mainRoute, 'pages', 'isp-requests-panel.html');
+    res.sendFile(route);
+});
+
 export default router;
