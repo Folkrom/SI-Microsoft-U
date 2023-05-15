@@ -1,16 +1,16 @@
 
-const isAdminRole = async (req, res, next) => {
+const isAdminRole = (req, res, next) => {
     const role = req.cookies['x-role'];
 
     if (!role) {
-        return res.status(500).json({
-            msg: 'Se quiere verificar el role sin validar el token primero',
+        return res.status(401).json({
+            msg: 'No se ha proporcionado el rol.',
         });
     }
 
-    if (role !== 'Administrador') {
-        return res.status(401).json({
-            msg: 'No es administrador - No puede hacer esto',
+    if (role !== 'Administrador' && role !== 'CEO') {
+        return res.status(403).json({
+            msg: 'No tiene permisos suficientes para realizar esta acción.',
         });
     }
 
