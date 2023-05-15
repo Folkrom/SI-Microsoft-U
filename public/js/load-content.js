@@ -1,124 +1,5 @@
 // Obtener elementos del DOM
-const usernameElement = document.getElementById('username');
-const userRoleElement = document.getElementById('user-role');
-const logoutButton = document.getElementById('logout-btn');
-const menu = document.getElementsByClassName('menu')[0];
-
-// Current user data
-const { username, role } = {
-    username: sessionStorage.getItem('username'),
-    role: sessionStorage.getItem('role'),
-};
-
-// Custom page for current user
-usernameElement.textContent = username;
-userRoleElement.textContent = role;
-
-// On DOM load
-document.addEventListener('DOMContentLoaded', async () => {
-    const { pathname } = window.location;
-
-    if (pathname === '/dashboard') {
-        document.querySelector('.content #username').innerText = username;
-        document.querySelector('.content #user-role').innerText = role;
-    }
-
-    if (role === 'Administrador') {
-        const usersPanel = createMenuItem('Usuarios', '/users-panel');
-        const rolesPanel = createMenuItem('Roles', '/roles-panel');
-
-        menu.appendChild(usersPanel);
-        menu.appendChild(rolesPanel);
-
-        if (pathname === '/users-panel') {
-            loadUsers();
-        }
-
-        if (pathname === '/roles-panel') {
-            loadRoles();
-        }
-    }
-
-    if (role === 'CEO') {
-        const chiefsPanel = createMenuItem('Directores', '/chiefs-panel');
-        const marketPanel = createMenuItem('Mercado', '/market-panel');
-        const estatePanel = createMenuItem('Inmuebles', '/estate-panel');
-        const customersPanel = createMenuItem('Clientes', '/customers-panel');
-        const employeesPanel = createMenuItem('Empleados', '/employees-panel');
-        const certificationsPanel = createMenuItem(
-            'Certificaciones',
-            '/certifications-panel'
-        );
-        const ISPInfoPanel = createMenuItem(
-            'Informacion ISP',
-            '/isp-info-panel'
-        );
-        const ISPRequestsPanel = createMenuItem(
-            'Solicitudes de ISP',
-            '/isp-requests-panel'
-        );
-        const rawMaterialsPanel = createMenuItem(
-            'Materias Primas',
-            '/raw-materials-panel'
-        );
-        const providersPanel = createMenuItem(
-            'Proveedores',
-            '/providers-panel'
-        );
-
-        menu.appendChild(chiefsPanel);
-        menu.appendChild(employeesPanel);
-        menu.appendChild(customersPanel);
-        menu.appendChild(ISPInfoPanel);
-        menu.appendChild(ISPRequestsPanel);
-        menu.appendChild(rawMaterialsPanel);
-        menu.appendChild(providersPanel);
-        menu.appendChild(estatePanel);
-        menu.appendChild(marketPanel);
-        menu.appendChild(certificationsPanel);
-
-        if (pathname === '/chiefs-panel') {
-            loadChiefs();
-        }
-
-        if (pathname === '/certifications-panel') {
-            loadCertifications();
-        }
-
-        if (pathname === '/market-panel') {
-            loadMarket();
-        }
-
-        if (pathname === '/isp-info-panel') {
-            loadISPinfo();
-        }
-
-        if (pathname === '/isp-requests-panel') {
-            loadISPrequests();
-        }
-
-        if (pathname === '/raw-materials-panel') {
-            loadRawMaterials();
-        }
-
-        if (pathname === '/providers-panel') {
-            loadProviders();
-        }
-
-        if (pathname === '/estate-panel') {
-            loadEstate();
-        }
-
-        if (pathname === '/customers-panel') {
-            loadCustomers();
-        }
-
-        if (pathname === '/employees-panel') {
-            loadEmployees();
-        }
-    }
-});
-
+const getElement = (id) => document.getElementById(id);
 const createMenuItem = (text, href) => {
     const li = document.createElement('li');
     const link = document.createElement('a');
@@ -130,6 +11,126 @@ const createMenuItem = (text, href) => {
 
     return li;
 };
+
+// Elementos del DOM
+const usernameElement = document.getElementById('username');
+const userRoleElement = document.getElementById('user-role');
+const logoutButton = document.getElementById('logout-btn');
+const menu = document.getElementsByClassName('menu')[0];
+
+// Datos del usuario actual
+const { username, role } = {
+    username: sessionStorage.getItem('username'),
+    role: sessionStorage.getItem('role'),
+};
+
+// Página personalizada para el usuario actual
+usernameElement.textContent = username;
+userRoleElement.textContent = role;
+
+const { pathname } = window.location;
+
+if (pathname === '/dashboard') {
+    document.querySelector('.content #username').innerText = username;
+    document.querySelector('.content #user-role').innerText = role;
+}
+
+// Función para cargar los elementos del menú según el rol
+const loadMenuItems = (items) => {
+    for (const item of items) {
+        const menuItem = createMenuItem(item.text, item.href);
+        menu.appendChild(menuItem);
+    }
+};
+
+// Cargar elementos del menú según el rol
+const loadRoleMenu = async () => {
+    if (role === 'Administrador') {
+        const adminItems = [
+            { text: 'Usuarios', href: '/users-panel' },
+            { text: 'Roles', href: '/roles-panel' },
+        ];
+        loadMenuItems(adminItems);
+        if (window.location.pathname === '/users-panel') {
+            await loadUsers();
+        }
+        if (window.location.pathname === '/roles-panel') {
+            await loadRoles();
+        }
+    }
+
+    if (role === 'CEO') {
+        const ceoItems = [
+            { text: 'Directores', href: '/chiefs-panel' },
+            { text: 'Mercado', href: '/market-panel' },
+            { text: 'Inmuebles', href: '/estate-panel' },
+            { text: 'Clientes', href: '/customers-panel' },
+            { text: 'Empleados', href: '/employees-panel' },
+            { text: 'Certificaciones', href: '/certifications-panel' },
+            { text: 'Informacion ISP', href: '/isp-info-panel' },
+            { text: 'Solicitudes de ISP', href: '/isp-requests-panel' },
+            { text: 'Materias Primas', href: '/raw-materials-panel' },
+            { text: 'Proveedores', href: '/providers-panel' },
+        ];
+        loadMenuItems(ceoItems);
+        if (pathname === '/chiefs-panel') {
+            await loadChiefs();
+        }
+
+        if (pathname === '/certifications-panel') {
+            await loadCertifications();
+        }
+
+        if (pathname === '/market-panel') {
+            await loadMarket();
+        }
+
+        if (pathname === '/isp-info-panel') {
+            await loadISPinfo();
+        }
+
+        if (pathname === '/isp-requests-panel') {
+            await loadISPrequests();
+        }
+
+        if (pathname === '/raw-materials-panel') {
+            await loadRawMaterials();
+        }
+
+        if (pathname === '/providers-panel') {
+            await loadProviders();
+        }
+
+        if (pathname === '/estate-panel') {
+            await loadEstate();
+        }
+
+        if (pathname === '/customers-panel') {
+            await loadCustomers();
+        }
+
+        if (pathname === '/employees-panel') {
+            await loadEmployees();
+        }
+    }
+
+    if (role === 'Recursos Humanos') {
+        const hrItems = [
+            { text: 'Directores', href: '/chiefs-panel' },
+            { text: 'Empleados', href: '/employees-panel' },
+        ];
+        loadMenuItems(hrItems);
+        if (window.location.pathname === '/chiefs-panel') {
+            await loadChiefs();
+        }
+        if (window.location.pathname === '/employees-panel') {
+            await loadEmployees();
+        }
+    }
+};
+
+// Cargar elementos del menú según el rol
+loadRoleMenu();
 
 // Evento para cerrar sesión
 logoutButton.addEventListener('click', async () => {
