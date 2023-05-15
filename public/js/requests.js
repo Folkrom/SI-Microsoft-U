@@ -126,9 +126,53 @@ const getISPinfo = async () => {
     }
 };
 
-const getISPrequests = async () => {
+const getRawMaterials = async () => {
     try {
-        const response = await httpService.get('/api/info/ISPrequests');
+        const response = await httpService.get('/api/info/raw-materials');
+
+        return response;
+    } catch (error) {
+        console.info(error);
+        return error;
+    }
+};
+
+const getProviders = async () => {
+    try {
+        const response = await httpService.get('/api/info/providers');
+
+        return response;
+    } catch (error) {
+        console.info(error);
+        return error;
+    }
+};
+
+const getEstate = async () => {
+    try {
+        const response = await httpService.get('/api/info/estate');
+
+        return response;
+    } catch (error) {
+        console.info(error);
+        return error;
+    }
+};
+
+const getCustomers = async () => {
+    try {
+        const response = await httpService.get('/api/info/customers');
+
+        return response;
+    } catch (error) {
+        console.info(error);
+        return error;
+    }
+};
+
+const getEmployees = async () => {
+    try {
+        const response = await httpService.get('/api/info/employees');
 
         return response;
     } catch (error) {
