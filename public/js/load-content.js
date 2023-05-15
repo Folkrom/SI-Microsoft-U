@@ -51,10 +51,10 @@ const loadRoleMenu = async () => {
             { text: 'Roles', href: '/roles-panel' },
         ];
         loadMenuItems(adminItems);
-        if (window.location.pathname === '/users-panel') {
+        if (pathname === '/users-panel') {
             await loadUsers();
         }
-        if (window.location.pathname === '/roles-panel') {
+        if (pathname === '/roles-panel') {
             await loadRoles();
         }
     }
@@ -120,10 +120,10 @@ const loadRoleMenu = async () => {
             { text: 'Empleados', href: '/employees-panel' },
         ];
         loadMenuItems(hrItems);
-        if (window.location.pathname === '/chiefs-panel') {
+        if (pathname === '/chiefs-panel') {
             await loadChiefs();
         }
-        if (window.location.pathname === '/employees-panel') {
+        if (pathname === '/employees-panel') {
             await loadEmployees();
         }
     }
