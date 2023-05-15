@@ -82,6 +82,30 @@ const editRole = async (role, newRole) => {
     }
 };
 
+const deleteUser = async (id) => {
+    try {
+        const response = await httpService.delete(`api/users/${id}`);
+
+        return response;
+    } catch (error) {
+        console.info(error);
+        return error;
+    }
+};
+
+const editUser = async (id, newPassword, newUsername, newRole) => {
+    const data = { password: newPassword, roleName: newRole, newUsername };
+
+    try {
+        const response = await httpService.put(`/api/users/${id}`, data);
+
+        return response;
+    } catch (error) {
+        console.info(error);
+        return error;
+    }
+};
+
 const getChiefs = async () => {
     try {
         const response = await httpService.get('/api/info/chiefs');

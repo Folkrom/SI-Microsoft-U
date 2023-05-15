@@ -10,6 +10,7 @@
         />
         <link rel="stylesheet" href="../styles/dashboard.css" />
         <link rel="stylesheet" href="../styles/forms.css" />
+        <link rel="stylesheet" href="../styles/modal.css" />
         <link rel="stylesheet" href="../styles/tables.css" />
         <link rel="shortcut icon" href="assets/Microsoft_logo.svg" />
     </head>
@@ -88,11 +89,51 @@
                                 <th>ID</th>
                                 <th>Nombre de usuario</th>
                                 <th>Rol</th>
+                                <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody></tbody>
                     </table>
                 </div>
+            </div>
+        </div>
+        <div id="edit-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <form id="edit-form" class="microsoft-form" autocomplete="off">
+                    <legend>Editar usuario</legend>
+                    <div>
+                        <label for="edit-password">Nueva Contraseña:</label>
+                        <input
+                            type="password"
+                            id="edit-password"
+                            name="edit-password"
+                            autocomplete="off"
+                            placeholder="Obligatorio"
+                            required
+                        />
+                    </div>
+                    <div>
+                        <label for="edit-username"
+                            >Nuevo Nombre de Usuario:</label
+                        >
+                        <input
+                            type="text"
+                            id="edit-username"
+                            name="edit-username"
+                            autocomplete="off"
+                            placeholder="Opcional"
+                        />
+                    </div>
+                    <div>
+                        <label for="edit-role">Nuevo Rol:</label>
+                        <select id="edit-role" name="edit-role"></select>
+                    </div>
+                    <p id="edit-err"></p>
+                    <div>
+                        <button type="submit">Guardar cambios</button>
+                    </div>
+                </form>
             </div>
         </div>
         <script src="../js/HttpService.js"></script>
