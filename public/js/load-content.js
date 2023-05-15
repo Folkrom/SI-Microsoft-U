@@ -40,12 +40,15 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     if (role === 'CEO') {
-        const employeesPanel = createMenuItem('Directores', '/chiefs-panel');
+        const chiefsPanel = createMenuItem('Directores', '/chiefs-panel');
+        const marketPanel = createMenuItem('Mercado', '/market-panel');
+        const estatePanel = createMenuItem('Inmuebles', '/estate-panel');
+        const customersPanel = createMenuItem('Clientes', '/customers-panel');
+        const employeesPanel = createMenuItem('Empleados', '/employees-panel');
         const certificationsPanel = createMenuItem(
             'Certificaciones',
             '/certifications-panel'
         );
-        const marketPanel = createMenuItem('Mercado', '/market-panel');
         const ISPInfoPanel = createMenuItem(
             'Informacion ISP',
             '/isp-info-panel'
@@ -54,12 +57,25 @@ document.addEventListener('DOMContentLoaded', async () => {
             'Solicitudes de ISP',
             '/isp-requests-panel'
         );
+        const rawMaterialsPanel = createMenuItem(
+            'Materias Primas',
+            '/raw-materials-panel'
+        );
+        const providersPanel = createMenuItem(
+            'Proveedores',
+            '/providers-panel'
+        );
 
+        menu.appendChild(chiefsPanel);
         menu.appendChild(employeesPanel);
-        menu.appendChild(certificationsPanel);
-        menu.appendChild(marketPanel);
+        menu.appendChild(customersPanel);
         menu.appendChild(ISPInfoPanel);
         menu.appendChild(ISPRequestsPanel);
+        menu.appendChild(rawMaterialsPanel);
+        menu.appendChild(providersPanel);
+        menu.appendChild(estatePanel);
+        menu.appendChild(marketPanel);
+        menu.appendChild(certificationsPanel);
 
         if (pathname === '/chiefs-panel') {
             loadChiefs();
@@ -79,6 +95,26 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         if (pathname === '/isp-requests-panel') {
             loadISPrequests();
+        }
+
+        if (pathname === '/raw-materials-panel') {
+            loadRawMaterials();
+        }
+
+        if (pathname === '/providers-panel') {
+            loadProviders();
+        }
+
+        if (pathname === '/estate-panel') {
+            loadEstate();
+        }
+
+        if (pathname === '/customers-panel') {
+            loadCustomers();
+        }
+
+        if (pathname === '/employees-panel') {
+            loadEmployees();
         }
     }
 });
