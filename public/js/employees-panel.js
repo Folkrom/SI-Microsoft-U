@@ -2,7 +2,7 @@ const loadEmployees = async () => {
     const employeesTable = document.getElementById('employees-table');
     const employeesTbody = employeesTable.querySelector('tbody');
 
-    const { empleados: employees } = await getEmployees();
+    const { employees } = await getEmployees();
 
     employeesTbody.innerHTML = '';
     employees.forEach((employee) => {
