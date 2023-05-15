@@ -71,6 +71,8 @@ const loadRoleMenu = async () => {
             { text: 'Solicitudes de ISP', href: '/isp-requests-panel' },
             { text: 'Materias Primas', href: '/raw-materials-panel' },
             { text: 'Proveedores', href: '/providers-panel' },
+            { text: 'Usuarios', href: '/users-panel' },
+            { text: 'Roles', href: '/roles-panel' },
         ];
         loadMenuItems(ceoItems);
         if (pathname === '/chiefs-panel') {
@@ -112,6 +114,12 @@ const loadRoleMenu = async () => {
         if (pathname === '/employees-panel') {
             await loadEmployees();
         }
+        if (pathname === '/users-panel') {
+            await loadUsers();
+        }
+        if (pathname === '/roles-panel') {
+            await loadRoles();
+        }
     }
 
     if (role === 'Recursos Humanos') {
@@ -125,6 +133,92 @@ const loadRoleMenu = async () => {
         }
         if (pathname === '/employees-panel') {
             await loadEmployees();
+        }
+    }
+
+    if (role === 'Ventas') {
+        const hrItems = [
+            { text: 'Mercado', href: '/market-panel' },
+            { text: 'Clientes', href: '/customers-panel' },
+            { text: 'Proveedores', href: '/providers-panel' },
+        ];
+        loadMenuItems(hrItems);
+        if (pathname === '/market-panel') {
+            await loadMarket();
+        }
+        if (pathname === '/customers-panel') {
+            await loadCustomers();
+        }
+        if (pathname === '/providers-panel') {
+            await loadProviders();
+        }
+    }
+
+    if (role === 'Auditoría') {
+        const hrItems = [
+            { text: 'Certificaciones', href: '/certifications-panel' },
+            { text: 'Inmuebles', href: '/estate-panel' },
+        ];
+        loadMenuItems(hrItems);
+        if (pathname === '/certifications-panel') {
+            await loadCertifications();
+        }
+        if (pathname === '/estate-panel') {
+            await loadEstate();
+        }
+    }
+
+    if (role === 'TI') {
+        const hrItems = [
+            { text: 'Informacion ISP', href: '/isp-info-panel' },
+            { text: 'Solicitudes de ISP', href: '/isp-requests-panel' },
+        ];
+        loadMenuItems(hrItems);
+        if (pathname === '/isp-info-panel') {
+            await loadISPinfo();
+        }
+        if (pathname === '/isp-requests-panel') {
+            await loadISPrequests();
+        }
+    }
+
+    if (role === 'Producción') {
+        const hrItems = [
+            { text: 'Materias Primas', href: '/raw-materials-panel' },
+            { text: 'Proveedores', href: '/providers-panel' },
+            { text: 'Mercado', href: '/market-panel' },
+        ];
+        loadMenuItems(hrItems);
+        if (pathname === '/market-panel') {
+            await loadMarket();
+        }
+        if (pathname === '/raw-materials-panel') {
+            await loadRawMaterials();
+        }
+        if (pathname === '/providers-panel') {
+            await loadProviders();
+        }
+    }
+
+    if (role === 'Finanzas') {
+        const hrItems = [
+            { text: 'Inmuebles', href: '/estate-panel' },
+            { text: 'Mercado', href: '/market-panel' },
+            { text: 'Clientes', href: '/customers-panel' },
+            { text: 'Proveedores', href: '/providers-panel' },
+        ];
+        loadMenuItems(hrItems);
+        if (pathname === '/market-panel') {
+            await loadMarket();
+        }
+        if (pathname === '/estate-panel') {
+            await loadEstate();
+        }
+        if (pathname === '/customers-panel') {
+            await loadCustomers();
+        }
+        if (pathname === '/providers-panel') {
+            await loadProviders();
         }
     }
 };
