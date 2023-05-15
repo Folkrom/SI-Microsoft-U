@@ -126,6 +126,17 @@ const getISPinfo = async () => {
     }
 };
 
+const getISPrequests = async () => {
+    try {
+        const response = await httpService.get('/api/info/ISPrequests');
+
+        return response;
+    } catch (error) {
+        console.info(error);
+        return error;
+    }
+};
+
 const getRawMaterials = async () => {
     try {
         const response = await httpService.get('/api/info/raw-materials');
