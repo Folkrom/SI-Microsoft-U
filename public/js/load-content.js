@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     if (role === 'CEO') {
-        const employeesPanel = createMenuItem('Empleados', '/employees-panel');
+        const employeesPanel = createMenuItem('Directores', '/chiefs-panel');
         const certificationsPanel = createMenuItem(
             'Certificaciones',
             '/certifications-panel'
@@ -61,8 +61,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         menu.appendChild(ISPInfoPanel);
         menu.appendChild(ISPRequestsPanel);
 
-        if (pathname === '/employees-panel') {
-            loadEmployees();
+        if (pathname === '/chiefs-panel') {
+            loadChiefs();
         }
 
         if (pathname === '/certifications-panel') {

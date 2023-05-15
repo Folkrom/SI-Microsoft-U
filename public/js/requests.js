@@ -82,9 +82,9 @@ const editRole = async (role, newRole) => {
     }
 };
 
-const getEmployees = async () => {
+const getChiefs = async () => {
     try {
-        const response = await httpService.get('/api/info/empleados');
+        const response = await httpService.get('/api/info/chiefs');
 
         return response;
     } catch (error) {
