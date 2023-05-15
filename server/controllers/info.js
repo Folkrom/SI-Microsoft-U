@@ -25,11 +25,11 @@ const estateRepository = new EstateRepository(dbConnection);
 const customersRepository = new CustomersRepository(dbConnection);
 const employeesRepository = new EmployeesRepository(dbConnection);
 
-const getChieffs = async (req, res) => {
+const getChiefs = async (req, res) => {
     try {
-        const chieffs = await formatoOrganizacionalRepository.getAll();
+        const chiefs = await formatoOrganizacionalRepository.getAll();
 
-        res.json({ chieffs });
+        res.json({ chiefs });
     } catch (error) {
         console.error(`Error retrieving users: ${error}`);
         res.status(500).json({
@@ -157,7 +157,7 @@ const getEmployees = async (req, res) => {
 };
 
 export {
-    getChieffs,
+    getChiefs,
     getCertifications,
     getMarket,
     getISPInfo,

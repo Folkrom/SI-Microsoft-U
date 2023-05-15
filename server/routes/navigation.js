@@ -41,11 +41,11 @@ router.get('/roles-panel', [
     res.sendFile(route);
 });
 
-router.get('/chieffs-panel', [
+router.get('/chiefs-panel', [
     validateJWT,
     // isValidRole
 ], (req, res) => {
-    const route = join(mainRoute, 'pages', 'chieffs-panel.html');
+    const route = join(mainRoute, 'pages', 'chiefs-panel.html');
     res.sendFile(route);
 });
 
