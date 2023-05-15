@@ -3,7 +3,7 @@ import { Router } from 'express';
 import { validateJWT } from '../middlewares/validate-JWT.js';
 import {
     getCertifications,
-    getChieffs,
+    getChiefs,
     getMarket,
     getISPInfo,
     getISPRequests,
@@ -17,10 +17,10 @@ import {
 
 const router = Router();
 
-router.get('/chieffs', [
+router.get('/chiefs', [
     validateJWT,
     // isAdminRole -> isValidRole
-], getChieffs);
+], getChiefs);
 
 router.get('/certifications', [
     validateJWT,
