@@ -13,6 +13,7 @@ import {
     getCustomers,
     getEmployees,
     addChief,
+    addEstate,
 } from '../controllers/info.js';
 
 
@@ -72,6 +73,11 @@ router.post('/chiefs', [
     validateJWT,
     // isAdminRole -> isValidRole
 ], addChief);
+
+router.post('/estate', [
+    validateJWT,
+    // isAdminRole -> isValidRole
+], addEstate);
 
 
 export default router;

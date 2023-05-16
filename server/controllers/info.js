@@ -186,6 +186,36 @@ const addChief = async (req, res) => {
     }
 };
 
+const addEstate = async (req, res) => {
+    try {
+        const inmuebleData = req.body;
+        const { direccion, tipo_inmueble } = inmuebleData;
+        const inmuebleExists = await estateRepository.getInmuebleByDireccion(
+            direccion
+        );
+
+        if (inmuebleExists) {
+            return res.status(409).json({
+                err: 'El inmueble ya existe.',
+            });
+        }
+
+        const addEstate = await estateRepository.createInmueble(inmuebleData);
+
+        if (!addEstate)
+            return res.status(500).json({ err: 'Error en el servidor' });
+
+        res.status(201).json({
+            msg: `Inmueble ubicado en: ${direccion} de tipo ${tipo_inmueble} creado!`,
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            err: 'Hable con el administrador',
+        });
+    }
+};
+
 export {
     getChiefs,
     getCertifications,
@@ -198,4 +228,5 @@ export {
     getCustomers,
     getEmployees,
     addChief,
+    addEstate,
 };

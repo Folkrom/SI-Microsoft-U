@@ -16,6 +16,21 @@ class EstateRepository {
         }
     }
 
+    async getInmuebleByDireccion(direccion) {
+        const query = 'SELECT * FROM Inmuebles WHERE direccion = ?;';
+        const params = [direccion];
+
+        try {
+            const result = await this.dbConnection.executeQuery(query, params);
+            return result[0];
+        } catch (err) {
+            console.error(
+                `Error retrieving property with direccion "${direccion}": ${err}`
+            );
+            throw err;
+        }
+    }
+
     async getAll() {
         const query = 'SELECT * FROM Inmuebles;';
 
