@@ -14,6 +14,7 @@ import {
     getEmployees,
     addChief,
     addEstate,
+    addMarket,
 } from '../controllers/info.js';
 
 
@@ -78,6 +79,11 @@ router.post('/estate', [
     validateJWT,
     // isAdminRole -> isValidRole
 ], addEstate);
+
+router.post('/market', [
+    validateJWT,
+    // isAdminRole -> isValidRole
+], addMarket);
 
 
 export default router;

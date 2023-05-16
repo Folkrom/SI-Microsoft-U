@@ -216,6 +216,35 @@ const addEstate = async (req, res) => {
     }
 };
 
+const addMarket = async (req, res) => {
+    try {
+        const mercadoData = req.body;
+        const { Nombre_de_la_empresa } = mercadoData;
+        const marketExists = await mercadoRepository.getMercado(
+            Nombre_de_la_empresa
+        );
+
+        if (marketExists) {
+            return res.status(409).json({
+                err: 'El mercado ya existe.',
+            });
+        }
+
+        const market = await mercadoRepository.createMercado(mercadoData);
+
+        if (!market) return res.status(500).json({ err: 'Error del servidor' });
+
+        res.status(201).json({
+            msg: `Mercado ${Nombre_de_la_empresa} creado exitosamente`,
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            err: 'Hable con el administrador',
+        });
+    }
+};
+
 export {
     getChiefs,
     getCertifications,
@@ -229,4 +258,5 @@ export {
     getEmployees,
     addChief,
     addEstate,
+    addMarket,
 };
