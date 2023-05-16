@@ -16,6 +16,7 @@ import {
     addEstate,
     addMarket,
     addCustomer,
+    addProvider,
 } from '../controllers/info.js';
 
 
@@ -90,6 +91,11 @@ router.post('/customers', [
     validateJWT,
     // isAdminRole -> isValidRole
 ], addCustomer);
+
+router.post('/providers', [
+    validateJWT,
+    // isAdminRole -> isValidRole
+], addProvider);
 
 
 export default router;

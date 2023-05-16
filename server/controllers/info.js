@@ -275,6 +275,38 @@ const addCustomer = async (req, res) => {
     }
 };
 
+const addProvider = async (req, res) => {
+    try {
+        const providerData = req.body;
+        const { nombre_proveedor } = providerData;
+        const providerExists = await providersRepository.getProveedorByName(
+            nombre_proveedor
+        );
+
+        if (providerExists) {
+            return res.status(409).json({
+                err: 'El proveedor ya existe.',
+            });
+        }
+
+        const provider = await providersRepository.createProveedor(
+            providerData
+        );
+
+        if (!provider)
+            return res.status(500).json({ err: 'Error del servidor' });
+
+        res.status(201).json({
+            msg: `Proveedor ${nombre_proveedor} creado exitosamente`,
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            err: 'Hable con el administrador',
+        });
+    }
+};
+
 export {
     getChiefs,
     getCertifications,
@@ -290,4 +322,5 @@ export {
     addEstate,
     addMarket,
     addCustomer,
+    addProvider,
 };
