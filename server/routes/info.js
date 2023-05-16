@@ -20,6 +20,7 @@ import {
     addISPinfo,
     addRawMaterial,
     addEmployee,
+    addCertification,
 } from '../controllers/info.js';
 
 
@@ -114,6 +115,11 @@ router.post('/employees', [
     validateJWT,
     // isAdminRole -> isValidRole
 ], addEmployee);
+
+router.post('/certifications', [
+    validateJWT,
+    // isAdminRole -> isValidRole
+], addCertification);
 
 
 export default router;

@@ -400,6 +400,41 @@ const addEmployee = async (req, res) => {
     }
 };
 
+const addCertification = async (req, res) => {
+    try {
+        const certificacionData = req.body;
+        const { Norma_de_Aplicacion, Certificado } = certificacionData;
+        const certificacionExists =
+            await certificacionesRepository.getCertificacion(
+                Norma_de_Aplicacion,
+                Certificado
+            );
+
+        if (certificacionExists) {
+            return res.status(409).json({
+                err: 'La certificación con la misma Norma de Aplicación y Certificado ya existe.',
+            });
+        }
+
+        const createdCertificacion =
+            await certificacionesRepository.createCertificacion(
+                certificacionData
+            );
+
+        if (!createdCertificacion)
+            return res.status(500).json({ err: 'Error del servidor' });
+
+        res.status(201).json({
+            msg: `Certificación creada exitosamente: ${Norma_de_Aplicacion} - ${Certificado}`,
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            err: 'Hable con el administrador',
+        });
+    }
+};
+
 export {
     getChiefs,
     getCertifications,
@@ -419,4 +454,5 @@ export {
     addISPinfo,
     addRawMaterial,
     addEmployee,
+    addCertification,
 };
