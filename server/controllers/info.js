@@ -245,6 +245,36 @@ const addMarket = async (req, res) => {
     }
 };
 
+const addCustomer = async (req, res) => {
+    try {
+        const clienteData = req.body;
+        const { nombre_cliente } = clienteData;
+        const clienteExists = await customersRepository.getClienteByNombre(
+            nombre_cliente
+        );
+
+        if (clienteExists) {
+            return res.status(409).json({
+                err: 'El cliente ya existe.',
+            });
+        }
+
+        const cliente = await customersRepository.createCliente(clienteData);
+
+        if (!cliente)
+            return res.status(500).json({ err: 'Error del servidor' });
+
+        res.status(201).json({
+            msg: `Cliente ${nombre_cliente} creado exitosamente`,
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            err: 'Hable con el administrador',
+        });
+    }
+};
+
 export {
     getChiefs,
     getCertifications,
@@ -259,4 +289,5 @@ export {
     addChief,
     addEstate,
     addMarket,
+    addCustomer,
 };

@@ -16,6 +16,21 @@ class CustomersRepository {
         }
     }
 
+    async getClienteByNombre(nombreCliente) {
+        const query = 'SELECT * FROM Clientes WHERE nombre_cliente = ?;';
+        const params = [nombreCliente];
+
+        try {
+            const result = await this.dbConnection.executeQuery(query, params);
+            return result[0];
+        } catch (err) {
+            console.error(
+                `Error retrieving client with nombre_cliente "${nombreCliente}": ${err}`
+            );
+            throw err;
+        }
+    }
+
     async getAll() {
         const query = 'SELECT * FROM Clientes;';
 
