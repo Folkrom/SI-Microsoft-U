@@ -17,6 +17,7 @@ import {
     addMarket,
     addCustomer,
     addProvider,
+    addISPinfo,
 } from '../controllers/info.js';
 
 
@@ -96,6 +97,11 @@ router.post('/providers', [
     validateJWT,
     // isAdminRole -> isValidRole
 ], addProvider);
+
+router.post('/ISPinfo', [
+    validateJWT,
+    // isAdminRole -> isValidRole
+], addISPinfo);
 
 
 export default router;

@@ -307,6 +307,34 @@ const addProvider = async (req, res) => {
     }
 };
 
+const addISPinfo = async (req, res) => {
+    try {
+        const ispInfoData = req.body;
+        const { Nombre } = ispInfoData;
+        const ispExists = await ISPInfoRepo.getIdentificacionISP(Nombre);
+
+        if (ispExists) {
+            return res.status(409).json({
+                err: 'La identificación del ISP ya existe.',
+            });
+        }
+
+        const ispInfo = await ISPInfoRepo.createIdentificacionISP(ispInfoData);
+
+        if (!ispInfo)
+            return res.status(500).json({ err: 'Error del servidor' });
+
+        res.status(201).json({
+            msg: `Identificación del ISP "${Nombre}" creada exitosamente`,
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            err: 'Hable con el administrador',
+        });
+    }
+};
+
 export {
     getChiefs,
     getCertifications,
@@ -323,4 +351,5 @@ export {
     addMarket,
     addCustomer,
     addProvider,
+    addISPinfo,
 };
