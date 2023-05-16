@@ -156,6 +156,36 @@ const getEmployees = async (req, res) => {
     }
 };
 
+const addChief = async (req, res) => {
+    try {
+        const empleadoData = req.body;
+        const { Nombre, ID_Empleado, Puesto } = empleadoData;
+        const employeeExists =
+            await formatoOrganizacionalRepository.getEmpleado(ID_Empleado);
+
+        if (employeeExists) {
+            return res.status(409).json({
+                err: 'El usuario ya existe, usa otro.',
+            });
+        }
+
+        const employee = await formatoOrganizacionalRepository.createEmpleado(
+            empleadoData
+        );
+
+        if (!employee) return res.status(500).json({ err: 'Server error' });
+
+        res.status(201).json({
+            msg: `Directivo ${Nombre} con ID ${ID_Empleado} - ${Puesto} creado!`,
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            err: 'Hable con el administrador',
+        });
+    }
+};
+
 export {
     getChiefs,
     getCertifications,
@@ -167,4 +197,5 @@ export {
     getEstate,
     getCustomers,
     getEmployees,
+    addChief,
 };
