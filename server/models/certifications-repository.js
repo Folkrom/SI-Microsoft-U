@@ -3,17 +3,17 @@ class CertificacionesRepository {
         this.dbConnection = dbConnection;
     }
 
-    async getCertificacion(normaAplicacion) {
+    async getCertificacion(normaAplicacion, certificado) {
         const query =
-            'SELECT * FROM Certificaciones WHERE Norma_de_Aplicacion = ?;';
-        const params = [normaAplicacion];
+            'SELECT * FROM Certificaciones WHERE Norma_de_Aplicacion = ? AND Certificado = ?;';
+        const params = [normaAplicacion, certificado];
 
         try {
             const result = await this.dbConnection.executeQuery(query, params);
             return result[0];
         } catch (err) {
             console.error(
-                `Error retrieving certification with Norma_de_Aplicacion "${normaAplicacion}": ${err}`
+                `Error retrieving certification with Norma_de_Aplicacion "${normaAplicacion}" and Certificado "${certificado}": ${err}`
             );
             throw err;
         }

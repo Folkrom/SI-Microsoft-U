@@ -12,6 +12,15 @@ import {
     getEstate,
     getCustomers,
     getEmployees,
+    addChief,
+    addEstate,
+    addMarket,
+    addCustomer,
+    addProvider,
+    addISPinfo,
+    addRawMaterial,
+    addEmployee,
+    addCertification,
 } from '../controllers/info.js';
 
 
@@ -66,6 +75,51 @@ router.get('/employees', [
     validateJWT,
     // isAdminRole -> isValidRole
 ], getEmployees);
+
+router.post('/chiefs', [
+    validateJWT,
+    // isAdminRole -> isValidRole
+], addChief);
+
+router.post('/estate', [
+    validateJWT,
+    // isAdminRole -> isValidRole
+], addEstate);
+
+router.post('/market', [
+    validateJWT,
+    // isAdminRole -> isValidRole
+], addMarket);
+
+router.post('/customers', [
+    validateJWT,
+    // isAdminRole -> isValidRole
+], addCustomer);
+
+router.post('/providers', [
+    validateJWT,
+    // isAdminRole -> isValidRole
+], addProvider);
+
+router.post('/ISPinfo', [
+    validateJWT,
+    // isAdminRole -> isValidRole
+], addISPinfo);
+
+router.post('/raw-materials', [
+    validateJWT,
+    // isAdminRole -> isValidRole
+], addRawMaterial);
+
+router.post('/employees', [
+    validateJWT,
+    // isAdminRole -> isValidRole
+], addEmployee);
+
+router.post('/certifications', [
+    validateJWT,
+    // isAdminRole -> isValidRole
+], addCertification);
 
 
 export default router;

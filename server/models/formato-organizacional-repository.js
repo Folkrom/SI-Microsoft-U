@@ -55,11 +55,12 @@ class FormatoOrganizacionalRepository {
     }
     async createEmpleado(empleadoData) {
         const query = `INSERT INTO Formato_Organizacional
-                   (ID_Empleado, Edad, Genero, Puesto, Area, CURP, RFC, Telefono, Correo,
+                   (ID_Empleado, Nombre, Edad, Genero, Puesto, Area, CURP, RFC, Telefono, Correo,
                     Pais_de_Origen, Cede, Escolaridad, Diplomados, Certificaciones, Idiomas)
-                   VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);`;
+                   VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);`;
         const params = [
             empleadoData.ID_Empleado,
+            empleadoData.Nombre,
             empleadoData.Edad,
             empleadoData.Genero,
             empleadoData.Puesto,

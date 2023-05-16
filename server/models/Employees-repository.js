@@ -3,9 +3,9 @@ class EmployeesRepository {
         this.dbConnection = dbConnection;
     }
 
-    async getEmployee(id) {
-        const query = 'SELECT * FROM Empleados WHERE id = ?;';
-        const params = [id];
+    async getEmployee(id_empleado) {
+        const query = 'SELECT * FROM Empleados WHERE id_empleado = ?;';
+        const params = [id_empleado];
 
         try {
             const result = await this.dbConnection.executeQuery(query, params);
