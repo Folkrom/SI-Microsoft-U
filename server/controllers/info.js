@@ -335,6 +335,39 @@ const addISPinfo = async (req, res) => {
     }
 };
 
+const addRawMaterial = async (req, res) => {
+    try {
+        const materiaPrimaData = req.body;
+        const { materia_prima, marca } = materiaPrimaData;
+        const materiaPrimaExists =
+            await rawMaterialsRepository.getMateriaPrimaByNameAndMarca(
+                materia_prima,
+                marca
+            );
+
+        if (materiaPrimaExists) {
+            return res.status(409).json({
+                err: 'La materia prima con la misma marca ya existe.',
+            });
+        }
+
+        const createdMateriaPrima =
+            await rawMaterialsRepository.createMateriaPrima(materiaPrimaData);
+
+        if (!createdMateriaPrima)
+            return res.status(500).json({ err: 'Error del servidor' });
+
+        res.status(201).json({
+            msg: `Materia prima creada exitosamente: ${materia_prima} - ${marca}`,
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            err: 'Hable con el administrador',
+        });
+    }
+};
+
 export {
     getChiefs,
     getCertifications,
@@ -352,4 +385,5 @@ export {
     addCustomer,
     addProvider,
     addISPinfo,
+    addRawMaterial,
 };

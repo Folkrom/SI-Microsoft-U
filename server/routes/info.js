@@ -18,6 +18,7 @@ import {
     addCustomer,
     addProvider,
     addISPinfo,
+    addRawMaterial,
 } from '../controllers/info.js';
 
 
@@ -102,6 +103,13 @@ router.post('/ISPinfo', [
     validateJWT,
     // isAdminRole -> isValidRole
 ], addISPinfo);
+
+router.post('/raw-materials', [
+    validateJWT,
+    // isAdminRole -> isValidRole
+], addRawMaterial);
+
+
 
 
 export default router;

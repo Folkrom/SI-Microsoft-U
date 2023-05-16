@@ -18,6 +18,22 @@ class RawMaterialsRepository {
         }
     }
 
+    async getMateriaPrimaByNameAndMarca(materiaPrima, marca) {
+        const query =
+            'SELECT * FROM Materias_primas WHERE materia_prima = ? AND marca = ?;';
+        const params = [materiaPrima, marca];
+
+        try {
+            const result = await this.dbConnection.executeQuery(query, params);
+            return result[0];
+        } catch (err) {
+            console.error(
+                `Error retrieving raw material by name and marca: ${err}`
+            );
+            throw err;
+        }
+    }
+
     async getAll() {
         const query = 'SELECT * FROM Materias_primas;';
 
