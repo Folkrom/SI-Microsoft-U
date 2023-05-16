@@ -401,6 +401,7 @@ const addEmployee = async (req, res) => {
 };
 
 const addCertification = async (req, res) => {
+    // to commit
     try {
         const certificacionData = req.body;
         const { Norma_de_Aplicacion, Certificado } = certificacionData;
