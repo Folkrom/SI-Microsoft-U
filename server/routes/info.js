@@ -19,6 +19,7 @@ import {
     addProvider,
     addISPinfo,
     addRawMaterial,
+    addEmployee,
 } from '../controllers/info.js';
 
 
@@ -109,7 +110,10 @@ router.post('/raw-materials', [
     // isAdminRole -> isValidRole
 ], addRawMaterial);
 
-
+router.post('/employees', [
+    validateJWT,
+    // isAdminRole -> isValidRole
+], addEmployee);
 
 
 export default router;

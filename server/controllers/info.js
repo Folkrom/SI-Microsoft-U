@@ -368,6 +368,38 @@ const addRawMaterial = async (req, res) => {
     }
 };
 
+const addEmployee = async (req, res) => {
+    try {
+        const employeeData = req.body;
+        const { id_empleado } = employeeData;
+        const employeeExists = await employeesRepository.getEmployee(
+            id_empleado
+        );
+
+        if (employeeExists) {
+            return res.status(409).json({
+                err: 'El empleado con el mismo ID ya existe.',
+            });
+        }
+
+        const createdEmployee = await employeesRepository.createEmployee(
+            employeeData
+        );
+
+        if (!createdEmployee)
+            return res.status(500).json({ err: 'Error del servidor' });
+
+        res.status(201).json({
+            msg: `Empleado creado exitosamente: ID ${id_empleado}`,
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            err: 'Hable con el administrador',
+        });
+    }
+};
+
 export {
     getChiefs,
     getCertifications,
@@ -386,4 +418,5 @@ export {
     addProvider,
     addISPinfo,
     addRawMaterial,
+    addEmployee,
 };
