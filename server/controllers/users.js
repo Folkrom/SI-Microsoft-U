@@ -19,7 +19,7 @@ const getUsers = async (req, res) => {
     } catch (error) {
         console.error(`Error retrieving users: ${error}`);
         res.status(500).json({
-            msg: 'Hable con el administrador',
+            err: 'Hable con el administrador',
         });
     }
 };
@@ -50,11 +50,11 @@ const userDelete = async (req, res) => {
         if (!result) {
             return res
                 .status(404)
-                .json({ msg: `El usuario con el id ${id} no existe.` });
+                .json({ err: `El usuario con el id ${id} no existe.` });
         }
 
         res.status(200).json({
-            msg: `El usuario con el id ${id} ha sido eliminado exitosamente.`,
+            err: `El usuario con el id ${id} ha sido eliminado exitosamente.`,
         });
     } catch (error) {
         console.log(error);
@@ -94,7 +94,7 @@ const userUpdate = async (req, res) => {
         if (!result) {
             return res
                 .status(404)
-                .json({ msg: `El usuario con el id ${id} no existe.` });
+                .json({ err: `El usuario con el id ${id} no existe.` });
         }
 
         res.status(200).json({
@@ -103,7 +103,7 @@ const userUpdate = async (req, res) => {
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            msg: 'Hable con el administrador',
+            err: 'Hable con el administrador',
         });
     }
 };
