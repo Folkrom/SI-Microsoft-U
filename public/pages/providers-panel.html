@@ -42,42 +42,162 @@
                 </div>
 
                 <div class="content">
-                    <!-- <form
-                        id="registration-form"
-                        class="microsoft-form"
+                    <form
+                        id="supplier-form"
+                        class="microsoft-form-expanded"
                         autocomplete="off"
                         onsubmit="handleSubmit(event)"
                     >
-                        <legend>Registrar nuevo usuario</legend>
+                        <legend>Registrar nuevo proveedor</legend>
                         <div>
-                            <label for="user">Nombre de usuario:</label>
+                            <label for="nombre_proveedor"
+                                >Nombre del proveedor:</label
+                            >
                             <input
                                 type="text"
-                                id="user"
-                                name="user"
+                                id="nombre_proveedor"
+                                name="nombre_proveedor"
+                                placeholder="Proveedor C"
                                 required
+                                maxlength="20"
                                 autocomplete="off"
                             />
                         </div>
                         <div>
-                            <label for="password">Contraseña:</label>
+                            <label for="rfc">RFC:</label>
                             <input
-                                type="password"
-                                id="password"
-                                name="password"
+                                type="text"
+                                id="rfc"
+                                name="rfc"
+                                placeholder="RFC123456"
+                                required
+                                maxlength="20"
+                                autocomplete="off"
+                            />
+                        </div>
+                        <div>
+                            <label for="numero_contacto"
+                                >Número de contacto:</label
+                            >
+                            <input
+                                type="text"
+                                id="numero_contacto"
+                                name="numero_contacto"
+                                placeholder="1234567890"
+                                required
+                                maxlength="20"
+                                autocomplete="off"
+                            />
+                        </div>
+                        <div>
+                            <label for="producto_servicio"
+                                >Producto o servicio:</label
+                            >
+                            <input
+                                type="text"
+                                id="producto_servicio"
+                                name="producto_servicio"
+                                placeholder="Servicio A"
+                                required
+                                maxlength="20"
+                                autocomplete="off"
+                            />
+                        </div>
+                        <div>
+                            <label for="precio_unitario"
+                                >Precio unitario:</label
+                            >
+                            <input
+                                type="number"
+                                id="precio_unitario"
+                                name="precio_unitario"
+                                placeholder="100.5"
+                                step="0.01"
                                 required
                                 autocomplete="off"
                             />
                         </div>
                         <div>
-                            <label for="role">Rol:</label>
-                            <select id="role" name="role" required></select>
+                            <label for="fecha_entrega">Fecha de entrega:</label>
+                            <input
+                                type="date"
+                                id="fecha_entrega"
+                                name="fecha_entrega"
+                                placeholder="2023-05-16"
+                                required
+                                autocomplete="off"
+                            />
                         </div>
-                        <p id="register-err"></p>
                         <div>
-                            <button type="submit">Register</button>
+                            <label for="forma_pago">Forma de pago:</label>
+                            <input
+                                type="text"
+                                id="forma_pago"
+                                name="forma_pago"
+                                placeholder="Tarjeta de crédito"
+                                required
+                                maxlength="20"
+                                autocomplete="off"
+                            />
                         </div>
-                    </form> -->
+                        <div>
+                            <label for="garantia_servicio_producto"
+                                >Garantía del servicio o producto:</label
+                            >
+                            <input
+                                type="text"
+                                id="garantia_servicio_producto"
+                                name="garantia_servicio_producto"
+                                placeholder="Garantía de 1 año"
+                                required
+                                maxlength="20"
+                                autocomplete="off"
+                            />
+                        </div>
+                        <div>
+                            <label for="fecha_inicio_relacion"
+                                >Fecha de inicio de la relación:</label
+                            >
+                            <input
+                                type="date"
+                                id="fecha_inicio_relacion"
+                                name="fecha_inicio_relacion"
+                                placeholder="2023-01-01"
+                                required
+                                autocomplete="off"
+                            />
+                        </div>
+                        <div>
+                            <label for="contacto_principal"
+                                >Contacto principal:</label
+                            >
+                            <input
+                                type="text"
+                                id="contacto_principal"
+                                name="contacto_principal"
+                                placeholder="Juan Pérez"
+                                required
+                                maxlength="20"
+                                autocomplete="off"
+                            />
+                        </div>
+                        <div>
+                            <label for="domicilio_proveedor"
+                                >Domicilio del proveedor:</label
+                            >
+                            <input
+                                type="text"
+                                id="domicilio_proveedor"
+                                name="domicilio_proveedor"
+                                placeholder="Calle Principal 123"
+                                required
+                                maxlength="20"
+                                autocomplete="off"
+                            />
+                        </div>
+                        <button type="submit">Registrar</button>
+                        <p id="register-err"></p>
+                    </form>
 
                     <table id="providers-table" class="microsoft-table">
                         <caption>
