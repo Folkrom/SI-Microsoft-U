@@ -42,42 +42,104 @@
                 </div>
 
                 <div class="content">
-                    <!-- <form
-                        id="registration-form"
-                        class="microsoft-form"
+                    <form
+                        id="isp-form"
+                        class="microsoft-form-expanded"
                         autocomplete="off"
                         onsubmit="handleSubmit(event)"
                     >
-                        <legend>Registrar nuevo usuario</legend>
+                        <legend>Registrar nuevo ISP</legend>
                         <div>
-                            <label for="user">Nombre de usuario:</label>
+                            <label for="nombre">Nombre:</label>
                             <input
                                 type="text"
-                                id="user"
-                                name="user"
+                                id="nombre"
+                                name="nombre"
+                                placeholder="ISP1"
                                 required
+                                maxlength="20"
                                 autocomplete="off"
                             />
                         </div>
                         <div>
-                            <label for="password">Contraseña:</label>
+                            <label for="tipo-dispositivo"
+                                >Tipo de dispositivo:</label
+                            >
                             <input
-                                type="password"
-                                id="password"
-                                name="password"
+                                type="text"
+                                id="tipo-dispositivo"
+                                name="tipo-dispositivo"
+                                placeholder="Router"
                                 required
+                                maxlength="20"
                                 autocomplete="off"
                             />
                         </div>
                         <div>
-                            <label for="role">Rol:</label>
-                            <select id="role" name="role" required></select>
+                            <label for="tipo-conexion">Tipo de conexión:</label>
+                            <input
+                                type="text"
+                                id="tipo-conexion"
+                                name="tipo-conexion"
+                                placeholder="Fibra óptica"
+                                required
+                                maxlength="20"
+                                autocomplete="off"
+                            />
                         </div>
-                        <p id="register-err"></p>
                         <div>
-                            <button type="submit">Register</button>
+                            <label for="conexion-maxima"
+                                >Conexión máxima:</label
+                            >
+                            <input
+                                type="text"
+                                id="conexion-maxima"
+                                name="conexion-maxima"
+                                placeholder="1 Gbps"
+                                required
+                                maxlength="20"
+                                autocomplete="off"
+                            />
                         </div>
-                    </form> -->
+                        <div>
+                            <label for="ruta">Ruta:</label>
+                            <input
+                                type="text"
+                                id="ruta"
+                                name="ruta"
+                                placeholder="/isp1"
+                                required
+                                maxlength="20"
+                                autocomplete="off"
+                            />
+                        </div>
+                        <div>
+                            <label for="direccion-ip">Dirección IP:</label>
+                            <input
+                                type="text"
+                                id="direccion-ip"
+                                name="direccion-ip"
+                                placeholder="192.168.1.1"
+                                required
+                                maxlength="20"
+                                autocomplete="off"
+                            />
+                        </div>
+                        <div>
+                            <label for="alcance">Alcance:</label>
+                            <input
+                                type="text"
+                                id="alcance"
+                                name="alcance"
+                                placeholder="Local"
+                                required
+                                maxlength="20"
+                                autocomplete="off"
+                            />
+                        </div>
+                        <button type="submit">Registrar</button>
+                        <p id="register-err"></p>
+                    </form>
 
                     <table id="isp-info-table" class="microsoft-table">
                         <caption>

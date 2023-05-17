@@ -20,3 +20,48 @@ const loadEstate = async () => {
         estateTbody.appendChild(row);
     });
 };
+
+const handleSubmit = async (event) => {
+    event.preventDefault();
+    const registerResult = document.getElementById('register-err');
+
+    const fecha = document.getElementById('fecha').value;
+    const arrendador = document.getElementById('arrendador').value;
+    const arrendatario = document.getElementById('arrendatario').value;
+    const direccion = document.getElementById('direccion').value;
+    const tipoInmueble = document.getElementById('tipo-inmueble').value;
+    const descripcion = document.getElementById('descripcion').value;
+    const cantidad = document.getElementById('cantidad').value;
+    const tipoMaterial = document.getElementById('tipo-material').value;
+    const estadoInmueble = document.getElementById('estado-inmueble').value;
+    const observaciones = document.getElementById('observaciones').value;
+
+    const formData = {
+        fecha,
+        arrendador,
+        arrendatario,
+        direccion,
+        tipo_inmueble: tipoInmueble,
+        descripcion,
+        cantidad,
+        tipo_material: tipoMaterial,
+        estado_inmueble: estadoInmueble,
+        observaciones,
+    };
+
+    console.log(formData);
+    const validRegister = await registerData('estate', formData);
+
+    if (validRegister.err) {
+        registerResult.innerHTML = validRegister.err;
+        return;
+    }
+
+    document.querySelectorAll('input, textarea').forEach((input) => {
+        input.value = '';
+    });
+    registerResult.innerHTML = validRegister.msg;
+    registerResult.style = 'color: #00FF00;';
+
+    loadEstate();
+};

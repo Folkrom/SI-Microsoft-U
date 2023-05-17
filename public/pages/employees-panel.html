@@ -42,42 +42,259 @@
                 </div>
 
                 <div class="content">
-                    <!-- <form
-                        id="registration-form"
-                        class="microsoft-form"
+                    <form
+                        id="solicitud-form"
+                        class="microsoft-form-expanded"
                         autocomplete="off"
                         onsubmit="handleSubmit(event)"
                     >
-                        <legend>Registrar nuevo usuario</legend>
+                        <legend>Solicitud de Empleo</legend>
                         <div>
-                            <label for="user">Nombre de usuario:</label>
+                            <label for="nombre_solicitante"
+                                >Nombre del solicitante:</label
+                            >
                             <input
                                 type="text"
-                                id="user"
-                                name="user"
+                                id="nombre_solicitante"
+                                name="nombre_solicitante"
+                                placeholder="Juan Perez"
                                 required
+                                maxlength="100"
                                 autocomplete="off"
                             />
                         </div>
                         <div>
-                            <label for="password">Contraseña:</label>
+                            <label for="id_empleado">ID de empleado:</label>
                             <input
-                                type="password"
-                                id="password"
-                                name="password"
+                                type="number"
+                                id="id_empleado"
+                                name="id_empleado"
+                                placeholder="808"
                                 required
+                            />
+                        </div>
+                        <div>
+                            <label for="edad">Edad:</label>
+                            <input
+                                type="number"
+                                id="edad"
+                                name="edad"
+                                placeholder="30"
+                                required
+                            />
+                        </div>
+                        <div>
+                            <label for="genero">Género:</label>
+                            <select id="genero" name="genero" required>
+                                <option value="Masculino" selected>
+                                    Masculino
+                                </option>
+                                <option value="Femenino">Femenino</option>
+                                <option value="Otro">Otro</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="puesto">Puesto:</label>
+                            <input
+                                type="text"
+                                id="puesto"
+                                name="puesto"
+                                placeholder="Desarrollador"
+                                required
+                                maxlength="100"
                                 autocomplete="off"
                             />
                         </div>
                         <div>
-                            <label for="role">Rol:</label>
-                            <select id="role" name="role" required></select>
+                            <label for="area">Área:</label>
+                            <input
+                                type="text"
+                                id="area"
+                                name="area"
+                                placeholder="Tecnología"
+                                required
+                                maxlength="100"
+                                autocomplete="off"
+                            />
                         </div>
-                        <p id="register-err"></p>
                         <div>
-                            <button type="submit">Register</button>
+                            <label for="curp">CURP:</label>
+                            <input
+                                type="text"
+                                id="curp"
+                                name="curp"
+                                placeholder="XXXX123456XXXXXX"
+                                maxlength="18"
+                                autocomplete="off"
+                            />
                         </div>
-                    </form> -->
+                        <div>
+                            <label for="rfc">RFC:</label>
+                            <input
+                                type="text"
+                                id="rfc"
+                                name="rfc"
+                                placeholder="RFC123456789"
+                                required
+                                maxlength="13"
+                                autocomplete="off"
+                            />
+                        </div>
+                        <div>
+                            <label for="salario_neto">Salario Neto:</label>
+                            <input
+                                type="number"
+                                id="salario_neto"
+                                name="salario_neto"
+                                placeholder="50000"
+                                required
+                            />
+                        </div>
+                        <div>
+                            <label for="salario_bruto">Salario Bruto:</label>
+                            <input
+                                type="number"
+                                id="salario_bruto"
+                                name="salario_bruto"
+                                placeholder="60000"
+                                required
+                            />
+                        </div>
+                        <div>
+                            <label for="sede">Sede:</label>
+                            <input
+                                type="text"
+                                id="sede"
+                                name="sede"
+                                placeholder="Ciudad de México"
+                                required
+                                maxlength="100"
+                                autocomplete="off"
+                            />
+                        </div>
+                        <div>
+                            <label for="horario">Horario:</label>
+                            <input
+                                type="text"
+                                id="horario"
+                                name="horario"
+                                placeholder="9:00 AM - 6:00 PM"
+                                required
+                                maxlength="100"
+                                autocomplete="off"
+                            />
+                        </div>
+                        <div>
+                            <label for="telefono">Teléfono:</label>
+                            <input
+                                type="text"
+                                id="telefono"
+                                name="telefono"
+                                placeholder="555-123-4567"
+                                required
+                                maxlength="20"
+                                autocomplete="off"
+                            />
+                        </div>
+                        <div>
+                            <label for="correo">Correo Electrónico:</label>
+                            <input
+                                type="email"
+                                id="correo"
+                                name="correo"
+                                placeholder="juan.perez@example.com"
+                                required
+                                maxlength="100"
+                                autocomplete="off"
+                            />
+                        </div>
+                        <div>
+                            <label for="pais_origen">País de Origen:</label>
+                            <input
+                                type="text"
+                                id="pais_origen"
+                                name="pais_origen"
+                                placeholder="México"
+                                required
+                                maxlength="100"
+                                autocomplete="off"
+                            />
+                        </div>
+                        <div>
+                            <label for="domicilio">Domicilio:</label>
+                            <input
+                                type="text"
+                                id="domicilio"
+                                name="domicilio"
+                                placeholder="Calle Principal #123"
+                                required
+                                maxlength="100"
+                                autocomplete="off"
+                            />
+                        </div>
+                        <div>
+                            <label for="escolaridad">Escolaridad:</label>
+                            <input
+                                type="text"
+                                id="escolaridad"
+                                name="escolaridad"
+                                placeholder="Licenciatura"
+                                required
+                                maxlength="100"
+                                autocomplete="off"
+                            />
+                        </div>
+                        <div>
+                            <label for="certificaciones"
+                                >Certificaciones:</label
+                            >
+                            <input
+                                type="text"
+                                id="certificaciones"
+                                name="certificaciones"
+                                placeholder="Certificación A, Certificación B"
+                                required
+                                maxlength="100"
+                                autocomplete="off"
+                            />
+                        </div>
+                        <div>
+                            <label for="num_hijos">Número de Hijos:</label>
+                            <input
+                                type="number"
+                                id="num_hijos"
+                                name="num_hijos"
+                                placeholder="2"
+                                required
+                            />
+                        </div>
+                        <div>
+                            <label for="beneficiarios">Beneficiarios:</label>
+                            <input
+                                type="text"
+                                id="beneficiarios"
+                                name="beneficiarios"
+                                placeholder="Beneficiario 1, Beneficiario 2"
+                                required
+                                maxlength="100"
+                                autocomplete="off"
+                            />
+                        </div>
+                        <div>
+                            <label for="enfermedades">Enfermedades:</label>
+                            <input
+                                type="text"
+                                id="enfermedades"
+                                name="enfermedades"
+                                placeholder="Ninguna"
+                                required
+                                maxlength="100"
+                                autocomplete="off"
+                            />
+                        </div>
+                        <button type="submit">Enviar</button>
+                        <p id="register-err"></p>
+                    </form>
 
                     <table id="employees-table" class="microsoft-table">
                         <caption>
