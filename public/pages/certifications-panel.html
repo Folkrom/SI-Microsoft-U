@@ -42,42 +42,68 @@
                 </div>
 
                 <div class="content">
-                    <!-- <form
-                        id="registration-form"
-                        class="microsoft-form"
+                    <form
+                        id="certification-form"
+                        class="microsoft-form-expanded"
                         autocomplete="off"
                         onsubmit="handleSubmit(event)"
                     >
-                        <legend>Registrar nuevo usuario</legend>
+                        <legend>Registrar nueva certificación</legend>
                         <div>
-                            <label for="user">Nombre de usuario:</label>
+                            <label for="norma-aplicacion"
+                                >Norma de Aplicación:</label
+                            >
                             <input
                                 type="text"
-                                id="user"
-                                name="user"
+                                id="norma-aplicacion"
+                                name="norma-aplicacion"
+                                placeholder="ISO 9000"
                                 required
+                                maxlength="20"
                                 autocomplete="off"
                             />
                         </div>
                         <div>
-                            <label for="password">Contraseña:</label>
+                            <label for="certificado">Certificado:</label>
                             <input
-                                type="password"
-                                id="password"
-                                name="password"
+                                type="text"
+                                id="certificado"
+                                name="certificado"
+                                placeholder="ISO 9001"
                                 required
                                 autocomplete="off"
                             />
                         </div>
                         <div>
-                            <label for="role">Rol:</label>
-                            <select id="role" name="role" required></select>
+                            <label for="alcance">Alcance:</label>
+                            <textarea
+                                id="alcance"
+                                name="alcance"
+                                placeholder="Alcance de la certificación"
+                                required
+                                rows="3"
+                            >
+                            </textarea>
                         </div>
-                        <p id="register-err"></p>
                         <div>
-                            <button type="submit">Register</button>
+                            <label for="año">Año:</label>
+                            <input type="date" id="año" name="año" required />
                         </div>
-                    </form> -->
+                        <div>
+                            <label for="validez">Validez:</label>
+                            <input
+                                type="text"
+                                id="validez"
+                                name="validez"
+                                placeholder="1 año"
+                                required
+                                maxlength="20"
+                                autocomplete="off"
+                            />
+                        </div>
+                        <button type="submit">Registrar</button>
+                        <p id="register-err"></p>
+                    </form>
 
                     <table id="certifications-table" class="microsoft-table">
                         <caption>

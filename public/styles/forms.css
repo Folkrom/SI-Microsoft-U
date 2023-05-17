@@ -82,6 +82,8 @@
 .microsoft-form-expanded input[type='password'],
 .microsoft-form-expanded input[type='number'],
 .microsoft-form-expanded input[type='email'],
+.microsoft-form-expanded input[type='date'],
+.microsoft-form-expanded textarea,
 .microsoft-form-expanded select {
     width: 100%;
     padding: 8px;
