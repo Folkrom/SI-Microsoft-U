@@ -18,7 +18,7 @@ CREATE TABLE Users (
 
 CREATE TABLE Certificaciones(
 	Norma_de_Aplicacion varchar(50),
-    Certificado varchar (7),
+    Certificado varchar (70),
     Alcance varchar(100),
     Año date,
     Validez varchar(20)
