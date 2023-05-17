@@ -42,43 +42,204 @@
                 </div>
 
                 <div class="content">
-                    <!-- <form
+                    <form
                         id="registration-form"
-                        class="microsoft-form"
+                        class="microsoft-form-expanded"
                         autocomplete="off"
                         onsubmit="handleSubmit(event)"
                     >
-                        <legend>Registrar nuevo usuario</legend>
+                        <legend>Registrar nuevo director</legend>
                         <div>
-                            <label for="user">Nombre de usuario:</label>
+                            <label for="nombre">Nombre:</label>
                             <input
                                 type="text"
-                                id="user"
-                                name="user"
+                                id="nombre"
+                                name="nombre"
+                                placeholder="Juan Perez"
                                 required
+                                maxlength="20"
                                 autocomplete="off"
                             />
                         </div>
                         <div>
-                            <label for="password">Contraseña:</label>
+                            <label for="id">Id Empleado:</label>
                             <input
-                                type="password"
-                                id="password"
-                                name="password"
+                                type="text"
+                                id="id_empleado"
+                                name="id"
+                                placeholder="1001"
                                 required
+                                maxlength="20"
                                 autocomplete="off"
                             />
                         </div>
                         <div>
-                            <label for="role">Rol:</label>
-                            <select id="role" name="role" required></select>
+                            <label for="edad">Edad:</label>
+                            <input
+                                type="number"
+                                id="edad"
+                                name="edad"
+                                placeholder="28"
+                                required
+                            />
                         </div>
-                        <p id="register-err"></p>
                         <div>
-                            <button type="submit">Register</button>
+                            <label for="genero">Género:</label>
+                            <select id="genero" name="genero" required>
+                                <option value="M">Masculino</option>
+                                <option value="F">Femenino</option>
+                                <option value="O">Otro</option>
+                            </select>
                         </div>
-                    </form> -->
-
+                        <div>
+                            <label for="puesto">Puesto:</label>
+                            <input
+                                type="text"
+                                id="puesto"
+                                name="puesto"
+                                placeholder="Jefe TI"
+                                required
+                                maxlength="20"
+                                autocomplete="off"
+                            />
+                        </div>
+                        <div>
+                            <label for="area">Área:</label>
+                            <input
+                                type="text"
+                                id="area"
+                                name="area"
+                                placeholder="TI"
+                                required
+                                maxlength="20"
+                                autocomplete="off"
+                            />
+                        </div>
+                        <div>
+                            <label for="curp">CURP:</label>
+                            <input
+                                type="text"
+                                id="curp"
+                                name="curp"
+                                placeholder="ABCD012345"
+                                required
+                                maxlength="20"
+                                autocomplete="off"
+                            />
+                        </div>
+                        <div>
+                            <label for="rfc">RFC:</label>
+                            <input
+                                type="text"
+                                id="rfc"
+                                name="rfc"
+                                placeholder="ABCD012345808"
+                                required
+                                maxlength="20"
+                                autocomplete="off"
+                            />
+                        </div>
+                        <div>
+                            <label for="telefono">Teléfono:</label>
+                            <input
+                                type="text"
+                                id="telefono"
+                                name="telefono"
+                                placeholder="5512345678"
+                                required
+                                maxlength="20"
+                                autocomplete="off"
+                            />
+                        </div>
+                        <div>
+                            <label for="correo">Correo:</label>
+                            <input
+                                type="email"
+                                id="correo"
+                                name="correo"
+                                placeholder="user@mail.com"
+                                required
+                                maxlength="20"
+                                autocomplete="off"
+                            />
+                        </div>
+                        <div>
+                            <label for="pais">País de origen:</label>
+                            <input
+                                type="text"
+                                id="pais"
+                                name="pais"
+                                placeholder="México"
+                                required
+                                maxlength="20"
+                                autocomplete="off"
+                            />
+                        </div>
+                        <div>
+                            <label for="cede">Sede:</label>
+                            <input
+                                type="text"
+                                id="cede"
+                                name="cede"
+                                placeholder="CDMX"
+                                required
+                                maxlength="20"
+                                autocomplete="off"
+                            />
+                        </div>
+                        <div>
+                            <label for="escolaridad">Escolaridad:</label>
+                            <input
+                                type="text"
+                                id="escolaridad"
+                                name="escolaridad"
+                                placeholder="Doctorado"
+                                required
+                                maxlength="20"
+                                autocomplete="off"
+                            />
+                        </div>
+                        <div>
+                            <label for="diplomados">Diplomados:</label>
+                            <input
+                                type="text"
+                                id="diplomados"
+                                name="diplomados"
+                                placeholder="1"
+                                required
+                                maxlength="20"
+                                autocomplete="off"
+                            />
+                        </div>
+                        <div>
+                            <label for="certificaciones"
+                                >Certificaciones:</label
+                            >
+                            <input
+                                type="text"
+                                id="certificaciones"
+                                name="certificaciones"
+                                placeholder="Azure expert"
+                                required
+                                maxlength="20"
+                                autocomplete="off"
+                            />
+                        </div>
+                        <div>
+                            <label for="idiomas">Idiomas:</label>
+                            <input
+                                type="text"
+                                id="idiomas"
+                                name="idiomas"
+                                placeholder="Español, Inglés"
+                                required
+                                maxlength="20"
+                                autocomplete="off"
+                            />
+                        </div>
+                        <button type="submit">Registrar</button>
+                        <p id="register-err"></p>
+                    </form>
                     <table id="chiefs-table" class="microsoft-table">
                         <caption>
                             Lista de Directores de Area

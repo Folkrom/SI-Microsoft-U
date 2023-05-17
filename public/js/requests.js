@@ -215,3 +215,17 @@ const getEmployees = async () => {
         return error;
     }
 };
+
+const registerData = async (endpoint, formData) => {
+    try {
+        const response = await httpService.post(
+            `/api/info/${endpoint}`,
+            formData
+        );
+
+        return response;
+    } catch (error) {
+        console.info(error);
+        return error;
+    }
+};
