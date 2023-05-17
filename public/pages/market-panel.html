@@ -42,42 +42,144 @@
                 </div>
 
                 <div class="content">
-                    <!-- <form
-                        id="registration-form"
-                        class="microsoft-form"
+                    <form
+                        id="company-form"
+                        class="microsoft-form-expanded"
                         autocomplete="off"
                         onsubmit="handleSubmit(event)"
                     >
-                        <legend>Registrar nuevo usuario</legend>
+                        <legend>Registrar nueva empresa</legend>
                         <div>
-                            <label for="user">Nombre de usuario:</label>
+                            <label for="nombre_empresa"
+                                >Nombre de la empresa:</label
+                            >
                             <input
                                 type="text"
-                                id="user"
-                                name="user"
+                                id="nombre_empresa"
+                                name="nombre_empresa"
+                                placeholder="Compañia rival"
                                 required
+                                maxlength="20"
                                 autocomplete="off"
                             />
                         </div>
                         <div>
-                            <label for="password">Contraseña:</label>
+                            <label for="direccion">Dirección:</label>
                             <input
-                                type="password"
-                                id="password"
-                                name="password"
+                                type="text"
+                                id="direccion"
+                                name="direccion"
+                                placeholder="Calle Principal 123"
                                 required
+                                maxlength="20"
                                 autocomplete="off"
                             />
                         </div>
                         <div>
-                            <label for="role">Rol:</label>
-                            <select id="role" name="role" required></select>
+                            <label for="telefono">Teléfono:</label>
+                            <input
+                                type="text"
+                                id="telefono"
+                                name="telefono"
+                                placeholder="555-1234"
+                                required
+                                maxlength="20"
+                                autocomplete="off"
+                            />
                         </div>
-                        <p id="register-err"></p>
                         <div>
-                            <button type="submit">Register</button>
+                            <label for="direccion_internet"
+                                >Dirección de internet:</label
+                            >
+                            <input
+                                type="text"
+                                id="direccion_internet"
+                                name="direccion_internet"
+                                placeholder="www.company.com"
+                                required
+                                maxlength="20"
+                                autocomplete="off"
+                            />
                         </div>
-                    </form> -->
+                        <div>
+                            <label for="giro">Giro:</label>
+                            <input
+                                type="text"
+                                id="giro"
+                                name="giro"
+                                placeholder="TI"
+                                required
+                                maxlength="20"
+                                autocomplete="off"
+                            />
+                        </div>
+                        <div>
+                            <label for="rfc">RFC:</label>
+                            <input
+                                type="text"
+                                id="rfc"
+                                name="rfc"
+                                placeholder="ABCD123456"
+                                required
+                                maxlength="20"
+                                autocomplete="off"
+                            />
+                        </div>
+                        <div>
+                            <label for="tamano">Tamaño:</label>
+                            <input
+                                type="text"
+                                id="tamano"
+                                name="tamano"
+                                placeholder="Grande"
+                                required
+                                maxlength="20"
+                                autocomplete="off"
+                            />
+                        </div>
+                        <div>
+                            <label for="dueno_empresa"
+                                >Dueño de la empresa:</label
+                            >
+                            <input
+                                type="text"
+                                id="dueno_empresa"
+                                name="dueno_empresa"
+                                placeholder="Juan Pérez"
+                                required
+                                maxlength="20"
+                                autocomplete="off"
+                            />
+                        </div>
+                        <div>
+                            <label for="telefono_dueno"
+                                >Teléfono de la compañia:</label
+                            >
+                            <input
+                                type="text"
+                                id="telefono_dueno"
+                                name="telefono_dueno"
+                                placeholder="555-5678"
+                                required
+                                maxlength="20"
+                                autocomplete="off"
+                            />
+                        </div>
+                        <div>
+                            <label for="email_dueno">Email de la compañia:</label>
+                            <input
+                                type="email"
+                                id="email_dueno"
+                                name="email_dueno"
+                                placeholder="comp@compiter.com"
+                                required
+                                maxlength="20"
+                                autocomplete="off"
+                            />
+                        </div>
+                        <button type="submit">Registrar</button>
+                        <p id="register-err"></p>
+                    </form>
 
                     <table id="market-table" class="microsoft-table">
                         <caption>
