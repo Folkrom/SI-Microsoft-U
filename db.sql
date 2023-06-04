@@ -20,8 +20,8 @@ CREATE TABLE Certificaciones(
 	Norma_de_Aplicacion varchar(50),
     Certificado varchar (70),
     Alcance varchar(100),
-    Año date,
-    Validez varchar(20)
+    Anio date,
+    Validez varchar(50)
 );
 
 CREATE TABLE Mercado (
