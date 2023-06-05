@@ -1,3 +1,5 @@
+import bcrypt from 'bcrypt';
+
 import DatabaseConnection from '../../../server/models/database-connection';
 import dbConfig from '../../../server/database/config';
 import UserRepository from '../../../server/models/user-repository';
@@ -74,6 +76,26 @@ describe('User-repository test', () => {
             const result = await userRepository.getUserById(id);
 
             expect(result).toEqual(expectedUser);
+        });
+    });
+
+    describe('createUser', () => {
+        it('should create a new user using username, password and role', async () => {
+            const user = {
+                username: 'test',
+                password: await bcrypt.hash('Adm1n1str4d0r', 10),
+                role: 'TI',
+            };
+
+            const result = await userRepository.createUser(user);
+
+            expect(result).toBe(true);
+
+            // Erase test user
+            const createdUser = await userRepository.getUserByUsername(
+                user.username
+            );
+            await userRepository.deleteUser(createdUser.id);
         });
     });
 });
