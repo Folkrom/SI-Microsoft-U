@@ -98,4 +98,32 @@ describe('User-repository test', () => {
             await userRepository.deleteUser(createdUser.id);
         });
     });
+
+    describe('updateUser', () => {
+        it('should update an existing user and return true', async () => {
+            const user = {
+                username: 'test',
+                password: await bcrypt.hash('Adm1n1str4d0r', 10),
+                role: 'TI',
+            };
+            await userRepository.createUser(user);
+            const createdUser = await userRepository.getUserByUsername(
+                user.username
+            );
+
+            const { id } = createdUser;
+            const newPass = 'nuevaPass';
+            const update = {
+                password: await bcrypt.hash(newPass, 10),
+                role_name: 'TI',
+                username: 'test updated',
+            };
+
+            const result = await userRepository.updateUser(id, update);
+
+            expect(result).toBe(true);
+
+            await userRepository.deleteUser(createdUser.id);
+        });
+    });
 });
