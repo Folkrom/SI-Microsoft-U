@@ -42,4 +42,21 @@ describe('User-repository test', () => {
             expect(result).toEqual(expectedUser);
         });
     });
+
+    describe('getUserByUsername', () => {
+        it('should return a single user using a username', async () => {
+            const username = 'admin';
+            const expectedUser = {
+                id: 1,
+                username: 'admin',
+                password:
+                    '$2b$10$zrsP6yrp4V5WyDXaUPHAS.nRQRlnksjMeUMyKSowmXQBmTHGiqB/u',
+                role_name: 'Administrador',
+            };
+
+            const result = await userRepository.getUserByUsername(username);
+
+            expect(result).toEqual(expectedUser);
+        });
+    });
 });
