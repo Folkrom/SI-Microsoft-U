@@ -22,5 +22,24 @@ describe('User-repository test', () => {
         });
     });
 
-    
+    describe('getUser', () => {
+        it('should return a single user', async () => {
+            const user = {
+                username: 'admin',
+                password:
+                    '$2b$10$zrsP6yrp4V5WyDXaUPHAS.nRQRlnksjMeUMyKSowmXQBmTHGiqB/u',
+            };
+
+            const expectedUser = {
+                id: 1,
+                username: 'admin',
+                password:
+                    '$2b$10$zrsP6yrp4V5WyDXaUPHAS.nRQRlnksjMeUMyKSowmXQBmTHGiqB/u',
+                role_name: 'Administrador',
+            };
+
+            const result = await userRepository.getUser(user);
+            expect(result).toEqual(expectedUser);
+        });
+    });
 });
