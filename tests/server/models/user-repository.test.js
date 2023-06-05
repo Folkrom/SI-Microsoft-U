@@ -143,4 +143,24 @@ describe('User-repository test', () => {
             expect(result).toBe(true);
         });
     });
+
+    describe('checkUsersWithRole', () => {
+        it('should check if a user has already a role and retun true', async () => {
+            const user = {
+                username: 'test',
+                password: await bcrypt.hash('Adm1n1str4d0r', 10),
+                role: 'TI',
+            };
+            await userRepository.createUser(user);
+            const { role_name, id } = await userRepository.getUserByUsername(
+                user.username
+            );
+
+            const result = await userRepository.checkUsersWithRole(role_name);
+
+            expect(result).toBe(true);
+
+            await userRepository.deleteUser(id);
+        });
+    });
 });
