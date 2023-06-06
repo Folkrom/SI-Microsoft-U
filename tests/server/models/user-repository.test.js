@@ -163,4 +163,36 @@ describe('User-repository test', () => {
             await userRepository.deleteUser(id);
         });
     });
+
+    describe('updateUsersRole', () => {
+        it('should update all users with an specifyc role with a new role and return true', async () => {
+            const user1 = {
+                username: 'test',
+                password: await bcrypt.hash('Adm1n1str4d0r', 10),
+                role: 'TI',
+            };
+            const user2 = {
+                username: 'test2',
+                password: await bcrypt.hash('Adm1n1str4d0r', 10),
+                role: 'TI',
+            };
+            const newRole = 'Recursos Humanos';
+
+            await userRepository.createUser(user1);
+            await userRepository.createUser(user2);
+
+            const result = await userRepository.updateUsersRole(
+                user1.role,
+                newRole
+            );
+
+            expect(result).toBe(true);
+
+            const usr1 = await userRepository.getUserByUsername(user1.username);
+            const usr2 = await userRepository.getUserByUsername(user2.username);
+
+            await userRepository.deleteUser(usr1.id);
+            await userRepository.deleteUser(usr2.id);
+        });
+    });
 });
