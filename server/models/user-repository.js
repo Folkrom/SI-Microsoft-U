@@ -6,21 +6,21 @@ class UserRepository {
     }
 
     async getAllUsers() {
-        const query = 'SELECT id, username, role_name FROM users;';
+        const query = 'SELECT id, username, role_name FROM Users;';
 
         try {
             const result = await this.dbConnection.executeQuery(query);
 
             return result;
         } catch (err) {
-            console.error(`Error retrieving users: ${err}`);
+            console.error(`Error retrieving Users: ${err}`);
             throw err;
         }
     }
 
     async getUser({ username, password }) {
         const query =
-            'SELECT * FROM users WHERE username = ? AND password = ?;';
+            'SELECT * FROM Users WHERE username = ? AND password = ?;';
         const params = [username, password];
 
         try {
@@ -33,7 +33,7 @@ class UserRepository {
     }
 
     async getUserByUsername(username) {
-        const query = 'SELECT * FROM users WHERE username = ?;';
+        const query = 'SELECT * FROM Users WHERE username = ?;';
         const params = [username];
 
         try {
@@ -48,7 +48,7 @@ class UserRepository {
     }
 
     async getUserById(id) {
-        const query = 'SELECT * FROM users WHERE id = ?;';
+        const query = 'SELECT * FROM Users WHERE id = ?;';
         const params = [id];
 
         try {
