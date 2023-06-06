@@ -4,4 +4,4 @@ coverage
 
 package-lock.json
 .env
-
+db.sql
