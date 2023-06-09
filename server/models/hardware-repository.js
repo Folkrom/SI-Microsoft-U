@@ -55,10 +55,9 @@ class HardwareRepository {
 
     async createHardware(hardwareData) {
         const query = `INSERT INTO Hardware 
-                     (id, nombre_dispositivo, fabricante, fecha_compra, especificaciones_tecnicas, precio, cantidad_stock)
-                     VALUES (?, ?, ?, ?, ?, ?, ?);`;
+                     (nombre_dispositivo, fabricante, fecha_compra, especificaciones_tecnicas, precio, cantidad_stock)
+                     VALUES (?, ?, ?, ?, ?, ?);`;
         const params = [
-            hardwareData.id,
             hardwareData.nombre_dispositivo,
             hardwareData.fabricante,
             hardwareData.fecha_compra,
