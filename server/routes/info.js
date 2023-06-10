@@ -22,7 +22,7 @@ import {
     addEmployee,
     addCertification,
 } from '../controllers/info.js';
-import { getAllHardware } from '../controllers/hardware.js';
+import { createHardware, getAllHardware } from '../controllers/hardware.js';
 
 
 const router = Router();
@@ -125,6 +125,11 @@ router.post('/certifications', [
 router.get('/hardware', [
     validateJWT,
 ], getAllHardware);
+
+router.post('/hardware', [
+    validateJWT,
+], createHardware);
+
 
 
 export default router;
