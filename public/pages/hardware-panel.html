@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Hardware</title>
+        <link
+            href="https://fonts.googleapis.com/css?family=Segoe+UI&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="../styles/dashboard.css" />
+        <link rel="stylesheet" href="../styles/forms.css" />
+        <link rel="stylesheet" href="../styles/tables.css" />
+        <link rel="shortcut icon" href="assets/Microsoft_logo.svg" />
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="topbar">
+                <a href="/dashboard"><h2>Sistema de Información</h2></a>
+                <div class="user-info">
+                    <p>Bienvenido, <span id="username"></span></p>
+                    <p id="user-role"></p>
+                </div>
+                <button id="logout-btn">Cerrar sesión</button>
+            </div>
+
+            <div class="content-sidebar">
+                <div class="sidebar">
+                    <h3>Menú</h3>
+                    <ul class="menu">
+                        <!-- <li>
+                            <a href="#">
+                                Lorem ipsum dolor sit amet consectetur
+                                adipisicing elit. Reprehenderit omnis esse
+                                facilis, sunt nulla pariatur ab ipsa aut, odit
+                                aliquid corporis explicabo saepe necessitatibus
+                                nisi expedita accusantium quos totam minus!</a
+                            >
+                        </li> -->
+                    </ul>
+                </div>
+
+                <div class="content">
+
+                    
+                </div>
+            </div>
+        </div>
+        <script src="../js/HttpService.js"></script>
+        <script src="../js/requests.js"></script>
+        <script src="../js/isp-info-panel.js"></script>
+        <script src="../js/load-content.js"></script>
+    </body>
+</html>
