@@ -121,4 +121,20 @@ router.get('/employees-panel', [
     res.sendFile(route);
 });
 
+router.get('/hardware-panel', [
+    validateJWT,
+    // isValidRole
+], (req, res) => {
+    const route = join(mainRoute, 'pages', 'hardware-panel.html');
+    res.sendFile(route);
+});
+
+router.get('/software-panel', [
+    validateJWT,
+    // isValidRole
+], (req, res) => {
+    const route = join(mainRoute, 'pages', 'software-panel.html');
+    res.sendFile(route);
+});
+
 export default router;

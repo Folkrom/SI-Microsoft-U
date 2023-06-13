@@ -69,6 +69,8 @@ const loadRoleMenu = async () => {
             { text: 'Certificaciones', href: '/certifications-panel' },
             { text: 'Informacion ISP', href: '/isp-info-panel' },
             { text: 'Solicitudes de ISP', href: '/isp-requests-panel' },
+            { text: 'Hardware', href: '/hardware-panel' },
+            { text: 'Software', href: '/software-panel' },
             { text: 'Materias Primas', href: '/raw-materials-panel' },
             { text: 'Proveedores', href: '/providers-panel' },
             { text: 'Usuarios', href: '/users-panel' },
@@ -119,6 +121,12 @@ const loadRoleMenu = async () => {
         }
         if (pathname === '/roles-panel') {
             await loadRoles();
+        }
+        if (pathname === '/hardware-panel') {
+            await loadHardware();
+        }
+        if (pathname === '/isp-requests-panel') {
+            await loadSoftware();
         }
     }
 
@@ -172,6 +180,8 @@ const loadRoleMenu = async () => {
         const hrItems = [
             { text: 'Informacion ISP', href: '/isp-info-panel' },
             { text: 'Solicitudes de ISP', href: '/isp-requests-panel' },
+            { text: 'Hardware', href: '/hardware-panel' },
+            { text: 'Software', href: '/software-panel' },
         ];
         loadMenuItems(hrItems);
         if (pathname === '/isp-info-panel') {
@@ -179,6 +189,12 @@ const loadRoleMenu = async () => {
         }
         if (pathname === '/isp-requests-panel') {
             await loadISPrequests();
+        }
+        if (pathname === '/hardware-panel') {
+            await loadHardware();
+        }
+        if (pathname === '/isp-requests-panel') {
+            await loadSoftware();
         }
     }
 
