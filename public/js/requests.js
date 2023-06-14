@@ -241,12 +241,23 @@ const getHardware = async () => {
     }
 };
 
-const registerHardware = async (endpoint, formData) => {
+const registerInfo = async (endpoint, formData) => {
     try {
         const response = await httpService.post(
             `/api/info/${endpoint}`,
             formData
         );
+
+        return response;
+    } catch (error) {
+        console.info(error);
+        return error;
+    }
+};
+
+const getInfoFromEndpoint = async (endpoint) => {
+    try {
+        const response = await httpService.get(`/api/info/${endpoint}`);
 
         return response;
     } catch (error) {
