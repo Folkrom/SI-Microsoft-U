@@ -2,7 +2,7 @@ const loadCustomers = async () => {
     const customersTable = document.getElementById('customers-table');
     const customersTbody = customersTable.querySelector('tbody');
 
-    const { customers } = await getCustomers();
+    const { customers } = await getInfoFromEndpoint('customers');
 
     customersTbody.innerHTML = '';
     customers.forEach((customer) => {

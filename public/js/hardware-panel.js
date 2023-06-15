@@ -2,7 +2,7 @@ const loadHardware = async () => {
     const HardwareInfoTable = document.getElementById('hardware-table');
     const HardwareInfoTbody = HardwareInfoTable.querySelector('tbody');
 
-    const { hardware } = await getHardware();
+    const { hardware } = await getInfoFromEndpoint('hardware');
 
     HardwareInfoTbody.innerHTML = '';
     hardware.forEach((hardware) => {
@@ -44,7 +44,7 @@ const handleSubmit = async (event) => {
         cantidadStock,
     };
 
-    const validRegister = await registerHardware('hardware', formData);
+    const validRegister = await registerData('hardware', formData);
 
     if (validRegister.err) {
         registerResult.innerHTML = validRegister.err;

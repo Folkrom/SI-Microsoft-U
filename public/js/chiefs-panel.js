@@ -2,7 +2,7 @@ const loadChiefs = async () => {
     const chiefsTable = document.getElementById('chiefs-table');
     const chiefsTbody = chiefsTable.querySelector('tbody');
 
-    const { chiefs } = await getChiefs();
+    const { chiefs } = await getInfoFromEndpoint('chiefs');
 
     chiefsTbody.innerHTML = '';
     chiefs.forEach((chief) => {

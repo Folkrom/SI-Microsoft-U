@@ -21,6 +21,7 @@ import {
     addRawMaterial,
     addEmployee,
     addCertification,
+    addISPRequest,
 } from '../controllers/info.js';
 import { createHardware, getAllHardware } from '../controllers/hardware.js';
 import { createSoftware, getAllSoftware } from '../controllers/software.js';
@@ -107,6 +108,11 @@ router.post('/ISPinfo', [
     validateJWT,
     // isAdminRole -> isValidRole
 ], addISPinfo);
+
+router.post('/ISPRequests', [
+    validateJWT,
+    // isAdminRole -> isValidRole
+], addISPRequest);
 
 router.post('/raw-materials', [
     validateJWT,

@@ -2,7 +2,7 @@ const loadRawMaterials = async () => {
     const rawMaterialsTable = document.getElementById('raw-materials-table');
     const rawMaterialsTbody = rawMaterialsTable.querySelector('tbody');
 
-    const { rawMaterials } = await getRawMaterials();
+    const { rawMaterials } = await getInfoFromEndpoint('raw-materials');
 
     rawMaterialsTbody.innerHTML = '';
     rawMaterials.forEach((rawMaterial) => {

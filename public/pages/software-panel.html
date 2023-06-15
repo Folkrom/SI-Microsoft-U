@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Información de solicitudes de ISP</title>
+        <title>Software</title>
         <link
             href="https://fonts.googleapis.com/css?family=Segoe+UI&display=swap"
             rel="stylesheet"
@@ -43,119 +43,99 @@
 
                 <div class="content">
                     <form
-                        id="authorization-form"
+                        id="software-form"
                         class="microsoft-form-expanded"
                         autocomplete="off"
                         onsubmit="handleSubmit(event)"
                     >
-                        <legend>Solicitud de autorización</legend>
+                        <legend>Registrar nuevo software</legend>
                         <div>
-                            <label for="autorizacion">Autorización:</label>
-                            <input
-                                type="text"
-                                id="autorizacion"
-                                name="autorizacion"
-                                placeholder="Conexión a internet para sucursal"
-                                required
-                                maxlength="40"
-                                autocomplete="off"
-                            />
-                        </div>
-                        <div>
-                            <label for="ampliacionAutorizacion"
-                                >Ampliación de autorización:</label
+                            <label for="nombreSoftware"
+                                >Nombre del software:</label
                             >
                             <input
                                 type="text"
-                                id="ampliacionAutorizacion"
-                                name="ampliacionAutorizacion"
-                                placeholder="No"
+                                id="nombreSoftware"
+                                name="nombreSoftware"
+                                placeholder="Microsoft Office"
                                 required
-                                maxlength="40"
+                                maxlength="30"
                                 autocomplete="off"
                             />
                         </div>
                         <div>
-                            <label for="entidadPrivada">Entidad privada:</label>
+                            <label for="version">Versión:</label>
                             <input
                                 type="text"
-                                id="entidadPrivada"
-                                name="entidadPrivada"
-                                placeholder="AT&T"
+                                id="version"
+                                name="version"
+                                placeholder="2023"
                                 required
-                                maxlength="40"
+                                maxlength="30"
                                 autocomplete="off"
                             />
                         </div>
                         <div>
-                            <label for="autorizacionPreviaISP"
-                                >Autorización previa del ISP:</label
-                            >
+                            <label for="desarrollador">Desarrollador:</label>
                             <input
                                 type="text"
-                                id="autorizacionPreviaISP"
-                                name="autorizacionPreviaISP"
-                                placeholder="No"
+                                id="desarrollador"
+                                name="desarrollador"
+                                placeholder="Microsoft"
                                 required
-                                maxlength="40"
+                                maxlength="30"
                                 autocomplete="off"
                             />
                         </div>
                         <div>
-                            <label for="criterioReferencia"
-                                >Criterio de referencia:</label
-                            >
+                            <label for="fechaCompra">Fecha de compra:</label>
+                            <input
+                                type="date"
+                                id="fechaCompra"
+                                name="fechaCompra"
+                                required
+                            />
+                        </div>
+                        <div>
+                            <label for="licencia">Licencia:</label>
                             <input
                                 type="text"
-                                id="criterioReferencia"
-                                name="criterioReferencia"
-                                placeholder="Conexión de 500 Mbps"
+                                id="licencia"
+                                name="licencia"
+                                placeholder="Comercial | Open Source | Libre"
                                 required
-                                maxlength="40"
+                                maxlength="30"
                                 autocomplete="off"
                             />
                         </div>
                         <div>
-                            <label for="vigencia">Vigencia:</label>
+                            <label for="precio">Precio:</label>
                             <input
-                                type="text"
-                                id="vigencia"
-                                name="vigencia"
-                                placeholder="24 meses"
+                                type="number"
+                                id="precio"
+                                name="precio"
+                                placeholder="299.99"
                                 required
-                                maxlength="40"
-                                autocomplete="off"
+                                step="0.01"
                             />
                         </div>
-                        <div>
-                            <label for="alcance">Alcance:</label>
-                            <input
-                                type="text"
-                                id="alcance"
-                                name="alcance"
-                                placeholder="Regional"
-                                required
-                                maxlength="40"
-                                autocomplete="off"
-                            />
-                        </div>
-                        <button type="submit">Enviar</button>
+                        <button type="submit">Registrar</button>
                         <p id="register-err"></p>
                     </form>
 
-                    <table id="isp-requests-table" class="microsoft-table">
+                    <table id="software-table" class="microsoft-table">
                         <caption>
-                            Información de solicitudes de ISP
+                            Lista de Software
                         </caption>
                         <thead>
                             <tr>
-                                <th>Autorización</th>
-                                <th>Ampliacion de Autorización</th>
-                                <th>Entidad Privada</th>
-                                <th>Autorización Previa del ISP</th>
-                                <th>Criterio de Referencia</th>
-                                <th>Vigencia</th>
-                                <th>Alcance</th>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Version</th>
+                                <th>Desarrollador</th>
+                                <th>Fecha de compra</th>
+                                <th>Licencia</th>
+                                <th>Precio</th>
                             </tr>
                         </thead>
                         <tbody></tbody>
@@ -165,7 +145,7 @@
         </div>
         <script src="../js/HttpService.js"></script>
         <script src="../js/requests.js"></script>
-        <script src="../js/isp-requests-panel.js"></script>
+        <script src="../js/software-panel.js"></script>
         <script src="../js/load-content.js"></script>
     </body>
 </html>

@@ -2,7 +2,7 @@ const loadCertifications = async () => {
     const certificationsTable = document.getElementById('certifications-table');
     const certificationsTbody = certificationsTable.querySelector('tbody');
 
-    const { certifications } = await getCertifications();
+    const { certifications } = await getInfoFromEndpoint('certifications');
 
     certificationsTbody.innerHTML = '';
     certifications.forEach((certification) => {
