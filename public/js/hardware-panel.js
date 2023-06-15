@@ -44,7 +44,7 @@ const handleSubmit = async (event) => {
         cantidadStock,
     };
 
-    const validRegister = await registerInfo('hardware', formData);
+    const validRegister = await registerData('hardware', formData);
 
     if (validRegister.err) {
         registerResult.innerHTML = validRegister.err;

@@ -2,7 +2,7 @@ const loadISPinfo = async () => {
     const ISPinfoTable = document.getElementById('isp-info-table');
     const ISPinfoTbody = ISPinfoTable.querySelector('tbody');
 
-    const { ISPinfo } = await getISPinfo();
+    const { ISPinfo } = await getInfoFromEndpoint('ISPinfo');
 
     ISPinfoTbody.innerHTML = '';
     ISPinfo.forEach((provider) => {

@@ -2,7 +2,7 @@ const loadISPrequests = async () => {
     const ISPrequestsTable = document.getElementById('isp-requests-table');
     const ISPrequestsTbody = ISPrequestsTable.querySelector('tbody');
 
-    const { ISPrequests } = await getISPrequests();
+    const { ISPrequests } = await getInfoFromEndpoint('ISPrequests');
 
     ISPrequestsTbody.innerHTML = '';
     ISPrequests.forEach((request) => {

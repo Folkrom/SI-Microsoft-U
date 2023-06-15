@@ -2,7 +2,7 @@ const loadProviders = async () => {
     const providersTable = document.getElementById('providers-table');
     const providersTbody = providersTable.querySelector('tbody');
 
-    const { providers } = await getProviders();
+    const { providers } = await getInfoFromEndpoint('providers');
 
     providersTbody.innerHTML = '';
     providers.forEach((provider) => {

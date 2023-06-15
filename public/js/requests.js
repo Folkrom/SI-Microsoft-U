@@ -106,108 +106,9 @@ const editUser = async (id, newPassword, newUsername, newRole) => {
     }
 };
 
-const getChiefs = async () => {
+const getInfoFromEndpoint = async (endpoint) => {
     try {
-        const response = await httpService.get('/api/info/chiefs');
-
-        return response;
-    } catch (error) {
-        console.info(error);
-        return error;
-    }
-};
-
-const getCertifications = async () => {
-    try {
-        const response = await httpService.get('/api/info/certifications');
-
-        return response;
-    } catch (error) {
-        console.info(error);
-        return error;
-    }
-};
-
-const getMarket = async () => {
-    try {
-        const response = await httpService.get('/api/info/market');
-
-        return response;
-    } catch (error) {
-        console.info(error);
-        return error;
-    }
-};
-
-const getISPinfo = async () => {
-    try {
-        const response = await httpService.get('/api/info/ISPinfo');
-
-        return response;
-    } catch (error) {
-        console.info(error);
-        return error;
-    }
-};
-
-const getISPrequests = async () => {
-    try {
-        const response = await httpService.get('/api/info/ISPrequests');
-
-        return response;
-    } catch (error) {
-        console.info(error);
-        return error;
-    }
-};
-
-const getRawMaterials = async () => {
-    try {
-        const response = await httpService.get('/api/info/raw-materials');
-
-        return response;
-    } catch (error) {
-        console.info(error);
-        return error;
-    }
-};
-
-const getProviders = async () => {
-    try {
-        const response = await httpService.get('/api/info/providers');
-
-        return response;
-    } catch (error) {
-        console.info(error);
-        return error;
-    }
-};
-
-const getEstate = async () => {
-    try {
-        const response = await httpService.get('/api/info/estate');
-
-        return response;
-    } catch (error) {
-        console.info(error);
-        return error;
-    }
-};
-
-const getCustomers = async () => {
-    try {
-        const response = await httpService.get('/api/info/customers');
-
-        return response;
-    } catch (error) {
-        console.info(error);
-        return error;
-    }
-};
-
-const getEmployees = async () => {
-    try {
-        const response = await httpService.get('/api/info/employees');
+        const response = await httpService.get(`/api/info/${endpoint}`);
 
         return response;
     } catch (error) {
@@ -222,42 +123,6 @@ const registerData = async (endpoint, formData) => {
             `/api/info/${endpoint}`,
             formData
         );
-
-        return response;
-    } catch (error) {
-        console.info(error);
-        return error;
-    }
-};
-
-const getHardware = async () => {
-    try {
-        const response = await httpService.get('/api/info/hardware');
-
-        return response;
-    } catch (error) {
-        console.info(error);
-        return error;
-    }
-};
-
-const registerInfo = async (endpoint, formData) => {
-    try {
-        const response = await httpService.post(
-            `/api/info/${endpoint}`,
-            formData
-        );
-
-        return response;
-    } catch (error) {
-        console.info(error);
-        return error;
-    }
-};
-
-const getInfoFromEndpoint = async (endpoint) => {
-    try {
-        const response = await httpService.get(`/api/info/${endpoint}`);
 
         return response;
     } catch (error) {

@@ -2,7 +2,7 @@ const loadMarket = async () => {
     const marketTable = document.getElementById('market-table');
     const marketTbody = marketTable.querySelector('tbody');
 
-    const { market } = await getMarket();
+    const { market } = await getInfoFromEndpoint('market');
 
     marketTbody.innerHTML = '';
     market.forEach((competitor) => {

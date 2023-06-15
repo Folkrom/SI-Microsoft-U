@@ -2,7 +2,7 @@ const loadEstate = async () => {
     const estateTable = document.getElementById('estate-table');
     const estateTbody = estateTable.querySelector('tbody');
 
-    const { estate } = await getEstate();
+    const { estate } = await getInfoFromEndpoint('estate');
 
     estateTbody.innerHTML = '';
     estate.forEach((property) => {

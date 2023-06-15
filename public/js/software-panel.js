@@ -41,7 +41,7 @@ const handleSubmit = async (event) => {
         precio,
     };
 
-    const validRegister = await registerInfo('software', formData);
+    const validRegister = await registerData('software', formData);
 
     if (validRegister.err) {
         registerResult.innerHTML = validRegister.err;
