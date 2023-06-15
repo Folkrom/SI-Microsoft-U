@@ -42,42 +42,106 @@
                 </div>
 
                 <div class="content">
-                    <!-- <form
-                        id="registration-form"
-                        class="microsoft-form"
+                    <form
+                        id="authorization-form"
+                        class="microsoft-form-expanded"
                         autocomplete="off"
                         onsubmit="handleSubmit(event)"
                     >
-                        <legend>Registrar nuevo usuario</legend>
+                        <legend>Solicitud de autorización</legend>
                         <div>
-                            <label for="user">Nombre de usuario:</label>
+                            <label for="autorizacion">Autorización:</label>
                             <input
                                 type="text"
-                                id="user"
-                                name="user"
+                                id="autorizacion"
+                                name="autorizacion"
+                                placeholder="Conexión a internet para sucursal"
                                 required
+                                maxlength="40"
                                 autocomplete="off"
                             />
                         </div>
                         <div>
-                            <label for="password">Contraseña:</label>
+                            <label for="ampliacionAutorizacion"
+                                >Ampliación de autorización:</label
+                            >
                             <input
-                                type="password"
-                                id="password"
-                                name="password"
+                                type="text"
+                                id="ampliacionAutorizacion"
+                                name="ampliacionAutorizacion"
+                                placeholder="No"
                                 required
+                                maxlength="40"
                                 autocomplete="off"
                             />
                         </div>
                         <div>
-                            <label for="role">Rol:</label>
-                            <select id="role" name="role" required></select>
+                            <label for="entidadPrivada">Entidad privada:</label>
+                            <input
+                                type="text"
+                                id="entidadPrivada"
+                                name="entidadPrivada"
+                                placeholder="AT&T"
+                                required
+                                maxlength="40"
+                                autocomplete="off"
+                            />
                         </div>
-                        <p id="register-err"></p>
                         <div>
-                            <button type="submit">Register</button>
+                            <label for="autorizacionPreviaISP"
+                                >Autorización previa del ISP:</label
+                            >
+                            <input
+                                type="text"
+                                id="autorizacionPreviaISP"
+                                name="autorizacionPreviaISP"
+                                placeholder="No"
+                                required
+                                maxlength="40"
+                                autocomplete="off"
+                            />
                         </div>
-                    </form> -->
+                        <div>
+                            <label for="criterioReferencia"
+                                >Criterio de referencia:</label
+                            >
+                            <input
+                                type="text"
+                                id="criterioReferencia"
+                                name="criterioReferencia"
+                                placeholder="Conexión de 500 Mbps"
+                                required
+                                maxlength="40"
+                                autocomplete="off"
+                            />
+                        </div>
+                        <div>
+                            <label for="vigencia">Vigencia:</label>
+                            <input
+                                type="text"
+                                id="vigencia"
+                                name="vigencia"
+                                placeholder="24 meses"
+                                required
+                                maxlength="40"
+                                autocomplete="off"
+                            />
+                        </div>
+                        <div>
+                            <label for="alcance">Alcance:</label>
+                            <input
+                                type="text"
+                                id="alcance"
+                                name="alcance"
+                                placeholder="Regional"
+                                required
+                                maxlength="40"
+                                autocomplete="off"
+                            />
+                        </div>
+                        <button type="submit">Enviar</button>
+                        <p id="register-err"></p>
+                    </form>
 
                     <table id="isp-requests-table" class="microsoft-table">
                         <caption>
