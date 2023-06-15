@@ -436,6 +436,39 @@ const addCertification = async (req, res) => {
     }
 };
 
+const addISPRequest = async (req, res) => {
+    try {
+        const ISPRequestData = req.body;
+        const { Autorizacion, Entidad_Privada } = ISPRequestData;
+
+        const requestExists = await ISPRequestRepo.getSolicitudISP(
+            Entidad_Privada
+        );
+
+        if (requestExists) {
+            return res.status(409).json({
+                err: 'La solicitud del ISP ya existe.',
+            });
+        }
+
+        const ISPRequest = await ISPRequestRepo.createSolicitudISP(
+            ISPRequestData
+        );
+
+        if (!ISPRequest)
+            return res.status(500).json({ err: 'Error del servidor' });
+
+        res.status(201).json({
+            msg: `Solicitud de ISP "${Autorizacion}" - "${Entidad_Privada}" creada exitosamente`,
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            err: 'Hable con el administrador',
+        });
+    }
+};
+
 export {
     getChiefs,
     getCertifications,
@@ -456,4 +489,5 @@ export {
     addRawMaterial,
     addEmployee,
     addCertification,
+    addISPRequest,
 };
