@@ -125,7 +125,7 @@ const loadRoleMenu = async () => {
         if (pathname === '/hardware-panel') {
             await loadHardware();
         }
-        if (pathname === '/isp-requests-panel') {
+        if (pathname === '/software-panel') {
             await loadSoftware();
         }
     }
@@ -193,7 +193,7 @@ const loadRoleMenu = async () => {
         if (pathname === '/hardware-panel') {
             await loadHardware();
         }
-        if (pathname === '/isp-requests-panel') {
+        if (pathname === '/software-panel') {
             await loadSoftware();
         }
     }

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Software</title>
+        <link
+            href="https://fonts.googleapis.com/css?family=Segoe+UI&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="../styles/dashboard.css" />
+        <link rel="stylesheet" href="../styles/forms.css" />
+        <link rel="stylesheet" href="../styles/tables.css" />
+        <link rel="shortcut icon" href="assets/Microsoft_logo.svg" />
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="topbar">
+                <a href="/dashboard"><h2>Sistema de Información</h2></a>
+                <div class="user-info">
+                    <p>Bienvenido, <span id="username"></span></p>
+                    <p id="user-role"></p>
+                </div>
+                <button id="logout-btn">Cerrar sesión</button>
+            </div>
+
+            <div class="content-sidebar">
+                <div class="sidebar">
+                    <h3>Menú</h3>
+                    <ul class="menu">
+                        <!-- <li>
+                            <a href="#">
+                                Lorem ipsum dolor sit amet consectetur
+                                adipisicing elit. Reprehenderit omnis esse
+                                facilis, sunt nulla pariatur ab ipsa aut, odit
+                                aliquid corporis explicabo saepe necessitatibus
+                                nisi expedita accusantium quos totam minus!</a
+                            >
+                        </li> -->
+                    </ul>
+                </div>
+
+                <div class="content">
+                    <form
+                        id="software-form"
+                        class="microsoft-form-expanded"
+                        autocomplete="off"
+                        onsubmit="handleSubmit(event)"
+                    >
+                        <legend>Registrar nuevo software</legend>
+                        <div>
+                            <label for="nombreSoftware"
+                                >Nombre del software:</label
+                            >
+                            <input
+                                type="text"
+                                id="nombreSoftware"
+                                name="nombreSoftware"
+                                placeholder="Microsoft Office"
+                                required
+                                maxlength="30"
+                                autocomplete="off"
+                            />
+                        </div>
+                        <div>
+                            <label for="version">Versión:</label>
+                            <input
+                                type="text"
+                                id="version"
+                                name="version"
+                                placeholder="2023"
+                                required
+                                maxlength="30"
+                                autocomplete="off"
+                            />
+                        </div>
+                        <div>
+                            <label for="desarrollador">Desarrollador:</label>
+                            <input
+                                type="text"
+                                id="desarrollador"
+                                name="desarrollador"
+                                placeholder="Microsoft"
+                                required
+                                maxlength="30"
+                                autocomplete="off"
+                            />
+                        </div>
+                        <div>
+                            <label for="fechaCompra">Fecha de compra:</label>
+                            <input
+                                type="date"
+                                id="fechaCompra"
+                                name="fechaCompra"
+                                required
+                            />
+                        </div>
+                        <div>
+                            <label for="licencia">Licencia:</label>
+                            <input
+                                type="text"
+                                id="licencia"
+                                name="licencia"
+                                placeholder="Comercial | Open Source | Libre"
+                                required
+                                maxlength="30"
+                                autocomplete="off"
+                            />
+                        </div>
+                        <div>
+                            <label for="precio">Precio:</label>
+                            <input
+                                type="number"
+                                id="precio"
+                                name="precio"
+                                placeholder="299.99"
+                                required
+                                step="0.01"
+                            />
+                        </div>
+                        <button type="submit">Registrar</button>
+                        <p id="register-err"></p>
+                    </form>
+
+                    <table id="software-table" class="microsoft-table">
+                        <caption>
+                            Lista de Software
+                        </caption>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Version</th>
+                                <th>Desarrollador</th>
+                                <th>Fecha de compra</th>
+                                <th>Licencia</th>
+                                <th>Precio</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <script src="../js/HttpService.js"></script>
+        <script src="../js/requests.js"></script>
+        <script src="../js/software-panel.js"></script>
+        <script src="../js/load-content.js"></script>
+    </body>
+</html>
