@@ -42,42 +42,149 @@
                 </div>
 
                 <div class="content">
-                    <!-- <form
-                        id="registration-form"
-                        class="microsoft-form"
+                    <form
+                        id="material-form"
+                        class="microsoft-form-expanded"
                         autocomplete="off"
                         onsubmit="handleSubmit(event)"
                     >
-                        <legend>Registrar nuevo usuario</legend>
+                        <legend>Registro de materia prima</legend>
                         <div>
-                            <label for="user">Nombre de usuario:</label>
+                            <label for="materiaPrima">Materia prima:</label>
                             <input
                                 type="text"
-                                id="user"
-                                name="user"
+                                id="materiaPrima"
+                                name="materiaPrima"
+                                placeholder="Silicio"
                                 required
+                                maxlength="40"
                                 autocomplete="off"
                             />
                         </div>
                         <div>
-                            <label for="password">Contraseña:</label>
+                            <label for="fechaIngreso">Fecha de ingreso:</label>
                             <input
-                                type="password"
-                                id="password"
-                                name="password"
+                                type="date"
+                                id="fechaIngreso"
+                                name="fechaIngreso"
                                 required
+                            />
+                        </div>
+                        <div>
+                            <label for="marca">Marca:</label>
+                            <input
+                                type="text"
+                                id="marca"
+                                name="marca"
+                                placeholder="Tx"
+                                required
+                                maxlength="40"
                                 autocomplete="off"
                             />
                         </div>
                         <div>
-                            <label for="role">Rol:</label>
-                            <select id="role" name="role" required></select>
+                            <label for="loteProduccion"
+                                >Lote de producción:</label
+                            >
+                            <input
+                                type="text"
+                                id="loteProduccion"
+                                name="loteProduccion"
+                                placeholder="L123456"
+                                required
+                                maxlength="40"
+                                autocomplete="off"
+                            />
                         </div>
-                        <p id="register-err"></p>
                         <div>
-                            <button type="submit">Register</button>
+                            <label for="proveedor">Proveedor:</label>
+                            <input
+                                type="text"
+                                id="proveedor"
+                                name="proveedor"
+                                placeholder="Texas Instruments"
+                                required
+                                maxlength="40"
+                                autocomplete="off"
+                            />
                         </div>
-                    </form> -->
+                        <div>
+                            <label for="presentacion">Presentación:</label>
+                            <input
+                                type="text"
+                                id="presentacion"
+                                name="presentacion"
+                                placeholder="Contenedor"
+                                required
+                                maxlength="40"
+                                autocomplete="off"
+                            />
+                        </div>
+                        <div>
+                            <label for="fechaVencimiento"
+                                >Fecha de vencimiento:</label
+                            >
+                            <input
+                                type="date"
+                                id="fechaVencimiento"
+                                name="fechaVencimiento"
+                                required
+                            />
+                        </div>
+                        <div>
+                            <label for="tipoEmpaque">Tipo de empaque:</label>
+                            <input
+                                type="text"
+                                id="tipoEmpaque"
+                                name="tipoEmpaque"
+                                placeholder="Contenedor"
+                                required
+                                maxlength="40"
+                                autocomplete="off"
+                            />
+                        </div>
+                        <div>
+                            <label for="estado">Estado:</label>
+                            <select id="estado" name="estado" required>
+                                <option value="Bueno">Bueno</option>
+                                <option value="Regular">Regular</option>
+                                <option value="Malo">Malo</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="cantidad">Cantidad:</label>
+                            <input
+                                type="number"
+                                id="cantidad"
+                                name="cantidad"
+                                placeholder="100"
+                                required
+                            />
+                        </div>
+                        <div>
+                            <label for="unidad">Unidad:</label>
+                            <input
+                                type="text"
+                                id="unidad"
+                                name="unidad"
+                                placeholder="ton"
+                                required
+                                maxlength="40"
+                                autocomplete="off"
+                            />
+                        </div>
+                        <div>
+                            <label for="observaciones">Observaciones:</label>
+                            <textarea
+                                id="observaciones"
+                                name="observaciones"
+                                placeholder="Ninguna"
+                                maxlength="40"
+                            ></textarea>
+                        </div>
+                        <button type="submit">Registrar</button>
+                        <p id="register-err"></p>
+                    </form>
 
                     <table id="raw-materials-table" class="microsoft-table">
                         <caption>

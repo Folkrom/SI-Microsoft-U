@@ -73,8 +73,11 @@ class RawMaterialsRepository {
 
     async createMateriaPrima(materiaPrimaData) {
         const query = `INSERT INTO Materias_primas 
-                     (materia_prima, fecha_ingreso, marca, lote_produccion, proveedor, presentacion, fecha_vencimiento, tipo_empaque, bueno, malo, regular, cantidad, unidad, observaciones)
-                     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);`;
+                     (materia_prima, fecha_ingreso, marca, 
+                      lote_produccion, proveedor, presentacion,
+                      fecha_vencimiento, tipo_empaque, estado, 
+                      cantidad, unidad, observaciones)
+                     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);`;
         const params = [
             materiaPrimaData.materia_prima,
             materiaPrimaData.fecha_ingreso,
@@ -84,9 +87,7 @@ class RawMaterialsRepository {
             materiaPrimaData.presentacion,
             materiaPrimaData.fecha_vencimiento,
             materiaPrimaData.tipo_empaque,
-            materiaPrimaData.bueno,
-            materiaPrimaData.malo,
-            materiaPrimaData.regular,
+            materiaPrimaData.estado,
             materiaPrimaData.cantidad,
             materiaPrimaData.unidad,
             materiaPrimaData.observaciones,
