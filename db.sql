@@ -78,7 +78,7 @@ CREATE TABLE Formato_Organizacional (
 );
 
 CREATE TABLE Materias_primas (
-    id INT NOT NULL AUTO_INCREMENT,
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     materia_prima VARCHAR(100),
     fecha_ingreso DATE,
     marca VARCHAR(50),
@@ -87,13 +87,10 @@ CREATE TABLE Materias_primas (
     presentacion VARCHAR(100),
     fecha_vencimiento DATE,
     tipo_empaque VARCHAR(50),
-    bueno VARCHAR(10),
-    malo VARCHAR(10),
-    regular VARCHAR(10),
+    estado VARCHAR(10), -- bueno | malo | regular
     cantidad FLOAT,
     unidad VARCHAR(20),
-    observaciones TEXT,
-    PRIMARY KEY (id)
+    observaciones TEXT
 );
 
 CREATE TABLE Proveedores (
@@ -202,11 +199,11 @@ INSERT INTO Formato_Organizacional (ID_Empleado, Nombre, Edad, Genero, Puesto, A
 (1002, 'Sofia Covarrubias', 35, 'F', 'Gerente de proyecto', 'Proyectos', 'XXXX123456XXXXXX02', 'XXXX123456XX2', '555-555-5556', 'asmith@example.com', 'Estados Unidos', 'Nueva York', 'Maestría en Administración de Empresas', 'PMP', 'Certificado en SCRUM', 'Inglés, Español'),
 (1003, 'Alexis Guzman', 24, 'M', 'Analista de seguridad', 'Seguridad', 'XXXX123456XXXXXX03', 'XXXX123456XX3', '555-555-5557', 'kbrown@example.com', 'Canadá', 'Toronto', 'Licenciatura en Seguridad Informática', 'Ninguno', 'Certificado en CISSP', 'Inglés, Francés');
 
-INSERT INTO Materias_primas (materia_prima, fecha_ingreso, marca, lote_produccion, proveedor, presentacion, fecha_vencimiento, tipo_empaque, bueno, malo, regular, cantidad, unidad, observaciones) 
+INSERT INTO Materias_primas (materia_prima, fecha_ingreso, marca, lote_produccion, proveedor, presentacion, fecha_vencimiento, tipo_empaque, estado, cantidad, unidad, observaciones)
 VALUES 
-('Procesador Intel Core i7', '2023-01-20', 'Intel', 'Lote001', 'Proveedor1', 'Caja', '2024-01-20', 'Plástico', 'Bueno', null, null, 50.0, 'unidades', 'Producto nuevo'),
-('Memoria RAM DDR4 16GB', '2023-02-10', 'Kingston', 'Lote002', 'Proveedor2', 'Blister', '2025-02-10', 'Papel', NULL, 'Malo', null, 100.0, 'unidades', 'Producto en oferta'),
-('Disco duro externo 2TB', '2023-03-15', 'Seagate', 'Lote003', 'Proveedor3', 'Caja', '2026-03-15', 'Plástico', null, null, 'regular', 20.0, 'unidades', 'Producto con descuento');
+('Tarjeta madre', '2023-06-19', 'ASUS', 'LOT123', 'Proveedor A', 'Caja de 10 unidades', '2024-06-19', 'Caja', 'bueno', 50, 'piezas', 'Materia prima para ensamble de computadoras.'),
+('Memoria RAM', '2023-06-18', 'Crucial', 'LOT456', 'Proveedor B', 'Paquete de 5 unidades', '2025-06-18', 'Paquete', 'bueno', 100, 'piezas', 'Materia prima para ampliación de memoria en equipos.'),
+('Disco duro', '2023-06-17', 'Seagate', 'LOT789', 'Proveedor C', 'Unidad individual', '2026-06-17', 'Unidad', 'regular', 20, 'unidades', 'Materia prima para almacenamiento de datos.');
 
 INSERT INTO Proveedores (nombre_proveedor, rfc, numero_contacto, producto_servicio, precio_unitario, fecha_entrega, forma_pago, garantia_servicio_producto, fecha_inicio_relacion, contacto_principal, domicilio_proveedor)
 VALUES
