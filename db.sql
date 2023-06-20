@@ -1,14 +1,14 @@
-CREATE DATABASE GESTION_EMPRESARIAL CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE DATABASE IF NOT EXISTS GESTION_EMPRESARIAL CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE GESTION_EMPRESARIAL;
 
 /*  
 	Creacion de tablas
 */
-CREATE TABLE Roles (
+CREATE TABLE IF NOT EXISTS Roles (
   name VARCHAR(255) UNIQUE NOT NULL
 );
 
-CREATE TABLE Users (
+CREATE TABLE IF NOT EXISTS Users (
   id INT PRIMARY KEY AUTO_INCREMENT,
   username VARCHAR(255) UNIQUE NOT NULL,
   password VARCHAR(255) NOT NULL,
@@ -16,7 +16,7 @@ CREATE TABLE Users (
   CONSTRAINT fk_role_name FOREIGN KEY (role_name) REFERENCES Roles(name) ON DELETE CASCADE
 );
 
-CREATE TABLE Certificaciones(
+CREATE TABLE IF NOT EXISTS Certificaciones(
 	Norma_de_Aplicacion varchar(50),
     Certificado varchar (70),
     Alcance varchar(100),
@@ -24,7 +24,7 @@ CREATE TABLE Certificaciones(
     Validez varchar(50)
 );
 
-CREATE TABLE Mercado (
+CREATE TABLE IF NOT EXISTS Mercado (
     Nombre_de_la_empresa varchar(50),
     Direccion varchar(100),
     Telefono varchar(20),
@@ -37,7 +37,7 @@ CREATE TABLE Mercado (
     Email_del_dueno varchar(100)
 );
 
-CREATE TABLE Identificacion_ISP (
+CREATE TABLE IF NOT EXISTS Identificacion_ISP (
     Nombre varchar(50),
     Tipo_de_dispositivo varchar(50),
     Tipo_de_conexion varchar(50),
@@ -47,7 +47,7 @@ CREATE TABLE Identificacion_ISP (
     Alcance varchar(50)
 );
 
-CREATE TABLE Solicitud_ISP (
+CREATE TABLE IF NOT EXISTS Solicitud_ISP (
     Autorizacion varchar(50),
     Ampliacion_de_Autorizacion varchar(50),
     Entidad_Privada varchar(50),
@@ -57,7 +57,7 @@ CREATE TABLE Solicitud_ISP (
     Alcance varchar(50)
 );
 
-CREATE TABLE Formato_Organizacional (
+CREATE TABLE IF NOT EXISTS Formato_Organizacional (
     ID_Empleado int NOT NULL,
     Nombre varchar(100),
     Edad int,
@@ -77,7 +77,7 @@ CREATE TABLE Formato_Organizacional (
     PRIMARY KEY (ID_Empleado)
 );
 
-CREATE TABLE Materias_primas (
+CREATE TABLE IF NOT EXISTS Materias_primas (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     materia_prima VARCHAR(100),
     fecha_ingreso DATE,
@@ -93,7 +93,7 @@ CREATE TABLE Materias_primas (
     observaciones TEXT
 );
 
-CREATE TABLE Proveedores (
+CREATE TABLE IF NOT EXISTS Proveedores (
     id INT NOT NULL AUTO_INCREMENT,
     nombre_proveedor VARCHAR(100) NOT NULL,
     rfc VARCHAR(50) NOT NULL,
@@ -109,7 +109,7 @@ CREATE TABLE Proveedores (
     PRIMARY KEY (id)
 );
 
-CREATE TABLE Inmuebles (
+CREATE TABLE IF NOT EXISTS Inmuebles (
     id INT NOT NULL AUTO_INCREMENT,
     fecha DATE NOT NULL,
     arrendador VARCHAR(100) NOT NULL,
@@ -124,7 +124,7 @@ CREATE TABLE Inmuebles (
     PRIMARY KEY (id)
 );
 
-CREATE TABLE Clientes (
+CREATE TABLE IF NOT EXISTS Clientes (
     id INT NOT NULL AUTO_INCREMENT,
     nombre_cliente VARCHAR(100) NOT NULL,
     edad INT,
@@ -140,7 +140,7 @@ CREATE TABLE Clientes (
     PRIMARY KEY (id)
 );
 
-CREATE TABLE Empleados (
+CREATE TABLE IF NOT EXISTS Empleados (
     id INT NOT NULL AUTO_INCREMENT,
     nombre_solicitante VARCHAR(100) NOT NULL,
     id_empleado INT NOT NULL,
@@ -195,15 +195,15 @@ INSERT INTO Solicitud_ISP (Autorizacion, Ampliacion_de_Autorizacion, Entidad_Pri
 ('Ampliación de conexión a internet', 'Sí', 'Beta Network Solutions', 'Sí', 'Conexión de 10 Gbps', '24 meses', 'Regional'),
 ('Conexión a internet para nueva sede', NULL, 'Charlie Cloud Services', 'Sí', 'Conexión de 100 Mbps', '18 meses', 'Nacional');
 INSERT INTO Formato_Organizacional (ID_Empleado, Nombre, Edad, Genero, Puesto, Area, CURP, RFC, Telefono, Correo, Pais_de_Origen, Cede, Escolaridad, Diplomados, Certificaciones, Idiomas) VALUES 
-(1001, 'David Luiz', 28, 'M', 'Desarrollador de software', 'Desarrollo', 'XXXX123456XXXXXX01', 'XXXX123456XX1', '555-555-5555', 'jdoe@example.com', 'México', 'Ciudad de México', 'Licenciatura en Informática', 'Ninguno', 'Certificado en AWS', 'Inglés'),
-(1002, 'Sofia Covarrubias', 35, 'F', 'Gerente de proyecto', 'Proyectos', 'XXXX123456XXXXXX02', 'XXXX123456XX2', '555-555-5556', 'asmith@example.com', 'Estados Unidos', 'Nueva York', 'Maestría en Administración de Empresas', 'PMP', 'Certificado en SCRUM', 'Inglés, Español'),
-(1003, 'Alexis Guzman', 24, 'M', 'Analista de seguridad', 'Seguridad', 'XXXX123456XXXXXX03', 'XXXX123456XX3', '555-555-5557', 'kbrown@example.com', 'Canadá', 'Toronto', 'Licenciatura en Seguridad Informática', 'Ninguno', 'Certificado en CISSP', 'Inglés, Francés');
+(1001, 'David Luiz', 28, 'M', 'Desarrollador de software', 'Desarrollo', 'LUDA123456XXXXXX01', 'LUDA123456XX1', '555-555-5555', 'jdoe@example.com', 'México', 'Ciudad de México', 'Licenciatura en Informática', 'Ninguno', 'Certificado en AWS', 'Inglés'),
+(1002, 'Sofia Covarrubias', 35, 'F', 'Gerente de proyecto', 'Proyectos', 'CLVU123456XXXXXX02', 'CLVU123456XX2', '555-555-5556', 'sofirub@example.com', 'Estados Unidos', 'Nueva York', 'Maestría en Administración de Empresas', 'PMP', 'Certificado en SCRUM', 'Inglés, Español'),
+(1003, 'Alexis Guzman', 24, 'M', 'Analista de seguridad', 'Seguridad', 'GUZA123456XXXXXX03', 'GUZA123456XX3', '555-555-5557', 'kbrown@example.com', 'Canadá', 'Toronto', 'Licenciatura en Seguridad Informática', 'Ninguno', 'Certificado en CISSP', 'Inglés, Francés');
 
 INSERT INTO Materias_primas (materia_prima, fecha_ingreso, marca, lote_produccion, proveedor, presentacion, fecha_vencimiento, tipo_empaque, estado, cantidad, unidad, observaciones)
 VALUES 
-('Tarjeta madre', '2023-06-19', 'ASUS', 'LOT123', 'Proveedor A', 'Caja de 10 unidades', '2024-06-19', 'Caja', 'bueno', 50, 'piezas', 'Materia prima para ensamble de computadoras.'),
-('Memoria RAM', '2023-06-18', 'Crucial', 'LOT456', 'Proveedor B', 'Paquete de 5 unidades', '2025-06-18', 'Paquete', 'bueno', 100, 'piezas', 'Materia prima para ampliación de memoria en equipos.'),
-('Disco duro', '2023-06-17', 'Seagate', 'LOT789', 'Proveedor C', 'Unidad individual', '2026-06-17', 'Unidad', 'regular', 20, 'unidades', 'Materia prima para almacenamiento de datos.');
+('Tarjeta madre', '2023-06-19', 'ASUS', 'LOT123', 'Proveedor A', 'Caja de 10 unidades', '2024-06-19', 'Caja', 'Bueno', 50, 'piezas', 'Materia prima para ensamble de computadoras.'),
+('Memoria RAM', '2023-06-18', 'Crucial', 'LOT456', 'Proveedor B', 'Paquete de 5 unidades', '2025-06-18', 'Paquete', 'Regular', 100, 'piezas', 'Materia prima para ampliación de memoria en equipos.'),
+('Tinta de impresora', '2023-06-17', 'InkMaster', 'LOT789', 'Epson', 'Unidad individual', '2026-06-17', 'Bidon', 'Bueno', 50, 'litros', 'Tinta para impresora color negro.');
 
 INSERT INTO Proveedores (nombre_proveedor, rfc, numero_contacto, producto_servicio, precio_unitario, fecha_entrega, forma_pago, garantia_servicio_producto, fecha_inicio_relacion, contacto_principal, domicilio_proveedor)
 VALUES
@@ -213,9 +213,9 @@ VALUES
 
 INSERT INTO Inmuebles (fecha, arrendador, arrendatario, direccion, tipo_inmueble, descripcion, cantidad, tipo_material, estado_inmueble, observaciones) 
 VALUES 
-('2022-01-01', 'Propietario X', 'Empresa TI', 'Av. Tecnológico 123', 'Oficina', 'Oficina con 2 cubículos y sala de juntas', 1, 'Concreto', 'Bueno', 'Recién remodelado'),
-('2022-02-01', 'Propietario Y', 'Empresa TI', 'Av. Juárez 456', 'Bodega', 'Bodega de almacenamiento con entrada para camiones', 1, 'Acero', 'Regular', 'Falta mantenimiento'),
-('2022-03-01', 'Propietario Z', 'Empresa TI', 'Calle Reforma 789', 'Oficina', 'Oficina con 4 cubículos y área de descanso', 1, 'Madera', 'Bueno', 'Ninguna observación');
+('2022-01-01', 'Inmuebles SA de CV', 'Empresa TI', 'Av. Tecnológico 123', 'Oficina', 'Oficina con 2 cubículos y sala de juntas', 1, 'Concreto', 'Bueno', 'Recién remodelado'),
+('2022-02-01', 'Fernanda Salas', 'Empresa TI', 'Av. Juárez 456', 'Bodega', 'Bodega de almacenamiento con entrada para camiones', 1, 'Acero', 'Regular', 'Falta mantenimiento'),
+('2022-03-01', 'Inmobiliaria Tellez', 'Empresa TI', 'Calle Reforma 789', 'Oficina', 'Oficina con 4 cubículos y área de descanso', 1, 'Madera', 'Bueno', 'Ninguna observación');
 
 INSERT INTO Clientes (nombre_cliente, edad, genero, empresa, telefono, curp, rfc, sede, correo, domicilio, alcaldia) VALUES
 ('Juan Perez', 35, 'Masculino', 'Empresa TI SA de CV', '55555555', 'PEAJ880726HMCSR01', 'PEAJ880726123', 'Ciudad de Mexico', 'juan.perez@empresati.com', 'Calle 123 Col. Centro', 'Cuauhtemoc'),
