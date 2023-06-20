@@ -166,6 +166,28 @@ CREATE TABLE IF NOT EXISTS Empleados (
     PRIMARY KEY (id)
 );
 
+-- Tabla de Hardware
+CREATE TABLE Hardware (
+  id INT PRIMARY KEY auto_increment,
+  nombre_dispositivo VARCHAR(255),
+  fabricante VARCHAR(255),
+  fecha_compra DATE,
+  especificaciones_tecnicas TEXT,
+  precio DECIMAL(10, 2),
+  cantidad_stock INT
+);
+
+-- Tabla de Software
+CREATE TABLE Software (
+  id INT PRIMARY KEY auto_increment,
+  nombre_software VARCHAR(255),
+  version VARCHAR(50),
+  desarrollador VARCHAR(255),
+  fecha_compra DATE,
+  licencia VARCHAR(100),
+  precio DECIMAL(10, 2)
+);
+
 
 
 
@@ -178,7 +200,7 @@ VALUES ('Administrador'), ('CEO'), ('Recursos Humanos'), ('Ventas'), ('Finanzas'
 INSERT INTO Users (username, password, role_name) 
 VALUES ('admin', '$2b$10$zrsP6yrp4V5WyDXaUPHAS.nRQRlnksjMeUMyKSowmXQBmTHGiqB/u', 'Administrador');
 
-INSERT INTO Certificaciones (Norma_de_Aplicacion, Certificado, Alcance, Año, Validez) VALUES
+INSERT INTO Certificaciones (Norma_de_Aplicacion, Certificado, Alcance, Anio, Validez) VALUES
 ('ISO 27001', 'Certificado de seguridad de la información', 'Sistemas de gestión de seguridad de la información', '2021-01-01', '3 años'),
 ('ITIL 4', 'Certificado de gestión de servicios de TI', 'Gestión de servicios de TI', '2022-03-15', '5 años'),
 ('AWS Solutions Architect', 'Certificado de arquitectura de soluciones de AWS', 'Arquitectura de soluciones en la nube', '2023-05-01', '2 años');
@@ -226,3 +248,18 @@ INSERT INTO Empleados (nombre_solicitante, id_empleado, edad, genero, puesto, ar
 ('Juan Perez', 3456, 28, 'Masculino', 'Desarrollador de software', 'Tecnología', 'PERJ920820HCMXNNA2', 'PERJ920820', 45000.00, 55000.00, 'Ciudad de México', '9:00 - 18:00', '55 1234 5678', 'juan.perez@empresa.com', 'México', 'Av. Reforma 123, Ciudad de México', 'Licenciatura en Ciencias de la Computación', 'Certificación en Java', 0, '', NULL),
 ('Ana Torres', 7890, 32, 'Femenino', 'Gerente de Proyectos', 'Proyectos', 'TOAA870528MCMNRR03', 'TOAA870528', 70000.00, 90000.00, 'Guadalajara', '8:00 - 17:00', '33 9876 5432', 'ana.torres@empresa.com', 'México', 'Av. Vallarta 456, Guadalajara', 'Maestría en Administración de Empresas', 'Certificación en PMP', 2, 'Esposo e hijo', 'Hipertensión arterial');
 
+-- Ejemplos Hardware
+INSERT INTO Hardware (nombre_dispositivo, fabricante, fecha_compra, especificaciones_tecnicas, precio, cantidad_stock)
+VALUES ('Laptop', 'HP', '2023-01-15', 'Intel Core i7, 16GB RAM, 512GB SSD', 1500.00, 10);
+INSERT INTO Hardware (nombre_dispositivo, fabricante, fecha_compra, especificaciones_tecnicas, precio, cantidad_stock)
+VALUES ('Smartphone', 'Samsung', '2023-03-02', 'Qualcomm Snapdragon 888, 8GB RAM, 256GB', 1000.00, 20);
+INSERT INTO Hardware (nombre_dispositivo, fabricante, fecha_compra, especificaciones_tecnicas, precio, cantidad_stock)
+VALUES ('Monitor', 'Dell', '2023-02-10', '27", 1440p, 165Hz', 500.00, 15);
+
+-- Ejemplos Software
+INSERT INTO Software (nombre_software, version, desarrollador, fecha_compra, licencia, precio)
+VALUES ('Microsoft Office', '2023', 'Microsoft', '2023-01-20', 'Comercial', 299.99);
+INSERT INTO Software (nombre_software, version, desarrollador, fecha_compra, licencia, precio)
+VALUES ('Adobe Photoshop', '2023', 'Adobe', '2023-03-05', 'Comercial', 599.99);
+INSERT INTO Software (nombre_software, version, desarrollador, fecha_compra, licencia, precio)
+VALUES ('Visual Studio Code', '1.56.0', 'Microsoft', '2023-02-15', 'Open Source', 0.00);
