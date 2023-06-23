@@ -24,7 +24,7 @@ import {
     addISPRequest,
 } from '../controllers/info.js';
 import { createHardware, deleteHardware, getAllHardware } from '../controllers/hardware.js';
-import { createSoftware, getAllSoftware } from '../controllers/software.js';
+import { createSoftware, deleteSoftware, getAllSoftware } from '../controllers/software.js';
 
 
 const router = Router();
@@ -149,6 +149,9 @@ router.delete('/hardware/:id', [
     validateJWT,
 ], deleteHardware);
 
+router.delete('/software/:id', [
+    validateJWT,
+], deleteSoftware);
 
 
 export default router;

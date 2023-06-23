@@ -47,4 +47,26 @@ const createSoftware = async (req, res) => {
     }
 };
 
-export { getAllSoftware, createSoftware };
+const deleteSoftware = async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        const result = await softwareRepository.deleteSoftware(id);
+        if (!result) {
+            return res
+                .status(404)
+                .json({ err: `El software con el id ${id} no existe.` });
+        }
+
+        res.status(200).json({
+            err: `El software con el id ${id} ha sido eliminado exitosamente.`,
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            msg: 'Hable con el administrador',
+        });
+    }
+};
+
+export { getAllSoftware, createSoftware, deleteSoftware };
