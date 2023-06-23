@@ -23,7 +23,7 @@ import {
     addCertification,
     addISPRequest,
 } from '../controllers/info.js';
-import { createHardware, getAllHardware } from '../controllers/hardware.js';
+import { createHardware, deleteHardware, getAllHardware } from '../controllers/hardware.js';
 import { createSoftware, getAllSoftware } from '../controllers/software.js';
 
 
@@ -144,6 +144,10 @@ router.get('/software', [
 router.post('/software', [
     validateJWT,
 ], createSoftware);
+
+router.delete('/hardware/:id', [
+    validateJWT,
+], deleteHardware);
 
 
 
