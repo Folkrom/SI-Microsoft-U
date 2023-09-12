@@ -25,6 +25,7 @@ import {
 } from '../controllers/info.js';
 import { createHardware, deleteHardware, getAllHardware } from '../controllers/hardware.js';
 import { createSoftware, deleteSoftware, getAllSoftware } from '../controllers/software.js';
+import { deleteCertification } from '../controllers/certifications.js';
 
 
 const router = Router();
@@ -152,6 +153,10 @@ router.delete('/hardware/:id', [
 router.delete('/software/:id', [
     validateJWT,
 ], deleteSoftware);
+
+router.delete('/certifications/:normaAplicacion', [
+    validateJWT,
+], deleteCertification);
 
 
 export default router;
